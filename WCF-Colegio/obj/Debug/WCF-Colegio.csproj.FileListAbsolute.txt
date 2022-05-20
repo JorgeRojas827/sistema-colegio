@@ -1,0 +1,12 @@
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\bin\Debug\WCF-Colegio.dll.config
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\bin\Debug\WCF-Colegio.dll
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\bin\Debug\WCF-Colegio.pdb
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.dll
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.dll
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.xml
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.xml
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.AssemblyReference.cache
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CoreCompileInputs.cache
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.dll
+D:\VS 2019 Proyects\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.pdb

@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDCOLEGIOModelStoreContainer" CdmEntityContainer="BDCOLEGIOEntities">
+    <EntitySetMapping Name="ALUMNO">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.ALUMNO">
+        <MappingFragment StoreEntitySet="ALUMNO">
+          <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+          <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APODERADO">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.APODERADO">
+        <MappingFragment StoreEntitySet="APODERADO">
+          <ScalarProperty Name="IdApoderado" ColumnName="IdApoderado" />
+          <ScalarProperty Name="TipoRelacion" ColumnName="TipoRelacion" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CALIFICACION">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.CALIFICACION">
+        <MappingFragment StoreEntitySet="CALIFICACION">
+          <ScalarProperty Name="IdCalificacion" ColumnName="IdCalificacion" />
+          <ScalarProperty Name="IdCurricula" ColumnName="IdCurricula" />
+          <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CURRICULA">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.CURRICULA">
+        <MappingFragment StoreEntitySet="CURRICULA">
+          <ScalarProperty Name="IdCurricula" ColumnName="IdCurricula" />
+          <ScalarProperty Name="IdDocenteNivelDetalleCurso" ColumnName="IdDocenteNivelDetalleCurso" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CURSO">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.CURSO">
+        <MappingFragment StoreEntitySet="CURSO">
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCENTE">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE">
+        <MappingFragment StoreEntitySet="DOCENTE">
+          <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+          <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCENTE_NIVELDETALLE_CURSO">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE_NIVELDETALLE_CURSO">
+        <MappingFragment StoreEntitySet="DOCENTE_NIVELDETALLE_CURSO">
+          <ScalarProperty Name="IdDocenteNivelDetalleCurso" ColumnName="IdDocenteNivelDetalleCurso" />
+          <ScalarProperty Name="IdNivelDetalleCurso" ColumnName="IdNivelDetalleCurso" />
+          <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GRADO_SECCION">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.GRADO_SECCION">
+        <MappingFragment StoreEntitySet="GRADO_SECCION">
+          <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+          <ScalarProperty Name="DescripcionGrado" ColumnName="DescripcionGrado" />
+          <ScalarProperty Name="DescripcionSeccion" ColumnName="DescripcionSeccion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HORARIO">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.HORARIO">
+        <MappingFragment StoreEntitySet="HORARIO">
+          <ScalarProperty Name="IdHorario" ColumnName="IdHorario" />
+          <ScalarProperty Name="IdNivelDetalleCurso" ColumnName="IdNivelDetalleCurso" />
+          <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MATRICULA">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.MATRICULA">
+        <MappingFragment StoreEntitySet="MATRICULA">
+          <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+          <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Situacion" ColumnName="Situacion" />
+          <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+          <ScalarProperty Name="IdNivelDetalle" ColumnName="IdNivelDetalle" />
+          <ScalarProperty Name="IdApoderado" ColumnName="IdApoderado" />
+          <ScalarProperty Name="InstitucionProcedencia" ColumnName="InstitucionProcedencia" />
+          <ScalarProperty Name="EsRepitente" ColumnName="EsRepitente" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MENU">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.MENU">
+        <MappingFragment StoreEntitySet="MENU">
+          <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Icono" ColumnName="Icono" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NIVEL">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.NIVEL">
+        <MappingFragment StoreEntitySet="NIVEL">
+          <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+          <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+          <ScalarProperty Name="DescripcionNivel" ColumnName="DescripcionNivel" />
+          <ScalarProperty Name="DescripcionTurno" ColumnName="DescripcionTurno" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NIVEL_DETALLE">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.NIVEL_DETALLE">
+        <MappingFragment StoreEntitySet="NIVEL_DETALLE">
+          <ScalarProperty Name="IdNivelDetalle" ColumnName="IdNivelDetalle" />
+          <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+          <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+          <ScalarProperty Name="TotalVacantes" ColumnName="TotalVacantes" />
+          <ScalarProperty Name="VacantesDisponibles" ColumnName="VacantesDisponibles" />
+          <ScalarProperty Name="VacantesOcupadas" ColumnName="VacantesOcupadas" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NIVEL_DETALLE_CURSO">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.NIVEL_DETALLE_CURSO">
+        <MappingFragment StoreEntitySet="NIVEL_DETALLE_CURSO">
+          <ScalarProperty Name="IdNivelDetalleCurso" ColumnName="IdNivelDetalleCurso" />
+          <ScalarProperty Name="IdNivelDetalle" ColumnName="IdNivelDetalle" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERIODO">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.PERIODO">
+        <MappingFragment StoreEntitySet="PERIODO">
+          <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERMISOS">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.PERMISOS">
+        <MappingFragment StoreEntitySet="PERMISOS">
+          <ScalarProperty Name="IdPermisos" ColumnName="IdPermisos" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="IdSubMenu" ColumnName="IdSubMenu" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROL">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.ROL">
+        <MappingFragment StoreEntitySet="ROL">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUBMENU">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.SUBMENU">
+        <MappingFragment StoreEntitySet="SUBMENU">
+          <ScalarProperty Name="IdSubMenu" ColumnName="IdSubMenu" />
+          <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NombreFormulario" ColumnName="NombreFormulario" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="LoginUsuario" ColumnName="LoginUsuario" />
+          <ScalarProperty Name="LoginClave" ColumnName="LoginClave" />
+          <ScalarProperty Name="DescripcionReferencia" ColumnName="DescripcionReferencia" />
+          <ScalarProperty Name="IdReferencia" ColumnName="IdReferencia" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BDCOLEGIOModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BDCOLEGIOModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BDCOLEGIOModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BDCOLEGIOModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BDCOLEGIOModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BDCOLEGIOModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BDCOLEGIOModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="usp_ActualizarPermisos" FunctionName="BDCOLEGIOModel.Store.usp_ActualizarPermisos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ActualizarPermisos_Result">
+          <ScalarProperty Name="idpermisos" ColumnName="idpermisos" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_AsginarCursos" FunctionName="BDCOLEGIOModel.Store.usp_AsginarCursos" />
+    <FunctionImportMapping FunctionImportName="usp_DetalleDocenteCurso" FunctionName="BDCOLEGIOModel.Store.usp_DetalleDocenteCurso" />
+    <FunctionImportMapping FunctionImportName="usp_EditarAlumno" FunctionName="BDCOLEGIOModel.Store.usp_EditarAlumno" />
+    <FunctionImportMapping FunctionImportName="usp_EditarCurso" FunctionName="BDCOLEGIOModel.Store.usp_EditarCurso" />
+    <FunctionImportMapping FunctionImportName="usp_EditarDocente" FunctionName="BDCOLEGIOModel.Store.usp_EditarDocente" />
+    <FunctionImportMapping FunctionImportName="usp_EditarGradoSeccion" FunctionName="BDCOLEGIOModel.Store.usp_EditarGradoSeccion" />
+    <FunctionImportMapping FunctionImportName="usp_EditarNivel" FunctionName="BDCOLEGIOModel.Store.usp_EditarNivel" />
+    <FunctionImportMapping FunctionImportName="usp_EditarPeriodo" FunctionName="BDCOLEGIOModel.Store.usp_EditarPeriodo" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarAlumno" FunctionName="BDCOLEGIOModel.Store.usp_EliminarAlumno" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarCurricula" FunctionName="BDCOLEGIOModel.Store.usp_EliminarCurricula" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarCurso" FunctionName="BDCOLEGIOModel.Store.usp_EliminarCurso" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarDocente" FunctionName="BDCOLEGIOModel.Store.usp_EliminarDocente" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarDocenteCurso" FunctionName="BDCOLEGIOModel.Store.usp_EliminarDocenteCurso" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarGradoSeccion" FunctionName="BDCOLEGIOModel.Store.usp_EliminarGradoSeccion" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarHorario" FunctionName="BDCOLEGIOModel.Store.usp_EliminarHorario" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarNivel" FunctionName="BDCOLEGIOModel.Store.usp_EliminarNivel" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarPeriodo" FunctionName="BDCOLEGIOModel.Store.usp_EliminarPeriodo" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarRol" FunctionName="BDCOLEGIOModel.Store.usp_EliminarRol" />
+    <FunctionImportMapping FunctionImportName="usp_EliminarUsuario" FunctionName="BDCOLEGIOModel.Store.usp_EliminarUsuario" />
+    <FunctionImportMapping FunctionImportName="usp_ListarAlumno" FunctionName="BDCOLEGIOModel.Store.usp_ListarAlumno">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarAlumno_Result">
+          <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarCurso" FunctionName="BDCOLEGIOModel.Store.usp_ListarCurso">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarCurso_Result">
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarCursosAsignados" FunctionName="BDCOLEGIOModel.Store.usp_ListarCursosAsignados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarCursosAsignados_Result">
+          <ScalarProperty Name="IdNivelDetalleCurso" ColumnName="IdNivelDetalleCurso" />
+          <ScalarProperty Name="IdNivelDetalle" ColumnName="IdNivelDetalle" />
+          <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+          <ScalarProperty Name="DescripcionNivel" ColumnName="DescripcionNivel" />
+          <ScalarProperty Name="DescripcionTurno" ColumnName="DescripcionTurno" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+          <ScalarProperty Name="DescripcionGrado" ColumnName="DescripcionGrado" />
+          <ScalarProperty Name="DescripcionSeccion" ColumnName="DescripcionSeccion" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CursoActivo" ColumnName="CursoActivo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarDocente" FunctionName="BDCOLEGIOModel.Store.usp_ListarDocente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarDocente_Result">
+          <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarDocenteCurso" FunctionName="BDCOLEGIOModel.Store.usp_ListarDocenteCurso">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarDocenteCurso_Result">
+          <ScalarProperty Name="IdDocenteCurso" ColumnName="IdDocenteCurso" />
+          <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+          <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+          <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="CodigoDocente" ColumnName="CodigoDocente" />
+          <ScalarProperty Name="NombreDocente" ColumnName="NombreDocente" />
+          <ScalarProperty Name="ApellidoDocente" ColumnName="ApellidoDocente" />
+          <ScalarProperty Name="DescripcionNivel" ColumnName="DescripcionNivel" />
+          <ScalarProperty Name="DescripcionGrado" ColumnName="DescripcionGrado" />
+          <ScalarProperty Name="DescripcionSeccion" ColumnName="DescripcionSeccion" />
+          <ScalarProperty Name="DescripcionCurso" ColumnName="DescripcionCurso" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarGradoSeccion" FunctionName="BDCOLEGIOModel.Store.usp_ListarGradoSeccion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarGradoSeccion_Result">
+          <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+          <ScalarProperty Name="DescripcionGrado" ColumnName="DescripcionGrado" />
+          <ScalarProperty Name="DescripcionSeccion" ColumnName="DescripcionSeccion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarHorario" FunctionName="BDCOLEGIOModel.Store.usp_ListarHorario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarHorario_Result">
+          <ScalarProperty Name="IdHorario" ColumnName="IdHorario" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+          <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+          <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+          <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarNivel" FunctionName="BDCOLEGIOModel.Store.usp_ListarNivel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarNivel_Result">
+          <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+          <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+          <ScalarProperty Name="DescripcionPeriodo" ColumnName="DescripcionPeriodo" />
+          <ScalarProperty Name="DescripcionNivel" ColumnName="DescripcionNivel" />
+          <ScalarProperty Name="DescripcionTurno" ColumnName="DescripcionTurno" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarNivelDetalle" FunctionName="BDCOLEGIOModel.Store.usp_ListarNivelDetalle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarNivelDetalle_Result">
+          <ScalarProperty Name="IdNivelDetalle" ColumnName="IdNivelDetalle" />
+          <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+          <ScalarProperty Name="DescripcionNivel" ColumnName="DescripcionNivel" />
+          <ScalarProperty Name="DescripcionTurno" ColumnName="DescripcionTurno" />
+          <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+          <ScalarProperty Name="DescripcionGrado" ColumnName="DescripcionGrado" />
+          <ScalarProperty Name="DescripcionSeccion" ColumnName="DescripcionSeccion" />
+          <ScalarProperty Name="TotalVacantes" ColumnName="TotalVacantes" />
+          <ScalarProperty Name="VacantesDisponibles" ColumnName="VacantesDisponibles" />
+          <ScalarProperty Name="VacantesOcupadas" ColumnName="VacantesOcupadas" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListarPeriodo" FunctionName="BDCOLEGIOModel.Store.usp_ListarPeriodo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ListarPeriodo_Result">
+          <ScalarProperty Name="IdPeriodo" ColumnName="IdPeriodo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_LoginUsuario" FunctionName="BDCOLEGIOModel.Store.usp_LoginUsuario" />
+    <FunctionImportMapping FunctionImportName="usp_ModificarRol" FunctionName="BDCOLEGIOModel.Store.usp_ModificarRol" />
+    <FunctionImportMapping FunctionImportName="usp_ModificarUsuario" FunctionName="BDCOLEGIOModel.Store.usp_ModificarUsuario" />
+    <FunctionImportMapping FunctionImportName="usp_ObtenerClalificacion" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerClalificacion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerClalificacion_Result">
+          <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+          <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+          <ScalarProperty Name="IdCurricula" ColumnName="IdCurricula" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ObtenerCurricula" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerCurricula">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerCurricula_Result">
+          <ScalarProperty Name="IdCurricula" ColumnName="IdCurricula" />
+          <ScalarProperty Name="IdDocenteNivelDetalleCurso" ColumnName="IdDocenteNivelDetalleCurso" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ObtenerDetalleUsuario" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerDetalleUsuario" />
+    <FunctionImportMapping FunctionImportName="usp_ObtenerMatricula" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerMatricula">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerMatricula_Result">
+          <ScalarProperty Name="IdMatricula" ColumnName="IdMatricula" />
+          <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+          <ScalarProperty Name="IdGradoSeccion" ColumnName="IdGradoSeccion" />
+          <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ObtenerPermisos" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerPermisos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerPermisos_Result">
+          <ScalarProperty Name="IdPermisos" ColumnName="IdPermisos" />
+          <ScalarProperty Name="Menu" ColumnName="Menu" />
+          <ScalarProperty Name="SubMenu" ColumnName="SubMenu" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ObtenerRoles" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerRoles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerRoles_Result">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ObtenerUsuario" FunctionName="BDCOLEGIOModel.Store.usp_ObtenerUsuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ObtenerUsuario_Result">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="LoginUsuario" ColumnName="LoginUsuario" />
+          <ScalarProperty Name="LoginClave" ColumnName="LoginClave" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="DescripcionReferencia" ColumnName="DescripcionReferencia" />
+          <ScalarProperty Name="DescripcionRol" ColumnName="DescripcionRol" />
+          <ScalarProperty Name="Activo1" ColumnName="Activo1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_RegistrarAlumno" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarAlumno" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarCalificacion" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarCalificacion" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarCurricula" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarCurricula" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarCurso" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarCurso" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarDocente" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarDocente" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarDocenteCurso" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarDocenteCurso" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarGradoSeccion" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarGradoSeccion" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarHorario" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarHorario" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarMatricula" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarMatricula" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarNivel" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarNivel" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarNivelDetalle" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarNivelDetalle" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarPeriodo" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarPeriodo" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarRol" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarRol" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarUsuario" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarUsuario" />
+    <FunctionImportMapping FunctionImportName="usp_RegistrarVacantes" FunctionName="BDCOLEGIOModel.Store.usp_RegistrarVacantes" />
+    <FunctionImportMapping FunctionImportName="usp_ReporteAlumno" FunctionName="BDCOLEGIOModel.Store.usp_ReporteAlumno">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ReporteAlumno_Result">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Documento_Identidad" ColumnName="Documento Identidad" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha Nacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Nivel_Academico" ColumnName="Nivel Academico" />
+          <ScalarProperty Name="Turno" ColumnName="Turno" />
+          <ScalarProperty Name="Grado" ColumnName="Grado" />
+          <ScalarProperty Name="Seccion" ColumnName="Seccion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ReporteMatricula" FunctionName="BDCOLEGIOModel.Store.usp_ReporteMatricula">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.usp_ReporteMatricula_Result">
+          <ScalarProperty Name="Codigo_Matricula" ColumnName="Codigo Matricula" />
+          <ScalarProperty Name="Situacion" ColumnName="Situacion" />
+          <ScalarProperty Name="Repitente" ColumnName="Repitente" />
+          <ScalarProperty Name="Nivel_Academico" ColumnName="Nivel Academico" />
+          <ScalarProperty Name="Turno_Nivel" ColumnName="Turno Nivel" />
+          <ScalarProperty Name="Grado" ColumnName="Grado" />
+          <ScalarProperty Name="Seccion" ColumnName="Seccion" />
+          <ScalarProperty Name="Codigo_alumno" ColumnName="Codigo alumno" />
+          <ScalarProperty Name="Documento_identidad_alumno" ColumnName="Documento identidad alumno" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
