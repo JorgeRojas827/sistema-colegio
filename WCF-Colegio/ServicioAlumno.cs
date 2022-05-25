@@ -48,12 +48,12 @@ namespace WCF_Colegio
                     objAlumnoBE.Mvarid_alumno = (short) objAlumno.IdAlumno;
                     objAlumnoBE.Mvarnom_al = objAlumno.Nombres;
                     objAlumnoBE.Mvarape_al = objAlumno.Apellidos;
+                    objAlumnoBE.Mvarcod_al = objAlumno.Codigo;
                     objAlumnoBE.Mvardocide_al = objAlumno.DocumentoIdentidad;
                     objAlumnoBE.Mvarfecnac_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                     objAlumnoBE.Mvarsex_al= objAlumno.Sexo;
                     objAlumnoBE.Mvarciu_al = objAlumno.Ciudad;
                     objAlumnoBE.Mvardir_al = objAlumno.Direccion;
-                    objAlumnoBE.Mvarciu_al = objAlumno.Ciudad;
                     objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
 
                     objListaAlumno.Add(objAlumnoBE);
@@ -68,14 +68,66 @@ namespace WCF_Colegio
         }
 
 
-        public bool InsertAlumno(AlumnoBE objAlumnoBE)
+        public Boolean InsertAlumno(AlumnoBE objAlumnoBE)
         {
-            throw new NotImplementedException();
+            BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
+            try
+            {
+                ALUMNO objAlumno = new ALUMNO();
+
+                objAlumno.IdAlumno = objAlumnoBE.Mvarid_alumno;
+                objAlumno.ValorCodigo = objAlumnoBE.Mvarvalorcod_al;
+                objAlumno.Codigo = objAlumnoBE.Mvarcod_al;
+                objAlumno.Nombres = objAlumnoBE.Mvarnom_al;
+                objAlumno.Apellidos = objAlumnoBE.Mvarape_al;
+                objAlumno.DocumentoIdentidad= objAlumnoBE.Mvardocide_al;
+                objAlumno.FechaNacimiento= Convert.ToDateTime(objAlumnoBE.Mvarfecnac_al);
+                objAlumno.Sexo= objAlumnoBE.Mvarsex_al;
+                objAlumno.Ciudad = objAlumnoBE.Mvarciu_al;
+                objAlumno.Direccion= objAlumnoBE.Mvardir_al;
+                objAlumno.FechaRegistro= Convert.ToDateTime(objAlumnoBE.Mvarfecres_al);
+
+                bdcolegio.ALUMNO.Add(objAlumno);
+
+                bdcolegio.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public bool UpdateAlumno(AlumnoBE objAlumnoBE)
         {
-            throw new NotImplementedException();
+            BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
+            try
+            {
+                ALUMNO objAlumno= (
+                    from oAlumno in bdcolegio.ALUMNO
+                    where oAlumno.Codigo == objAlumnoBE.Mvarcod_al
+                    select oAlumno).FirstOrDefault();
+
+                objAlumno.ValorCodigo = objAlumnoBE.Mvarvalorcod_al;
+                objAlumno.Codigo = objAlumnoBE.Mvarcod_al;
+                objAlumno.Nombres = objAlumnoBE.Mvarnom_al;
+                objAlumno.Apellidos = objAlumnoBE.Mvarape_al;
+                objAlumno.DocumentoIdentidad = objAlumnoBE.Mvardocide_al;
+                objAlumno.FechaNacimiento = Convert.ToDateTime(objAlumnoBE.Mvarfecnac_al);
+                objAlumno.Sexo = objAlumnoBE.Mvarsex_al;
+                objAlumno.Ciudad = objAlumnoBE.Mvarciu_al;
+                objAlumno.Direccion = objAlumnoBE.Mvardir_al;
+                objAlumno.FechaRegistro = Convert.ToDateTime(objAlumnoBE.Mvarfecres_al);
+
+                bdcolegio.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
