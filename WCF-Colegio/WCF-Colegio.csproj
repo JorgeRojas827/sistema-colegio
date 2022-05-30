@@ -80,7 +80,9 @@
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
     <Compile Include="IService1.cs" />
+    <Compile Include="IService2.cs" />
     <Compile Include="IServicioAlumno.cs" />
+    <Compile Include="IServicioCurso.cs" />
     <Compile Include="MATRICULA.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
@@ -107,7 +109,9 @@
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
     <Compile Include="Service1.cs" />
+    <Compile Include="Service2.cs" />
     <Compile Include="ServicioAlumno.cs" />
+    <Compile Include="ServicioCurso.cs" />
     <Compile Include="SistemaColegio.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
