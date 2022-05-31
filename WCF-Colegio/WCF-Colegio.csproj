@@ -85,6 +85,7 @@
     <Compile Include="IServicioAlumno.cs" />
     <Compile Include="IServicioCurso.cs" />
     <Compile Include="IServicioDocente.cs" />
+    <Compile Include="IServicioUsuario.cs" />
     <Compile Include="MATRICULA.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
@@ -115,6 +116,7 @@
     <Compile Include="ServicioAlumno.cs" />
     <Compile Include="ServicioCurso.cs" />
     <Compile Include="ServicioDocente.cs" />
+    <Compile Include="ServicioUsuario.cs" />
     <Compile Include="SistemaColegio.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
