@@ -46,3 +46,15 @@ D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.cspr
 D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
 D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.dll
 D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.pdb
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.AssemblyReference.cache
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CoreCompileInputs.cache
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.dll
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.pdb
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\bin\Debug\WCF-Colegio.dll.config
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\bin\Debug\WCF-Colegio.dll
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\bin\Debug\WCF-Colegio.pdb
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.dll
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.dll
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.xml
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.xml
+D:\ISIL\DESARROLO DE APLICACIONES 2\proyecto\JorgeRojas827\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete

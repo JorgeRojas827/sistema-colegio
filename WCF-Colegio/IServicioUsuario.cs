@@ -19,7 +19,7 @@ namespace WCF_Colegio
         Boolean UpdateUsuario(UsuarioBE objUsuarioBE);
 
         [OperationContract]
-        Boolean DeleteUsuario(UsuarioBE strId);
+        Boolean DeleteUsuario(Int16 strId);
 
         [OperationContract]
         List <UsuarioBE> GetAllUsuario();
