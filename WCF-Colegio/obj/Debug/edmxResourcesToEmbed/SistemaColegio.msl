@@ -18,19 +18,6 @@
           <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="BDCOLEGIOModel.ALUMNO">
-        <ModificationFunctionMapping>
-          <InsertFunction FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente">
-            <ScalarProperty Name="Direccion" ParameterName="Direccion" />
-            <ScalarProperty Name="Ciudad" ParameterName="Ciudad" />
-            <ScalarProperty Name="Sexo" ParameterName="Sexo" />
-            <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" />
-            <ScalarProperty Name="Apellidos" ParameterName="Apellidos" />
-            <ScalarProperty Name="Nombres" ParameterName="Nombres" />
-            <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" />
-          </InsertFunction>
-        </ModificationFunctionMapping>
-      </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APODERADO">
       <EntityTypeMapping TypeName="BDCOLEGIOModel.APODERADO">
