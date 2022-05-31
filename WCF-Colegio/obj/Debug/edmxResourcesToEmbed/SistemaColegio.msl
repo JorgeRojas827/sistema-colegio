@@ -18,6 +18,19 @@
           <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
         </MappingFragment>
       </EntityTypeMapping>
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.ALUMNO">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente">
+            <ScalarProperty Name="Direccion" ParameterName="Direccion" />
+            <ScalarProperty Name="Ciudad" ParameterName="Ciudad" />
+            <ScalarProperty Name="Sexo" ParameterName="Sexo" />
+            <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" />
+            <ScalarProperty Name="Apellidos" ParameterName="Apellidos" />
+            <ScalarProperty Name="Nombres" ParameterName="Nombres" />
+            <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" />
+          </InsertFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="APODERADO">
       <EntityTypeMapping TypeName="BDCOLEGIOModel.APODERADO">
@@ -89,6 +102,38 @@
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
         </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE">
+        <ModificationFunctionMapping>
+          <UpdateFunction FunctionName="BDCOLEGIOModel.Store.SP_ActulizarDocente">
+            <ScalarProperty Name="Apellidos" ParameterName="apellido" Version="Current" />
+            <ScalarProperty Name="Nombres" ParameterName="nombre" Version="Current" />
+            <ScalarProperty Name="IdDocente" ParameterName="id_docente" Version="Current" />
+            <ScalarProperty Name="Direccion" ParameterName="Direccion" Version="Current" />
+            <ScalarProperty Name="Ciudad" ParameterName="Ciudad" Version="Current" />
+            <ScalarProperty Name="Sexo" ParameterName="Sexo" Version="Current" />
+            <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" Version="Current" />
+            <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="BDCOLEGIOModel.Store.SP_EliminarDocente">
+            <ScalarProperty Name="IdDocente" ParameterName="codigo" />
+          </DeleteFunction>
+          <InsertFunction FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente">
+            <ScalarProperty Name="Codigo" ParameterName="codigo" />
+            <ScalarProperty Name="ValorCodigo" ParameterName="valorCodigo" />
+            <ScalarProperty Name="FechaRegistro" ParameterName="fechaRegistro" />
+            <ScalarProperty Name="NumeroTelefono" ParameterName="telefono" />
+            <ScalarProperty Name="Email" ParameterName="email" />
+            <ScalarProperty Name="GradoEstudio" ParameterName="gradoEstudio" />
+            <ScalarProperty Name="Direccion" ParameterName="Direccion" />
+            <ScalarProperty Name="Ciudad" ParameterName="Ciudad" />
+            <ScalarProperty Name="Sexo" ParameterName="Sexo" />
+            <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" />
+            <ScalarProperty Name="Apellidos" ParameterName="Apellidos" />
+            <ScalarProperty Name="Nombres" ParameterName="Nombres" />
+            <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" />
+          </InsertFunction>
+        </ModificationFunctionMapping>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DOCENTE_NIVELDETALLE_CURSO">
@@ -571,5 +616,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ActulizarDocente" FunctionName="BDCOLEGIOModel.Store.SP_ActulizarDocente" />
+    <FunctionImportMapping FunctionImportName="SP_EliminarDocente" FunctionName="BDCOLEGIOModel.Store.SP_EliminarDocente" />
+    <FunctionImportMapping FunctionImportName="SP_InsertarAlumno" FunctionName="BDCOLEGIOModel.Store.SP_InsertarAlumno" />
+    <FunctionImportMapping FunctionImportName="SP_InsertarDocente" FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente" />
   </EntityContainerMapping>
 </Mapping>

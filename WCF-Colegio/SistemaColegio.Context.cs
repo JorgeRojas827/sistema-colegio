@@ -1019,5 +1019,141 @@ namespace WCF_Colegio
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ReporteMatricula_Result>("usp_ReporteMatricula", codigoMatriculaParameter, situacionMatriculaParameter, codigoAlumnoParameter, documentoIdentidadParameter, nombresParameter, apellidosParameter, periodoParameter, nivelAcademicoParameter, gradoSeccionParameter);
         }
+    
+        public virtual int SP_ActulizarDocente(Nullable<int> id_docente, string nombre, string apellido, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, string ciudad, string direccion)
+        {
+            var id_docenteParameter = id_docente.HasValue ?
+                new ObjectParameter("id_docente", id_docente) :
+                new ObjectParameter("id_docente", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var documentoIdentidadParameter = documentoIdentidad != null ?
+                new ObjectParameter("DocumentoIdentidad", documentoIdentidad) :
+                new ObjectParameter("DocumentoIdentidad", typeof(string));
+    
+            var fechaNacimientoParameter = fechaNacimiento.HasValue ?
+                new ObjectParameter("FechaNacimiento", fechaNacimiento) :
+                new ObjectParameter("FechaNacimiento", typeof(System.DateTime));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("Sexo", sexo) :
+                new ObjectParameter("Sexo", typeof(string));
+    
+            var ciudadParameter = ciudad != null ?
+                new ObjectParameter("Ciudad", ciudad) :
+                new ObjectParameter("Ciudad", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ActulizarDocente", id_docenteParameter, nombreParameter, apellidoParameter, documentoIdentidadParameter, fechaNacimientoParameter, sexoParameter, ciudadParameter, direccionParameter);
+        }
+    
+        public virtual int SP_EliminarDocente(Nullable<int> codigo)
+        {
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_EliminarDocente", codigoParameter);
+        }
+    
+        public virtual int SP_InsertarAlumno(string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, string ciudad, string direccion)
+        {
+            var nombresParameter = nombres != null ?
+                new ObjectParameter("Nombres", nombres) :
+                new ObjectParameter("Nombres", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("Apellidos", apellidos) :
+                new ObjectParameter("Apellidos", typeof(string));
+    
+            var documentoIdentidadParameter = documentoIdentidad != null ?
+                new ObjectParameter("DocumentoIdentidad", documentoIdentidad) :
+                new ObjectParameter("DocumentoIdentidad", typeof(string));
+    
+            var fechaNacimientoParameter = fechaNacimiento.HasValue ?
+                new ObjectParameter("FechaNacimiento", fechaNacimiento) :
+                new ObjectParameter("FechaNacimiento", typeof(System.DateTime));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("Sexo", sexo) :
+                new ObjectParameter("Sexo", typeof(string));
+    
+            var ciudadParameter = ciudad != null ?
+                new ObjectParameter("Ciudad", ciudad) :
+                new ObjectParameter("Ciudad", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InsertarAlumno", nombresParameter, apellidosParameter, documentoIdentidadParameter, fechaNacimientoParameter, sexoParameter, ciudadParameter, direccionParameter);
+        }
+    
+        public virtual int SP_InsertarDocente(Nullable<int> valorCodigo, string codigo, string documentoIdentidad, string nombres, string apellidos, Nullable<System.DateTime> fechaNacimiento, string sexo, string gradoEstudio, string ciudad, string direccion, string email, string telefono, Nullable<System.DateTime> fechaRegistro)
+        {
+            var valorCodigoParameter = valorCodigo.HasValue ?
+                new ObjectParameter("valorCodigo", valorCodigo) :
+                new ObjectParameter("valorCodigo", typeof(int));
+    
+            var codigoParameter = codigo != null ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(string));
+    
+            var documentoIdentidadParameter = documentoIdentidad != null ?
+                new ObjectParameter("DocumentoIdentidad", documentoIdentidad) :
+                new ObjectParameter("DocumentoIdentidad", typeof(string));
+    
+            var nombresParameter = nombres != null ?
+                new ObjectParameter("Nombres", nombres) :
+                new ObjectParameter("Nombres", typeof(string));
+    
+            var apellidosParameter = apellidos != null ?
+                new ObjectParameter("Apellidos", apellidos) :
+                new ObjectParameter("Apellidos", typeof(string));
+    
+            var fechaNacimientoParameter = fechaNacimiento.HasValue ?
+                new ObjectParameter("FechaNacimiento", fechaNacimiento) :
+                new ObjectParameter("FechaNacimiento", typeof(System.DateTime));
+    
+            var sexoParameter = sexo != null ?
+                new ObjectParameter("Sexo", sexo) :
+                new ObjectParameter("Sexo", typeof(string));
+    
+            var gradoEstudioParameter = gradoEstudio != null ?
+                new ObjectParameter("gradoEstudio", gradoEstudio) :
+                new ObjectParameter("gradoEstudio", typeof(string));
+    
+            var ciudadParameter = ciudad != null ?
+                new ObjectParameter("Ciudad", ciudad) :
+                new ObjectParameter("Ciudad", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("telefono", telefono) :
+                new ObjectParameter("telefono", typeof(string));
+    
+            var fechaRegistroParameter = fechaRegistro.HasValue ?
+                new ObjectParameter("fechaRegistro", fechaRegistro) :
+                new ObjectParameter("fechaRegistro", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InsertarDocente", valorCodigoParameter, codigoParameter, documentoIdentidadParameter, nombresParameter, apellidosParameter, fechaNacimientoParameter, sexoParameter, gradoEstudioParameter, ciudadParameter, direccionParameter, emailParameter, telefonoParameter, fechaRegistroParameter);
+        }
     }
 }

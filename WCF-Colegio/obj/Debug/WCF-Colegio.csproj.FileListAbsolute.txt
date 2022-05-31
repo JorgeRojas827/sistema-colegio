@@ -34,3 +34,15 @@ C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\colegioHeinsenber
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\colegioHeinsenberg\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\colegioHeinsenberg\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.dll
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\colegioHeinsenberg\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.pdb
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\bin\Debug\WCF-Colegio.dll.config
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\bin\Debug\WCF-Colegio.dll
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\bin\Debug\WCF-Colegio.pdb
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.dll
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.dll
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.xml
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.xml
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.AssemblyReference.cache
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CoreCompileInputs.cache
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.dll
+D:\git2.0\Sistema_colegio\sistema-colegio\WCF-Colegio\obj\Debug\WCF-Colegio.pdb

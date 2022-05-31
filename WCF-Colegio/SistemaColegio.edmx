@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDCOLEGIOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BDCOLEGIOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ALUMNO">
           <Key>
             <PropertyRef Name="IdAlumno" />
@@ -466,6 +466,16 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="SP_ActulizarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_docente" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="Sexo" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -482,6 +492,9 @@
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_EliminarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codigo" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -489,6 +502,30 @@
         <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertarAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="Sexo" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_InsertarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="valorCodigo" Type="int" Mode="In" />
+          <Parameter Name="codigo" Type="varchar" Mode="In" />
+          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="Sexo" Type="varchar" Mode="In" />
+          <Parameter Name="gradoEstudio" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+          <Parameter Name="fechaRegistro" Type="date" Mode="In" />
         </Function>
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -873,8 +910,7 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDCOLEGIOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1655,11 +1691,11 @@
             <Parameter Name="IdDocente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_ObtenerDetalleUsuario" ReturnType="Collection(String)">
-            <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+          <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_ObtenerMatricula" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerMatricula_Result)" />
           <FunctionImport Name="usp_ObtenerPermisos" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerPermisos_Result)">
-            <Parameter Name="IdRol" Mode="In" Type="Int32" />
+          <Parameter Name="IdRol" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_ObtenerRoles" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerRoles_Result)" />
           <FunctionImport Name="usp_ObtenerUsuario" ReturnType="Collection(BDCOLEGIOModel.usp_ObtenerUsuario_Result)" />
@@ -1779,6 +1815,43 @@
             <Parameter Name="Periodo" Mode="In" Type="String" />
             <Parameter Name="NivelAcademico" Mode="In" Type="String" />
             <Parameter Name="GradoSeccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ActulizarDocente">
+            <Parameter Name="id_docente" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_EliminarDocente">
+            <Parameter Name="codigo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertarAlumno">
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InsertarDocente">
+            <Parameter Name="valorCodigo" Mode="In" Type="Int32" />
+            <Parameter Name="codigo" Mode="In" Type="String" />
+            <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="Sexo" Mode="In" Type="String" />
+            <Parameter Name="gradoEstudio" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="fechaRegistro" Mode="In" Type="DateTime" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_ActualizarPermisos_Result">
@@ -1989,6 +2062,19 @@
                 <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.ALUMNO">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente">
+                  <ScalarProperty Name="Direccion" ParameterName="Direccion" />
+                  <ScalarProperty Name="Ciudad" ParameterName="Ciudad" />
+                  <ScalarProperty Name="Sexo" ParameterName="Sexo" />
+                  <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" />
+                  <ScalarProperty Name="Apellidos" ParameterName="Apellidos" />
+                  <ScalarProperty Name="Nombres" ParameterName="Nombres" />
+                  <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="APODERADO">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.APODERADO">
@@ -2060,6 +2146,38 @@
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
               </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE">
+              <ModificationFunctionMapping>
+                <UpdateFunction FunctionName="BDCOLEGIOModel.Store.SP_ActulizarDocente">
+                  <ScalarProperty Name="Apellidos" ParameterName="apellido" Version="Current" />
+                  <ScalarProperty Name="Nombres" ParameterName="nombre" Version="Current" />
+                  <ScalarProperty Name="IdDocente" ParameterName="id_docente" Version="Current" />
+                  <ScalarProperty Name="Direccion" ParameterName="Direccion" Version="Current" />
+                  <ScalarProperty Name="Ciudad" ParameterName="Ciudad" Version="Current" />
+                  <ScalarProperty Name="Sexo" ParameterName="Sexo" Version="Current" />
+                  <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" Version="Current" />
+                  <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="BDCOLEGIOModel.Store.SP_EliminarDocente" >
+                  <ScalarProperty Name="IdDocente" ParameterName="codigo" />
+                </DeleteFunction>
+                <InsertFunction FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente">
+                  <ScalarProperty Name="Codigo" ParameterName="codigo" />
+                  <ScalarProperty Name="ValorCodigo" ParameterName="valorCodigo" />
+                  <ScalarProperty Name="FechaRegistro" ParameterName="fechaRegistro" />
+                  <ScalarProperty Name="NumeroTelefono" ParameterName="telefono" />
+                  <ScalarProperty Name="Email" ParameterName="email" />
+                  <ScalarProperty Name="GradoEstudio" ParameterName="gradoEstudio" />
+                  <ScalarProperty Name="Direccion" ParameterName="Direccion" />
+                  <ScalarProperty Name="Ciudad" ParameterName="Ciudad" />
+                  <ScalarProperty Name="Sexo" ParameterName="Sexo" />
+                  <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" />
+                  <ScalarProperty Name="Apellidos" ParameterName="Apellidos" />
+                  <ScalarProperty Name="Nombres" ParameterName="Nombres" />
+                  <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DOCENTE_NIVELDETALLE_CURSO">
@@ -2542,6 +2660,10 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_ActulizarDocente" FunctionName="BDCOLEGIOModel.Store.SP_ActulizarDocente" />
+          <FunctionImportMapping FunctionImportName="SP_EliminarDocente" FunctionName="BDCOLEGIOModel.Store.SP_EliminarDocente" />
+          <FunctionImportMapping FunctionImportName="SP_InsertarAlumno" FunctionName="BDCOLEGIOModel.Store.SP_InsertarAlumno" />
+          <FunctionImportMapping FunctionImportName="SP_InsertarDocente" FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

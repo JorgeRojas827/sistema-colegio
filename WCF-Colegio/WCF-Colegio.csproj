@@ -12,9 +12,10 @@
     <AssemblyName>WCF-Colegio</AssemblyName>
     <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <XsdCodeGenEnabled>True</XsdCodeGenEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -83,6 +84,7 @@
     <Compile Include="IService2.cs" />
     <Compile Include="IServicioAlumno.cs" />
     <Compile Include="IServicioCurso.cs" />
+    <Compile Include="IServicioDocente.cs" />
     <Compile Include="MATRICULA.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
@@ -112,6 +114,7 @@
     <Compile Include="Service2.cs" />
     <Compile Include="ServicioAlumno.cs" />
     <Compile Include="ServicioCurso.cs" />
+    <Compile Include="ServicioDocente.cs" />
     <Compile Include="SistemaColegio.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
