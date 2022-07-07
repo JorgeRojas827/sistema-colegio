@@ -17,4 +17,4 @@ C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenber
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.DocenteMan02.resources
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.DocenteMan03.resources
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.Inicio.resources
-C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\AppWindows_Colegio\obj\Debug\ProyVentas_GUI.frmLogin.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.frmLogin.resources

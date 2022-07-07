@@ -1,4 +1,4 @@
-﻿namespace ProyVentas_GUI
+﻿namespace AppWindows_Colegio
 {
     partial class frmLogin
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ProyVentas_GUI
+namespace AppWindows_Colegio
 {
     public partial class frmLogin : Form
     {
