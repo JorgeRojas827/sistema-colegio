@@ -33,10 +33,15 @@ namespace WCF_Colegio
         public string Direccion { get; set; }
         public Nullable<bool> Activo { get; set; }
         public Nullable<System.DateTime> FechaRegistro { get; set; }
+        public Nullable<System.DateTime> Fec_Ult_Mod { get; set; }
+        public string Usu_Ult_Mod { get; set; }
+        public Nullable<int> Curso { get; set; }
+        public Nullable<int> Nota { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CALIFICACION> CALIFICACION { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MATRICULA> MATRICULA { get; set; }
+        public virtual CURSO CURSO1 { get; set; }
     }
 }

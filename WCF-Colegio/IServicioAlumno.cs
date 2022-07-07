@@ -22,6 +22,9 @@ namespace WCF_Colegio
 
         [OperationContract]
         List<AlumnoBE> GetAllAlumnos();
+
+        [OperationContract]
+        AlumnoBE GetAlumno(Int16 strId);
     }
 
     [DataContract]
@@ -41,6 +44,8 @@ namespace WCF_Colegio
         private String mvardir_al;
         private Boolean mvaract_al;
         private DateTime mvarfecres_al;
+        private Int32 mvaridcurso;
+        private Int32 mvarnota;        
 
         [DataMember]
         public short Mvarid_alumno { get => mvarid_alumno; set => mvarid_alumno = value; }
@@ -65,5 +70,10 @@ namespace WCF_Colegio
         
         [DataMember] 
         public DateTime Mvarfecres_al { get => mvarfecres_al; set => mvarfecres_al = value; }
+
+        [DataMember]
+        public int Mvaridcurso { get => mvaridcurso; set => mvaridcurso = value; }
+        [DataMember]
+        public int Mvarnota { get => mvarnota; set => mvarnota = value; }
     }
 }

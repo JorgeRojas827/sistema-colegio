@@ -20,6 +20,8 @@ namespace WCF_Colegio
         public Nullable<double> Nota { get; set; }
         public Nullable<bool> Activo { get; set; }
         public Nullable<System.DateTime> FechaRegistro { get; set; }
+        public Nullable<System.DateTime> Fec_Ult_Mod { get; set; }
+        public string Usu_Ult_Mod { get; set; }
     
         public virtual ALUMNO ALUMNO { get; set; }
         public virtual CURRICULA CURRICULA { get; set; }

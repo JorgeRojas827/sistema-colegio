@@ -74,6 +74,9 @@
     <Compile Include="DOCENTE_NIVELDETALLE_CURSO.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
+    <Compile Include="get_top_alumnos_Result.cs">
+      <DependentUpon>SistemaColegio.tt</DependentUpon>
+    </Compile>
     <Compile Include="GRADO_SECCION.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
@@ -87,9 +90,6 @@
     <Compile Include="IServicioDocente.cs" />
     <Compile Include="IServicioUsuario.cs" />
     <Compile Include="MATRICULA.cs">
-      <DependentUpon>SistemaColegio.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MENU.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
     <Compile Include="NIVEL.cs">
@@ -131,9 +131,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SistemaColegio.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="SUBMENU.cs">
-      <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>

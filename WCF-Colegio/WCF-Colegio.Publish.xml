@@ -1,0 +1,20 @@
+<publishData>
+  <publishTarget publishUrl="C:\inetpub\wwwroot\WCF_Colegio\">
+    <file relUrl="WCF_Colegio.ServicioAlumno.svc" publishTime="07/06/2022 21:59:32" />
+    <file relUrl="WCF_Colegio.Service2.svc" publishTime="07/06/2022 21:59:32" />
+    <file relUrl="bin/EntityFramework.dll" publishTime="07/06/2022 19:20:54" />
+    <file relUrl="SistemaColegio.Context.tt" publishTime="07/06/2022 19:20:53" />
+    <file relUrl="WCF_Colegio.Service1.svc" publishTime="07/06/2022 21:59:32" />
+    <file relUrl="bin/EntityFramework.xml" publishTime="07/06/2022 19:20:54" />
+    <file relUrl="WCF_Colegio.ServicioDocente.svc" publishTime="07/06/2022 21:59:32" />
+    <file relUrl="bin/EntityFramework.SqlServer.dll" publishTime="07/06/2022 19:20:54" />
+    <file relUrl="bin/WCF-Colegio.dll.config" publishTime="07/06/2022 19:20:53" />
+    <file relUrl="SistemaColegio.tt" publishTime="07/06/2022 19:20:53" />
+    <file relUrl="bin/EntityFramework.SqlServer.xml" publishTime="07/06/2022 19:20:54" />
+    <file relUrl="bin/WCF-Colegio.pdb" publishTime="07/06/2022 21:52:37" />
+    <file relUrl="WCF_Colegio.ServicioUsuario.svc" publishTime="07/06/2022 21:59:32" />
+    <file relUrl="WCF_Colegio.ServicioCurso.svc" publishTime="07/06/2022 21:59:32" />
+    <file relUrl="Web.config" publishTime="07/06/2022 19:20:53" />
+    <file relUrl="bin/WCF-Colegio.dll" publishTime="07/06/2022 21:52:37" />
+  </publishTarget>
+</publishData>

@@ -35,8 +35,12 @@ namespace WCF_Colegio
         public string NumeroTelefono { get; set; }
         public Nullable<bool> Activo { get; set; }
         public Nullable<System.DateTime> FechaRegistro { get; set; }
+        public Nullable<System.DateTime> Fec_Ult_Mod { get; set; }
+        public string Usu_Ult_Mod { get; set; }
+        public Nullable<int> IdCurso { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DOCENTE_NIVELDETALLE_CURSO> DOCENTE_NIVELDETALLE_CURSO { get; set; }
+        public virtual CURSO CURSO { get; set; }
     }
 }

@@ -15,6 +15,9 @@ namespace WCF_Colegio
         List<DocenteBE> GetAllDocentes();
 
         [OperationContract]
+        DocenteBE GetDocente(Int32 strId);
+
+        [OperationContract]
         Boolean InsertDocente(DocenteBE objDocenteBE);
         [OperationContract]
         Boolean UpdateDocente(DocenteBE objDocenteBE);
@@ -41,6 +44,7 @@ namespace WCF_Colegio
         private String email;
         private String Numero_tel;
         private DateTime fecha_regi;
+        private Int32 Id_Curso;
 
         [DataMember]
         public Int32 Id_Docente1 { get => Id_Docente; set => Id_Docente = value; }
@@ -70,5 +74,7 @@ namespace WCF_Colegio
         public string Numero_tel1 { get => Numero_tel; set => Numero_tel = value; }
         [DataMember]
         public DateTime Fecha_regi { get => fecha_regi; set => fecha_regi = value; }
+        [DataMember]
+        public int Id_Curso1 { get => this.Id_Curso; set => this.Id_Curso = value; }
     }
 }

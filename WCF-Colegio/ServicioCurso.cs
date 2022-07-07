@@ -105,5 +105,33 @@ namespace WCF_Colegio
                 throw new Exception(ex.Message);
             }
         }
+
+        public CursoBE GetCurso(Int32 strId)
+        {
+            BDCOLEGIOEntities MiColegio = new BDCOLEGIOEntities();
+
+            try
+            {
+                CURSO objCurso = (
+
+                from oCurso in MiColegio.CURSO
+                where oCurso.IdCurso == strId
+                select oCurso
+                ).FirstOrDefault();
+
+                CursoBE objCursoBE = new CursoBE();
+                objCursoBE.IdCurso = Convert.ToInt16(objCurso.IdCurso);
+                objCursoBE.Descripcion = objCurso.Descripcion;
+                objCursoBE.FechaRegistro = Convert.ToDateTime(objCurso.FechaRegistro);
+                objCursoBE.Imagen = objCurso.Imagen;
+                
+                return objCursoBE;
+            }
+            catch (EntityException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

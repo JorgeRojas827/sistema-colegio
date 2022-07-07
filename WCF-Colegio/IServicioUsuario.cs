@@ -23,6 +23,9 @@ namespace WCF_Colegio
 
         [OperationContract]
         List <UsuarioBE> GetAllUsuario();
+
+        [OperationContract]
+        UsuarioBE GetUsuario(Int32 strId);
     }
 
     [DataContract]

@@ -61,6 +61,7 @@ namespace WCF_Colegio
                     objDocenteBE.Numero_tel1 = objDocente.NumeroTelefono;
                     objDocenteBE.Codigo = objDocente.Codigo;
                     objDocenteBE.Valor_codigo = Convert.ToInt32(objDocente.ValorCodigo);
+                    objDocenteBE.Id_Curso1 = Convert.ToInt32(objDocente.IdCurso);
 
 
                     objListaDocente.Add(objDocenteBE);
@@ -99,6 +100,7 @@ namespace WCF_Colegio
                 objDocente.Email = objDocenteBE.Email;
                 objDocente.NumeroTelefono = objDocenteBE.Numero_tel1;
                 objDocente.FechaRegistro = objDocenteBE.Fecha_regi;
+                objDocente.IdCurso = objDocenteBE.Id_Curso1;
 
 
 
@@ -143,6 +145,7 @@ namespace WCF_Colegio
                 objDocente.FechaRegistro = objDocenteBE.Fecha_regi;
                 objDocente.NumeroTelefono = objDocenteBE.Numero_tel1;
                 objDocente.Email = objDocenteBE.Email;
+                objDocente.IdCurso = objDocenteBE.Id_Curso1;
 
 
                 bdcolegio.SaveChanges();
@@ -160,6 +163,47 @@ namespace WCF_Colegio
             }
 
 
+        }
+
+        public DocenteBE GetDocente(Int32 strId)
+        {
+            BDCOLEGIOEntities MiColegio = new BDCOLEGIOEntities();
+
+            try
+            {
+                DOCENTE objDocente = (
+
+                from oDocente in MiColegio.DOCENTE
+                where oDocente.IdDocente == strId
+                select oDocente
+                ).FirstOrDefault();
+
+                DocenteBE objDocenteBE = new DocenteBE();
+                objDocenteBE.Id_Docente1 = Convert.ToInt16(objDocente.IdDocente);
+                objDocenteBE.Valor_codigo = Convert.ToInt16(objDocente.ValorCodigo);
+                objDocenteBE.Codigo = objDocente.Codigo;
+                objDocenteBE.DNI1 = objDocente.DocumentoIdentidad;
+                objDocenteBE.Nombres = objDocente.Nombres;
+                objDocenteBE.Apellidos = objDocente.Apellidos;
+                objDocenteBE.FechaNac = Convert.ToDateTime(objDocente.FechaNacimiento);
+                objDocenteBE.Sexo = objDocente.Sexo;
+                objDocenteBE.Grado_estudio = objDocente.GradoEstudio;
+                objDocenteBE.Ciudad = objDocente.Ciudad;
+                objDocenteBE.Direccion1 = objDocente.Direccion;
+                objDocenteBE.Email = objDocente.Email;
+                objDocenteBE.Numero_tel1 = objDocente.NumeroTelefono;
+                objDocenteBE.FechaNac = Convert.ToDateTime(objDocente.FechaRegistro);
+                objDocenteBE.Id_Curso1 = Convert.ToInt32(objDocente.IdCurso);
+                return objDocenteBE;
+
+            }
+
+
+            catch (EntityException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

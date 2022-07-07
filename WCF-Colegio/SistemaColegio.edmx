@@ -21,6 +21,10 @@
           <Property Name="Direccion" Type="varchar" MaxLength="100" />
           <Property Name="Activo" Type="bit" />
           <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="Fec_Ult_Mod" Type="datetime" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+          <Property Name="Curso" Type="int" />
+          <Property Name="Nota" Type="int" />
         </EntityType>
         <EntityType Name="APODERADO">
           <Key>
@@ -38,6 +42,8 @@
           <Property Name="Direccion" Type="varchar" MaxLength="100" />
           <Property Name="Activo" Type="bit" />
           <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="Fec_Ult_Mod" Type="datetime" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="CALIFICACION">
           <Key>
@@ -49,6 +55,8 @@
           <Property Name="Nota" Type="float" />
           <Property Name="Activo" Type="bit" />
           <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="Fec_Ult_Mod" Type="datetime" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="CURRICULA">
           <Key>
@@ -68,6 +76,7 @@
           <Property Name="Descripcion" Type="varchar" MaxLength="100" />
           <Property Name="Activo" Type="bit" />
           <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="Imagen" Type="image" />
         </EntityType>
         <EntityType Name="DOCENTE">
           <Key>
@@ -88,6 +97,9 @@
           <Property Name="NumeroTelefono" Type="varchar" MaxLength="50" />
           <Property Name="Activo" Type="bit" />
           <Property Name="FechaRegistro" Type="datetime" />
+          <Property Name="Fec_Ult_Mod" Type="datetime" />
+          <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+          <Property Name="IdCurso" Type="int" />
         </EntityType>
         <EntityType Name="DOCENTE_NIVELDETALLE_CURSO">
           <Key>
@@ -134,16 +146,6 @@
           <Property Name="IdApoderado" Type="int" />
           <Property Name="InstitucionProcedencia" Type="varchar" MaxLength="50" />
           <Property Name="EsRepitente" Type="bit" />
-          <Property Name="Activo" Type="bit" />
-          <Property Name="FechaRegistro" Type="datetime" />
-        </EntityType>
-        <EntityType Name="MENU">
-          <Key>
-            <PropertyRef Name="IdMenu" />
-          </Key>
-          <Property Name="IdMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="60" />
-          <Property Name="Icono" Type="varchar" MaxLength="60" />
           <Property Name="Activo" Type="bit" />
           <Property Name="FechaRegistro" Type="datetime" />
         </EntityType>
@@ -213,17 +215,6 @@
           <Property Name="Activo" Type="bit" />
           <Property Name="FechaRegistro" Type="datetime" />
         </EntityType>
-        <EntityType Name="SUBMENU">
-          <Key>
-            <PropertyRef Name="IdSubMenu" />
-          </Key>
-          <Property Name="IdSubMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdMenu" Type="int" />
-          <Property Name="Nombre" Type="varchar" MaxLength="60" />
-          <Property Name="NombreFormulario" Type="varchar" MaxLength="60" />
-          <Property Name="Activo" Type="bit" />
-          <Property Name="FechaRegistro" Type="datetime" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -249,6 +240,18 @@
           <Property Name="Activo" Type="bit" />
           <Property Name="FechaRegistro" Type="datetime" />
         </EntityType>
+        <Association Name="FK__ALUMNO__Curso__607251E5">
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="0..1" />
+          <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="ALUMNO">
+              <PropertyRef Name="Curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__CALIFICAC__IdAlu__72C60C4A">
           <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="0..1" />
           <End Role="CALIFICACION" Type="Self.CALIFICACION" Multiplicity="*" />
@@ -282,6 +285,18 @@
             </Principal>
             <Dependent Role="CURRICULA">
               <PropertyRef Name="IdDocenteNivelDetalleCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__IdCurso__6166761E">
+          <End Role="CURSO" Type="Self.CURSO" Multiplicity="0..1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="IdCurso" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -429,30 +444,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PERMISOS__IdSubM__31EC6D26">
-          <End Role="SUBMENU" Type="Self.SUBMENU" Multiplicity="0..1" />
-          <End Role="PERMISOS" Type="Self.PERMISOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SUBMENU">
-              <PropertyRef Name="IdSubMenu" />
-            </Principal>
-            <Dependent Role="PERMISOS">
-              <PropertyRef Name="IdSubMenu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__SUBMENU__IdMenu__286302EC">
-          <End Role="MENU" Type="Self.MENU" Multiplicity="0..1" />
-          <End Role="SUBMENU" Type="Self.SUBMENU" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MENU">
-              <PropertyRef Name="IdMenu" />
-            </Principal>
-            <Dependent Role="SUBMENU">
-              <PropertyRef Name="IdMenu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__USUARIO__IdRol__36B12243">
           <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
@@ -466,6 +457,15 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="get_top_alumnos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="set_curso_docente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idcurso" Type="int" Mode="In" />
+          <Parameter Name="iddocente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="set_imagen_curso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="imagen" Type="image" Mode="In" />
+          <Parameter Name="idcurso" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_ActulizarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_docente" Type="int" Mode="In" />
           <Parameter Name="nombre" Type="varchar" Mode="In" />
@@ -502,15 +502,6 @@
         <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="SP_InsertarAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Nombres" Type="varchar" Mode="In" />
-          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
-          <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
-          <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
-          <Parameter Name="Sexo" Type="varchar" Mode="In" />
-          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
-          <Parameter Name="Direccion" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SP_InsertarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="valorCodigo" Type="int" Mode="In" />
@@ -611,10 +602,6 @@
         </Function>
         <Function Name="usp_EliminarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdCurso" Type="int" Mode="In" />
-          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
-        </Function>
-        <Function Name="usp_EliminarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="IdDocente" Type="int" Mode="In" />
           <Parameter Name="Resultado" Type="bit" Mode="InOut" />
         </Function>
         <Function Name="usp_EliminarDocenteCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -827,16 +814,18 @@
           <EntitySet Name="GRADO_SECCION" EntityType="Self.GRADO_SECCION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HORARIO" EntityType="Self.HORARIO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MATRICULA" EntityType="Self.MATRICULA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NIVEL" EntityType="Self.NIVEL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NIVEL_DETALLE" EntityType="Self.NIVEL_DETALLE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NIVEL_DETALLE_CURSO" EntityType="Self.NIVEL_DETALLE_CURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERIODO" EntityType="Self.PERIODO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERMISOS" EntityType="Self.PERMISOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SUBMENU" EntityType="Self.SUBMENU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ALUMNO__Curso__607251E5" Association="Self.FK__ALUMNO__Curso__607251E5">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+          </AssociationSet>
           <AssociationSet Name="FK__CALIFICAC__IdAlu__72C60C4A" Association="Self.FK__CALIFICAC__IdAlu__72C60C4A">
             <End Role="ALUMNO" EntitySet="ALUMNO" />
             <End Role="CALIFICACION" EntitySet="CALIFICACION" />
@@ -848,6 +837,10 @@
           <AssociationSet Name="FK__CURRICULA__IdDoc__6D0D32F4" Association="Self.FK__CURRICULA__IdDoc__6D0D32F4">
             <End Role="DOCENTE_NIVELDETALLE_CURSO" EntitySet="DOCENTE_NIVELDETALLE_CURSO" />
             <End Role="CURRICULA" EntitySet="CURRICULA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__IdCurso__6166761E" Association="Self.FK__DOCENTE__IdCurso__6166761E">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
           </AssociationSet>
           <AssociationSet Name="FK__DOCENTE_N__IdDoc__68487DD7" Association="Self.FK__DOCENTE_N__IdDoc__68487DD7">
             <End Role="DOCENTE" EntitySet="DOCENTE" />
@@ -897,14 +890,6 @@
             <End Role="ROL" EntitySet="ROL" />
             <End Role="PERMISOS" EntitySet="PERMISOS" />
           </AssociationSet>
-          <AssociationSet Name="FK__PERMISOS__IdSubM__31EC6D26" Association="Self.FK__PERMISOS__IdSubM__31EC6D26">
-            <End Role="SUBMENU" EntitySet="SUBMENU" />
-            <End Role="PERMISOS" EntitySet="PERMISOS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__SUBMENU__IdMenu__286302EC" Association="Self.FK__SUBMENU__IdMenu__286302EC">
-            <End Role="MENU" EntitySet="MENU" />
-            <End Role="SUBMENU" EntitySet="SUBMENU" />
-          </AssociationSet>
           <AssociationSet Name="FK__USUARIO__IdRol__36B12243" Association="Self.FK__USUARIO__IdRol__36B12243">
             <End Role="ROL" EntitySet="ROL" />
             <End Role="USUARIO" EntitySet="USUARIO" />
@@ -932,6 +917,11 @@
           <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
           <NavigationProperty Name="CALIFICACION" Relationship="Self.FK__CALIFICAC__IdAlu__72C60C4A" FromRole="ALUMNO" ToRole="CALIFICACION" />
           <NavigationProperty Name="MATRICULA" Relationship="Self.FK__MATRICULA__IdAlu__778AC167" FromRole="ALUMNO" ToRole="MATRICULA" />
+          <Property Name="Fec_Ult_Mod" Type="DateTime" Precision="3" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Curso" Type="Int32" />
+          <Property Name="Nota" Type="Int32" />
+          <NavigationProperty Name="CURSO1" Relationship="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5" FromRole="ALUMNO" ToRole="CURSO" />
         </EntityType>
         <EntityType Name="APODERADO">
           <Key>
@@ -950,6 +940,8 @@
           <Property Name="Activo" Type="Boolean" />
           <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
           <NavigationProperty Name="MATRICULA" Relationship="Self.FK__MATRICULA__IdApo__797309D9" FromRole="APODERADO" ToRole="MATRICULA" />
+          <Property Name="Fec_Ult_Mod" Type="DateTime" Precision="3" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CALIFICACION">
           <Key>
@@ -963,6 +955,8 @@
           <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
           <NavigationProperty Name="ALUMNO" Relationship="Self.FK__CALIFICAC__IdAlu__72C60C4A" FromRole="CALIFICACION" ToRole="ALUMNO" />
           <NavigationProperty Name="CURRICULA" Relationship="Self.FK__CALIFICAC__IdCur__71D1E811" FromRole="CALIFICACION" ToRole="CURRICULA" />
+          <Property Name="Fec_Ult_Mod" Type="DateTime" Precision="3" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CURRICULA">
           <Key>
@@ -985,6 +979,9 @@
           <Property Name="Activo" Type="Boolean" />
           <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
           <NavigationProperty Name="NIVEL_DETALLE_CURSO" Relationship="Self.FK__NIVEL_DET__IdCur__5DCAEF64" FromRole="CURSO" ToRole="NIVEL_DETALLE_CURSO" />
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="ALUMNO" Relationship="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5" FromRole="CURSO" ToRole="ALUMNO" />
+          <NavigationProperty Name="DOCENTE" Relationship="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E" FromRole="CURSO" ToRole="DOCENTE" />
         </EntityType>
         <EntityType Name="DOCENTE">
           <Key>
@@ -1006,6 +1003,10 @@
           <Property Name="Activo" Type="Boolean" />
           <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
           <NavigationProperty Name="DOCENTE_NIVELDETALLE_CURSO" Relationship="Self.FK__DOCENTE_N__IdDoc__68487DD7" FromRole="DOCENTE" ToRole="DOCENTE_NIVELDETALLE_CURSO" />
+          <Property Name="Fec_Ult_Mod" Type="DateTime" Precision="3" />
+          <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IdCurso" Type="Int32" />
+          <NavigationProperty Name="CURSO" Relationship="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E" FromRole="DOCENTE" ToRole="CURSO" />
         </EntityType>
         <EntityType Name="DOCENTE_NIVELDETALLE_CURSO">
           <Key>
@@ -1062,17 +1063,6 @@
           <NavigationProperty Name="ALUMNO" Relationship="Self.FK__MATRICULA__IdAlu__778AC167" FromRole="MATRICULA" ToRole="ALUMNO" />
           <NavigationProperty Name="APODERADO" Relationship="Self.FK__MATRICULA__IdApo__797309D9" FromRole="MATRICULA" ToRole="APODERADO" />
           <NavigationProperty Name="NIVEL_DETALLE" Relationship="Self.FK__MATRICULA__IdNiv__787EE5A0" FromRole="MATRICULA" ToRole="NIVEL_DETALLE" />
-        </EntityType>
-        <EntityType Name="MENU">
-          <Key>
-            <PropertyRef Name="IdMenu" />
-          </Key>
-          <Property Name="IdMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="Icono" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="Activo" Type="Boolean" />
-          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="SUBMENU" Relationship="Self.FK__SUBMENU__IdMenu__286302EC" FromRole="MENU" ToRole="SUBMENU" />
         </EntityType>
         <EntityType Name="NIVEL">
           <Key>
@@ -1142,7 +1132,6 @@
           <Property Name="Activo" Type="Boolean" />
           <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
           <NavigationProperty Name="ROL" Relationship="Self.FK__PERMISOS__IdRol__30F848ED" FromRole="PERMISOS" ToRole="ROL" />
-          <NavigationProperty Name="SUBMENU" Relationship="Self.FK__PERMISOS__IdSubM__31EC6D26" FromRole="PERMISOS" ToRole="SUBMENU" />
         </EntityType>
         <EntityType Name="ROL">
           <Key>
@@ -1154,19 +1143,6 @@
           <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PERMISOS" Relationship="Self.FK__PERMISOS__IdRol__30F848ED" FromRole="ROL" ToRole="PERMISOS" />
           <NavigationProperty Name="USUARIO" Relationship="Self.FK__USUARIO__IdRol__36B12243" FromRole="ROL" ToRole="USUARIO" />
-        </EntityType>
-        <EntityType Name="SUBMENU">
-          <Key>
-            <PropertyRef Name="IdSubMenu" />
-          </Key>
-          <Property Name="IdSubMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMenu" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="NombreFormulario" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="Activo" Type="Boolean" />
-          <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="MENU" Relationship="Self.FK__SUBMENU__IdMenu__286302EC" FromRole="SUBMENU" ToRole="MENU" />
-          <NavigationProperty Name="PERMISOS" Relationship="Self.FK__PERMISOS__IdSubM__31EC6D26" FromRole="SUBMENU" ToRole="PERMISOS" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -1326,18 +1302,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SUBMENU__IdMenu__286302EC">
-          <End Role="MENU" Type="Self.MENU" Multiplicity="0..1" />
-          <End Role="SUBMENU" Type="Self.SUBMENU" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MENU">
-              <PropertyRef Name="IdMenu" />
-            </Principal>
-            <Dependent Role="SUBMENU">
-              <PropertyRef Name="IdMenu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__NIVEL__IdPeriodo__52593CB8">
           <End Role="PERIODO" Type="Self.PERIODO" Multiplicity="0..1" />
           <End Role="NIVEL" Type="Self.NIVEL" Multiplicity="*" />
@@ -1386,18 +1350,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PERMISOS__IdSubM__31EC6D26">
-          <End Role="SUBMENU" Type="Self.SUBMENU" Multiplicity="0..1" />
-          <End Role="PERMISOS" Type="Self.PERMISOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SUBMENU">
-              <PropertyRef Name="IdSubMenu" />
-            </Principal>
-            <Dependent Role="PERMISOS">
-              <PropertyRef Name="IdSubMenu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__USUARIO__IdRol__36B12243">
           <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
@@ -1421,14 +1373,12 @@
           <EntitySet Name="GRADO_SECCION" EntityType="Self.GRADO_SECCION" />
           <EntitySet Name="HORARIO" EntityType="Self.HORARIO" />
           <EntitySet Name="MATRICULA" EntityType="Self.MATRICULA" />
-          <EntitySet Name="MENU" EntityType="Self.MENU" />
           <EntitySet Name="NIVEL" EntityType="Self.NIVEL" />
           <EntitySet Name="NIVEL_DETALLE" EntityType="Self.NIVEL_DETALLE" />
           <EntitySet Name="NIVEL_DETALLE_CURSO" EntityType="Self.NIVEL_DETALLE_CURSO" />
           <EntitySet Name="PERIODO" EntityType="Self.PERIODO" />
           <EntitySet Name="PERMISOS" EntityType="Self.PERMISOS" />
           <EntitySet Name="ROL" EntityType="Self.ROL" />
-          <EntitySet Name="SUBMENU" EntityType="Self.SUBMENU" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
           <AssociationSet Name="FK__CALIFICAC__IdAlu__72C60C4A" Association="Self.FK__CALIFICAC__IdAlu__72C60C4A">
@@ -1475,10 +1425,6 @@
             <End Role="NIVEL_DETALLE" EntitySet="NIVEL_DETALLE" />
             <End Role="MATRICULA" EntitySet="MATRICULA" />
           </AssociationSet>
-          <AssociationSet Name="FK__SUBMENU__IdMenu__286302EC" Association="Self.FK__SUBMENU__IdMenu__286302EC">
-            <End Role="MENU" EntitySet="MENU" />
-            <End Role="SUBMENU" EntitySet="SUBMENU" />
-          </AssociationSet>
           <AssociationSet Name="FK__NIVEL__IdPeriodo__52593CB8" Association="Self.FK__NIVEL__IdPeriodo__52593CB8">
             <End Role="PERIODO" EntitySet="PERIODO" />
             <End Role="NIVEL" EntitySet="NIVEL" />
@@ -1493,10 +1439,6 @@
           </AssociationSet>
           <AssociationSet Name="FK__PERMISOS__IdRol__30F848ED" Association="Self.FK__PERMISOS__IdRol__30F848ED">
             <End Role="ROL" EntitySet="ROL" />
-            <End Role="PERMISOS" EntitySet="PERMISOS" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PERMISOS__IdSubM__31EC6D26" Association="Self.FK__PERMISOS__IdSubM__31EC6D26">
-            <End Role="SUBMENU" EntitySet="SUBMENU" />
             <End Role="PERMISOS" EntitySet="PERMISOS" />
           </AssociationSet>
           <AssociationSet Name="FK__USUARIO__IdRol__36B12243" Association="Self.FK__USUARIO__IdRol__36B12243">
@@ -1827,7 +1769,7 @@
             <Parameter Name="Direccion" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_EliminarDocente">
-            <Parameter Name="codigo" Mode="In" Type="Int32" />
+          <Parameter Name="codigo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_InsertarAlumno">
             <Parameter Name="Nombres" Mode="In" Type="String" />
@@ -1852,6 +1794,23 @@
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="telefono" Mode="In" Type="String" />
             <Parameter Name="fechaRegistro" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <AssociationSet Name="FK__ALUMNO__Curso__607251E5" Association="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DOCENTE__IdCurso__6166761E" Association="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E">
+            <End Role="CURSO" EntitySet="CURSO" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
+          <FunctionImport Name="get_top_alumnos" ReturnType="Collection(BDCOLEGIOModel.get_top_alumnos_Result)" />
+          <FunctionImport Name="set_curso_docente">
+            <Parameter Name="idcurso" Mode="In" Type="Int32" />
+            <Parameter Name="iddocente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="set_imagen_curso">
+            <Parameter Name="imagen" Mode="In" Type="Binary" />
+            <Parameter Name="idcurso" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_ActualizarPermisos_Result">
@@ -2039,6 +1998,48 @@
           <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
         </ComplexType>
+        <Association Name="FK__ALUMNO__Curso__607251E5">
+          <End Type="BDCOLEGIOModel.CURSO" Role="CURSO" Multiplicity="0..1" />
+          <End Type="BDCOLEGIOModel.ALUMNO" Role="ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="ALUMNO">
+              <PropertyRef Name="Curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DOCENTE__IdCurso__6166761E">
+          <End Type="BDCOLEGIOModel.CURSO" Role="CURSO" Multiplicity="0..1" />
+          <End Type="BDCOLEGIOModel.DOCENTE" Role="DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CURSO">
+              <PropertyRef Name="IdCurso" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="IdCurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="get_top_alumnos_Result">
+          <Property Type="Int32" Name="IdAlumno" Nullable="false" />
+          <Property Type="Int32" Name="ValorCodigo" Nullable="true" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Fec_Ult_Mod" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="Curso" Nullable="true" />
+          <Property Type="Int32" Name="Nota" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2048,6 +2049,10 @@
           <EntitySetMapping Name="ALUMNO">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.ALUMNO">
               <MappingFragment StoreEntitySet="ALUMNO">
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
                 <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
                 <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
@@ -2066,6 +2071,8 @@
           <EntitySetMapping Name="APODERADO">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.APODERADO">
               <MappingFragment StoreEntitySet="APODERADO">
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
                 <ScalarProperty Name="IdApoderado" ColumnName="IdApoderado" />
                 <ScalarProperty Name="TipoRelacion" ColumnName="TipoRelacion" />
                 <ScalarProperty Name="Nombres" ColumnName="Nombres" />
@@ -2084,6 +2091,8 @@
           <EntitySetMapping Name="CALIFICACION">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.CALIFICACION">
               <MappingFragment StoreEntitySet="CALIFICACION">
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
                 <ScalarProperty Name="IdCalificacion" ColumnName="IdCalificacion" />
                 <ScalarProperty Name="IdCurricula" ColumnName="IdCurricula" />
                 <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
@@ -2107,6 +2116,7 @@
           <EntitySetMapping Name="CURSO">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.CURSO">
               <MappingFragment StoreEntitySet="CURSO">
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
@@ -2117,6 +2127,9 @@
           <EntitySetMapping Name="DOCENTE">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE">
               <MappingFragment StoreEntitySet="DOCENTE">
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
                 <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
                 <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
@@ -2219,17 +2232,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MENU">
-            <EntityTypeMapping TypeName="BDCOLEGIOModel.MENU">
-              <MappingFragment StoreEntitySet="MENU">
-                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Icono" ColumnName="Icono" />
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="NIVEL">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.NIVEL">
               <MappingFragment StoreEntitySet="NIVEL">
@@ -2302,18 +2304,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SUBMENU">
-            <EntityTypeMapping TypeName="BDCOLEGIOModel.SUBMENU">
-              <MappingFragment StoreEntitySet="SUBMENU">
-                <ScalarProperty Name="IdSubMenu" ColumnName="IdSubMenu" />
-                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="NombreFormulario" ColumnName="NombreFormulario" />
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -2367,7 +2357,6 @@
           <FunctionImportMapping FunctionImportName="usp_EliminarAlumno" FunctionName="BDCOLEGIOModel.Store.usp_EliminarAlumno" />
           <FunctionImportMapping FunctionImportName="usp_EliminarCurricula" FunctionName="BDCOLEGIOModel.Store.usp_EliminarCurricula" />
           <FunctionImportMapping FunctionImportName="usp_EliminarCurso" FunctionName="BDCOLEGIOModel.Store.usp_EliminarCurso" />
-          <FunctionImportMapping FunctionImportName="usp_EliminarDocente" FunctionName="BDCOLEGIOModel.Store.usp_EliminarDocente" />
           <FunctionImportMapping FunctionImportName="usp_EliminarDocenteCurso" FunctionName="BDCOLEGIOModel.Store.usp_EliminarDocenteCurso" />
           <FunctionImportMapping FunctionImportName="usp_EliminarGradoSeccion" FunctionName="BDCOLEGIOModel.Store.usp_EliminarGradoSeccion" />
           <FunctionImportMapping FunctionImportName="usp_EliminarHorario" FunctionName="BDCOLEGIOModel.Store.usp_EliminarHorario" />
@@ -2649,8 +2638,31 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_ActulizarDocente" FunctionName="BDCOLEGIOModel.Store.SP_ActulizarDocente" />
           <FunctionImportMapping FunctionImportName="SP_EliminarDocente" FunctionName="BDCOLEGIOModel.Store.SP_EliminarDocente" />
-          <FunctionImportMapping FunctionImportName="SP_InsertarAlumno" FunctionName="BDCOLEGIOModel.Store.SP_InsertarAlumno" />
           <FunctionImportMapping FunctionImportName="SP_InsertarDocente" FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente" />
+          <FunctionImportMapping FunctionImportName="get_top_alumnos" FunctionName="BDCOLEGIOModel.Store.get_top_alumnos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.get_top_alumnos_Result">
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
+                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="set_curso_docente" FunctionName="BDCOLEGIOModel.Store.set_curso_docente" />
+          <FunctionImportMapping FunctionImportName="set_imagen_curso" FunctionName="BDCOLEGIOModel.Store.set_imagen_curso" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

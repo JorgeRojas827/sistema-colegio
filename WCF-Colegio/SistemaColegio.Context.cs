@@ -37,14 +37,12 @@ namespace WCF_Colegio
         public virtual DbSet<GRADO_SECCION> GRADO_SECCION { get; set; }
         public virtual DbSet<HORARIO> HORARIO { get; set; }
         public virtual DbSet<MATRICULA> MATRICULA { get; set; }
-        public virtual DbSet<MENU> MENU { get; set; }
         public virtual DbSet<NIVEL> NIVEL { get; set; }
         public virtual DbSet<NIVEL_DETALLE> NIVEL_DETALLE { get; set; }
         public virtual DbSet<NIVEL_DETALLE_CURSO> NIVEL_DETALLE_CURSO { get; set; }
         public virtual DbSet<PERIODO> PERIODO { get; set; }
         public virtual DbSet<PERMISOS> PERMISOS { get; set; }
         public virtual DbSet<ROL> ROL { get; set; }
-        public virtual DbSet<SUBMENU> SUBMENU { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
     
@@ -1154,6 +1152,37 @@ namespace WCF_Colegio
                 new ObjectParameter("fechaRegistro", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InsertarDocente", valorCodigoParameter, codigoParameter, documentoIdentidadParameter, nombresParameter, apellidosParameter, fechaNacimientoParameter, sexoParameter, gradoEstudioParameter, ciudadParameter, direccionParameter, emailParameter, telefonoParameter, fechaRegistroParameter);
+        }
+    
+        public virtual ObjectResult<get_top_alumnos_Result> get_top_alumnos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<get_top_alumnos_Result>("get_top_alumnos");
+        }
+    
+        public virtual int set_curso_docente(Nullable<int> idcurso, Nullable<int> iddocente)
+        {
+            var idcursoParameter = idcurso.HasValue ?
+                new ObjectParameter("idcurso", idcurso) :
+                new ObjectParameter("idcurso", typeof(int));
+    
+            var iddocenteParameter = iddocente.HasValue ?
+                new ObjectParameter("iddocente", iddocente) :
+                new ObjectParameter("iddocente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("set_curso_docente", idcursoParameter, iddocenteParameter);
+        }
+    
+        public virtual int set_imagen_curso(byte[] imagen, Nullable<int> idcurso)
+        {
+            var imagenParameter = imagen != null ?
+                new ObjectParameter("imagen", imagen) :
+                new ObjectParameter("imagen", typeof(byte[]));
+    
+            var idcursoParameter = idcurso.HasValue ?
+                new ObjectParameter("idcurso", idcurso) :
+                new ObjectParameter("idcurso", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("set_imagen_curso", imagenParameter, idcursoParameter);
         }
     }
 }

@@ -16,6 +16,10 @@
     <Property Name="Direccion" Type="varchar" MaxLength="100" />
     <Property Name="Activo" Type="bit" />
     <Property Name="FechaRegistro" Type="datetime" />
+    <Property Name="Fec_Ult_Mod" Type="datetime" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+    <Property Name="Curso" Type="int" />
+    <Property Name="Nota" Type="int" />
   </EntityType>
   <EntityType Name="APODERADO">
     <Key>
@@ -33,6 +37,8 @@
     <Property Name="Direccion" Type="varchar" MaxLength="100" />
     <Property Name="Activo" Type="bit" />
     <Property Name="FechaRegistro" Type="datetime" />
+    <Property Name="Fec_Ult_Mod" Type="datetime" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="CALIFICACION">
     <Key>
@@ -44,6 +50,8 @@
     <Property Name="Nota" Type="float" />
     <Property Name="Activo" Type="bit" />
     <Property Name="FechaRegistro" Type="datetime" />
+    <Property Name="Fec_Ult_Mod" Type="datetime" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="CURRICULA">
     <Key>
@@ -63,6 +71,7 @@
     <Property Name="Descripcion" Type="varchar" MaxLength="100" />
     <Property Name="Activo" Type="bit" />
     <Property Name="FechaRegistro" Type="datetime" />
+    <Property Name="Imagen" Type="image" />
   </EntityType>
   <EntityType Name="DOCENTE">
     <Key>
@@ -83,6 +92,9 @@
     <Property Name="NumeroTelefono" Type="varchar" MaxLength="50" />
     <Property Name="Activo" Type="bit" />
     <Property Name="FechaRegistro" Type="datetime" />
+    <Property Name="Fec_Ult_Mod" Type="datetime" />
+    <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
+    <Property Name="IdCurso" Type="int" />
   </EntityType>
   <EntityType Name="DOCENTE_NIVELDETALLE_CURSO">
     <Key>
@@ -129,16 +141,6 @@
     <Property Name="IdApoderado" Type="int" />
     <Property Name="InstitucionProcedencia" Type="varchar" MaxLength="50" />
     <Property Name="EsRepitente" Type="bit" />
-    <Property Name="Activo" Type="bit" />
-    <Property Name="FechaRegistro" Type="datetime" />
-  </EntityType>
-  <EntityType Name="MENU">
-    <Key>
-      <PropertyRef Name="IdMenu" />
-    </Key>
-    <Property Name="IdMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="varchar" MaxLength="60" />
-    <Property Name="Icono" Type="varchar" MaxLength="60" />
     <Property Name="Activo" Type="bit" />
     <Property Name="FechaRegistro" Type="datetime" />
   </EntityType>
@@ -208,17 +210,6 @@
     <Property Name="Activo" Type="bit" />
     <Property Name="FechaRegistro" Type="datetime" />
   </EntityType>
-  <EntityType Name="SUBMENU">
-    <Key>
-      <PropertyRef Name="IdSubMenu" />
-    </Key>
-    <Property Name="IdSubMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdMenu" Type="int" />
-    <Property Name="Nombre" Type="varchar" MaxLength="60" />
-    <Property Name="NombreFormulario" Type="varchar" MaxLength="60" />
-    <Property Name="Activo" Type="bit" />
-    <Property Name="FechaRegistro" Type="datetime" />
-  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -244,6 +235,18 @@
     <Property Name="Activo" Type="bit" />
     <Property Name="FechaRegistro" Type="datetime" />
   </EntityType>
+  <Association Name="FK__ALUMNO__Curso__607251E5">
+    <End Role="CURSO" Type="Self.CURSO" Multiplicity="0..1" />
+    <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CURSO">
+        <PropertyRef Name="IdCurso" />
+      </Principal>
+      <Dependent Role="ALUMNO">
+        <PropertyRef Name="Curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__CALIFICAC__IdAlu__72C60C4A">
     <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="0..1" />
     <End Role="CALIFICACION" Type="Self.CALIFICACION" Multiplicity="*" />
@@ -277,6 +280,18 @@
       </Principal>
       <Dependent Role="CURRICULA">
         <PropertyRef Name="IdDocenteNivelDetalleCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DOCENTE__IdCurso__6166761E">
+    <End Role="CURSO" Type="Self.CURSO" Multiplicity="0..1" />
+    <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CURSO">
+        <PropertyRef Name="IdCurso" />
+      </Principal>
+      <Dependent Role="DOCENTE">
+        <PropertyRef Name="IdCurso" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -424,30 +439,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__PERMISOS__IdSubM__31EC6D26">
-    <End Role="SUBMENU" Type="Self.SUBMENU" Multiplicity="0..1" />
-    <End Role="PERMISOS" Type="Self.PERMISOS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SUBMENU">
-        <PropertyRef Name="IdSubMenu" />
-      </Principal>
-      <Dependent Role="PERMISOS">
-        <PropertyRef Name="IdSubMenu" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__SUBMENU__IdMenu__286302EC">
-    <End Role="MENU" Type="Self.MENU" Multiplicity="0..1" />
-    <End Role="SUBMENU" Type="Self.SUBMENU" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MENU">
-        <PropertyRef Name="IdMenu" />
-      </Principal>
-      <Dependent Role="SUBMENU">
-        <PropertyRef Name="IdMenu" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__USUARIO__IdRol__36B12243">
     <End Role="ROL" Type="Self.ROL" Multiplicity="0..1" />
     <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
@@ -461,6 +452,15 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="get_top_alumnos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="set_curso_docente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idcurso" Type="int" Mode="In" />
+    <Parameter Name="iddocente" Type="int" Mode="In" />
+  </Function>
+  <Function Name="set_imagen_curso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="imagen" Type="image" Mode="In" />
+    <Parameter Name="idcurso" Type="int" Mode="In" />
+  </Function>
   <Function Name="SP_ActulizarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_docente" Type="int" Mode="In" />
     <Parameter Name="nombre" Type="varchar" Mode="In" />
@@ -497,15 +497,6 @@
   <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="SP_InsertarAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Nombres" Type="varchar" Mode="In" />
-    <Parameter Name="Apellidos" Type="varchar" Mode="In" />
-    <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
-    <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
-    <Parameter Name="Sexo" Type="varchar" Mode="In" />
-    <Parameter Name="Ciudad" Type="varchar" Mode="In" />
-    <Parameter Name="Direccion" Type="varchar" Mode="In" />
   </Function>
   <Function Name="SP_InsertarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="valorCodigo" Type="int" Mode="In" />
@@ -606,10 +597,6 @@
   </Function>
   <Function Name="usp_EliminarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdCurso" Type="int" Mode="In" />
-    <Parameter Name="Resultado" Type="bit" Mode="InOut" />
-  </Function>
-  <Function Name="usp_EliminarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IdDocente" Type="int" Mode="In" />
     <Parameter Name="Resultado" Type="bit" Mode="InOut" />
   </Function>
   <Function Name="usp_EliminarDocenteCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -822,16 +809,18 @@
     <EntitySet Name="GRADO_SECCION" EntityType="Self.GRADO_SECCION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HORARIO" EntityType="Self.HORARIO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MATRICULA" EntityType="Self.MATRICULA" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NIVEL" EntityType="Self.NIVEL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NIVEL_DETALLE" EntityType="Self.NIVEL_DETALLE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NIVEL_DETALLE_CURSO" EntityType="Self.NIVEL_DETALLE_CURSO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PERIODO" EntityType="Self.PERIODO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PERMISOS" EntityType="Self.PERMISOS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="SUBMENU" EntityType="Self.SUBMENU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ALUMNO__Curso__607251E5" Association="Self.FK__ALUMNO__Curso__607251E5">
+      <End Role="CURSO" EntitySet="CURSO" />
+      <End Role="ALUMNO" EntitySet="ALUMNO" />
+    </AssociationSet>
     <AssociationSet Name="FK__CALIFICAC__IdAlu__72C60C4A" Association="Self.FK__CALIFICAC__IdAlu__72C60C4A">
       <End Role="ALUMNO" EntitySet="ALUMNO" />
       <End Role="CALIFICACION" EntitySet="CALIFICACION" />
@@ -843,6 +832,10 @@
     <AssociationSet Name="FK__CURRICULA__IdDoc__6D0D32F4" Association="Self.FK__CURRICULA__IdDoc__6D0D32F4">
       <End Role="DOCENTE_NIVELDETALLE_CURSO" EntitySet="DOCENTE_NIVELDETALLE_CURSO" />
       <End Role="CURRICULA" EntitySet="CURRICULA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DOCENTE__IdCurso__6166761E" Association="Self.FK__DOCENTE__IdCurso__6166761E">
+      <End Role="CURSO" EntitySet="CURSO" />
+      <End Role="DOCENTE" EntitySet="DOCENTE" />
     </AssociationSet>
     <AssociationSet Name="FK__DOCENTE_N__IdDoc__68487DD7" Association="Self.FK__DOCENTE_N__IdDoc__68487DD7">
       <End Role="DOCENTE" EntitySet="DOCENTE" />
@@ -891,14 +884,6 @@
     <AssociationSet Name="FK__PERMISOS__IdRol__30F848ED" Association="Self.FK__PERMISOS__IdRol__30F848ED">
       <End Role="ROL" EntitySet="ROL" />
       <End Role="PERMISOS" EntitySet="PERMISOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PERMISOS__IdSubM__31EC6D26" Association="Self.FK__PERMISOS__IdSubM__31EC6D26">
-      <End Role="SUBMENU" EntitySet="SUBMENU" />
-      <End Role="PERMISOS" EntitySet="PERMISOS" />
-    </AssociationSet>
-    <AssociationSet Name="FK__SUBMENU__IdMenu__286302EC" Association="Self.FK__SUBMENU__IdMenu__286302EC">
-      <End Role="MENU" EntitySet="MENU" />
-      <End Role="SUBMENU" EntitySet="SUBMENU" />
     </AssociationSet>
     <AssociationSet Name="FK__USUARIO__IdRol__36B12243" Association="Self.FK__USUARIO__IdRol__36B12243">
       <End Role="ROL" EntitySet="ROL" />

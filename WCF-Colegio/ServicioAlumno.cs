@@ -55,6 +55,8 @@ namespace WCF_Colegio
                     objAlumnoBE.Mvarciu_al = objAlumno.Ciudad;
                     objAlumnoBE.Mvardir_al = objAlumno.Direccion;
                     objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
+                    objAlumnoBE.Mvaridcurso = Convert.ToInt32(objAlumno.Curso);
+                    objAlumnoBE.Mvarnota = Convert.ToInt32(objAlumno.Nota);
 
                     objListaAlumno.Add(objAlumnoBE);
                 }
@@ -86,6 +88,8 @@ namespace WCF_Colegio
                 objAlumno.Ciudad = objAlumnoBE.Mvarciu_al;
                 objAlumno.Direccion= objAlumnoBE.Mvardir_al;
                 objAlumno.FechaRegistro= Convert.ToDateTime(objAlumnoBE.Mvarfecres_al);
+                objAlumno.Curso = Convert.ToInt32(objAlumnoBE.Mvaridcurso);
+                objAlumno.Nota = Convert.ToInt32(objAlumnoBE.Mvarnota);
 
                 bdcolegio.ALUMNO.Add(objAlumno);
 
@@ -119,6 +123,8 @@ namespace WCF_Colegio
                 objAlumno.Ciudad = objAlumnoBE.Mvarciu_al;
                 objAlumno.Direccion = objAlumnoBE.Mvardir_al;
                 objAlumno.FechaRegistro = Convert.ToDateTime(objAlumnoBE.Mvarfecres_al);
+                objAlumno.Curso = Convert.ToInt32(objAlumnoBE.Mvaridcurso);
+                objAlumno.Nota = Convert.ToInt32(objAlumnoBE.Mvarnota);
 
                 bdcolegio.SaveChanges();
 
@@ -126,6 +132,45 @@ namespace WCF_Colegio
             }
             catch (Exception ex)
             {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public AlumnoBE GetAlumno(Int16 strId)
+        {
+            BDCOLEGIOEntities MiColegio = new BDCOLEGIOEntities();
+
+            try
+            {
+                ALUMNO objAlumno = (
+
+                from oAlumno in MiColegio.ALUMNO
+                where oAlumno.IdAlumno == strId
+                select oAlumno
+                ).FirstOrDefault();
+
+                AlumnoBE objAlumnoBE = new AlumnoBE();
+                objAlumnoBE.Mvarid_alumno = Convert.ToInt16(objAlumno.IdAlumno);
+                objAlumnoBE.Mvarvalorcod_al = Convert.ToInt16(objAlumno.ValorCodigo);
+                objAlumnoBE.Mvarcod_al = objAlumno.Codigo;
+                objAlumnoBE.Mvarnom_al = objAlumno.Nombres;
+                objAlumnoBE.Mvarape_al = objAlumno.Apellidos;
+                objAlumnoBE.Mvardocide_al = objAlumno.DocumentoIdentidad;
+                objAlumnoBE.Mvarfecnac_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
+                objAlumnoBE.Mvarsex_al = objAlumno.Sexo;
+                objAlumnoBE.Mvarciu_al = objAlumno.Ciudad;
+                objAlumnoBE.Mvardir_al = objAlumno.Direccion;
+                objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaRegistro);
+                objAlumnoBE.Mvaridcurso = Convert.ToInt32(objAlumno.Curso);
+                objAlumnoBE.Mvarnota = Convert.ToInt32(objAlumno.Nota);
+                return objAlumnoBE;
+
+            }
+
+
+            catch (EntityException ex)
+            {
+
                 throw new Exception(ex.Message);
             }
         }

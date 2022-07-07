@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Data.Entity.Core;
 
 namespace WCF_Colegio
 {
@@ -142,6 +143,37 @@ namespace WCF_Colegio
 
         }
 
+        public UsuarioBE GetUsuario(Int32 strId)
+        {
+            BDCOLEGIOEntities MiColegio = new BDCOLEGIOEntities();
 
+            try
+            {
+                USUARIO objUsuario = (
+
+                from oUsuario in MiColegio.USUARIO
+                where oUsuario.IdUsuario == strId
+                select oUsuario
+                ).FirstOrDefault();
+
+                UsuarioBE objUsuarioBE = new UsuarioBE();
+                objUsuarioBE.Mvarid_usuario = Convert.ToInt16(objUsuario.IdUsuario);
+                objUsuarioBE.Mvarnom_us = objUsuario.Nombres;
+                objUsuarioBE.Mvarape_us = objUsuario.Apellidos;
+                objUsuarioBE.Mvarid_rol = Convert.ToInt16(objUsuario.IdRol);
+                objUsuarioBE.Mvarlog_usuario = objUsuario.LoginUsuario;
+                objUsuarioBE.Mvarlog_clave = objUsuario.LoginClave;
+                objUsuarioBE.Mvardes_referencia = objUsuario.DescripcionReferencia;
+                objUsuarioBE.Mvarid_referencia = Convert.ToInt16(objUsuario.IdReferencia);
+                objUsuarioBE.Mvarfecha_registro = Convert.ToDateTime(objUsuario.FechaRegistro);
+
+                return objUsuarioBE;
+            }
+            catch (EntityException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

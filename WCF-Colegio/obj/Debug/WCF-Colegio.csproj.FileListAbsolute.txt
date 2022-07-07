@@ -70,3 +70,15 @@ D:\git2.0\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CoreCompileInputs.cache
 D:\git2.0\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
 D:\git2.0\WCF-Colegio\obj\Debug\WCF-Colegio.dll
 D:\git2.0\WCF-Colegio\obj\Debug\WCF-Colegio.pdb
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\bin\Debug\WCF-Colegio.dll.config
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\bin\Debug\WCF-Colegio.dll
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\bin\Debug\WCF-Colegio.pdb
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\bin\Debug\EntityFramework.dll
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\bin\Debug\EntityFramework.xml
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.AssemblyReference.cache
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CoreCompileInputs.cache
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\obj\Debug\WCF-Colegio.dll
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioHeinsenberg\WCF-Colegio\obj\Debug\WCF-Colegio.pdb

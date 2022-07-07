@@ -21,6 +21,5 @@ namespace WCF_Colegio
         public Nullable<System.DateTime> FechaRegistro { get; set; }
     
         public virtual ROL ROL { get; set; }
-        public virtual SUBMENU SUBMENU { get; set; }
     }
 }

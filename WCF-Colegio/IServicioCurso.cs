@@ -21,6 +21,9 @@ namespace WCF_Colegio
         Boolean DeleteCurso(short strId);
 
         [OperationContract]
+        CursoBE GetCurso(Int32 strId);
+
+        [OperationContract]
         List<CursoBE> GetCursos();
     }
 
@@ -32,6 +35,7 @@ namespace WCF_Colegio
         private String mvardescripcion;
         private Boolean mvaractivo;
         private DateTime mvarfecharegistro;
+        private Byte[] mvarimagen;
 
         [DataMember]
         public short IdCurso
@@ -52,6 +56,13 @@ namespace WCF_Colegio
         {
             get { return mvarfecharegistro; }
             set { mvarfecharegistro = value; }
+        }
+
+        [DataMember]
+        public Byte[] Imagen
+        {
+            get { return mvarimagen; }
+            set { mvarimagen = value; }
         }
     }
 }
