@@ -618,5 +618,21 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="set_curso_docente" FunctionName="BDCOLEGIOModel.Store.set_curso_docente" />
     <FunctionImportMapping FunctionImportName="set_imagen_curso" FunctionName="BDCOLEGIOModel.Store.set_imagen_curso" />
+    <FunctionImportMapping FunctionImportName="login_usuario" FunctionName="BDCOLEGIOModel.Store.login_usuario">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.login_usuario_Result">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="LoginUsuario" ColumnName="LoginUsuario" />
+          <ScalarProperty Name="LoginClave" ColumnName="LoginClave" />
+          <ScalarProperty Name="DescripcionReferencia" ColumnName="DescripcionReferencia" />
+          <ScalarProperty Name="IdReferencia" ColumnName="IdReferencia" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

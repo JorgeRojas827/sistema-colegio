@@ -1154,9 +1154,13 @@ namespace WCF_Colegio
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_InsertarDocente", valorCodigoParameter, codigoParameter, documentoIdentidadParameter, nombresParameter, apellidosParameter, fechaNacimientoParameter, sexoParameter, gradoEstudioParameter, ciudadParameter, direccionParameter, emailParameter, telefonoParameter, fechaRegistroParameter);
         }
     
-        public virtual ObjectResult<get_top_alumnos_Result> get_top_alumnos()
+        public virtual ObjectResult<get_top_alumnos_Result> get_top_alumnos(Nullable<int> maximo)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<get_top_alumnos_Result>("get_top_alumnos");
+            var maximoParameter = maximo.HasValue ?
+                new ObjectParameter("maximo", maximo) :
+                new ObjectParameter("maximo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<get_top_alumnos_Result>("get_top_alumnos", maximoParameter);
         }
     
         public virtual int set_curso_docente(Nullable<int> idcurso, Nullable<int> iddocente)
@@ -1183,6 +1187,19 @@ namespace WCF_Colegio
                 new ObjectParameter("idcurso", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("set_imagen_curso", imagenParameter, idcursoParameter);
+        }
+    
+        public virtual ObjectResult<login_usuario_Result> login_usuario(string usuario, string clave)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var claveParameter = clave != null ?
+                new ObjectParameter("clave", clave) :
+                new ObjectParameter("clave", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<login_usuario_Result>("login_usuario", usuarioParameter, claveParameter);
         }
     }
 }

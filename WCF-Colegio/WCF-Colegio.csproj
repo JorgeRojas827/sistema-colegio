@@ -12,7 +12,7 @@
     <AssemblyName>WCF-Colegio</AssemblyName>
     <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <XsdCodeGenEnabled>True</XsdCodeGenEnabled>
     <TargetFrameworkProfile />
@@ -83,12 +83,17 @@
     <Compile Include="HORARIO.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
+    <Compile Include="IIServicioExtra.cs" />
     <Compile Include="IService1.cs" />
     <Compile Include="IService2.cs" />
     <Compile Include="IServicioAlumno.cs" />
     <Compile Include="IServicioCurso.cs" />
     <Compile Include="IServicioDocente.cs" />
+    <Compile Include="IServicioExtra.cs" />
     <Compile Include="IServicioUsuario.cs" />
+    <Compile Include="login_usuario_Result.cs">
+      <DependentUpon>SistemaColegio.tt</DependentUpon>
+    </Compile>
     <Compile Include="MATRICULA.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
