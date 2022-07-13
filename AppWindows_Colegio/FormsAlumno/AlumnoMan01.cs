@@ -86,5 +86,20 @@ namespace AppWindows_Colegio
             }
             
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objAlumno.DeleteAlumno(Convert.ToInt16(dtgAlumnos.CurrentRow.Cells[0].Value.ToString()));
+                MessageBox.Show("Alumno eliminado");
+                CargarDatos();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error : " + ex.Message);
+            }
+        }
     }
 }

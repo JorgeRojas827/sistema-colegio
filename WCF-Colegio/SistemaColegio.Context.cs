@@ -172,7 +172,7 @@ namespace WCF_Colegio
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_DetalleDocenteCurso");
         }
     
-        public virtual int usp_EditarAlumno(Nullable<int> idAlumno, string codigo, string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, string ciudad, string direccion, Nullable<bool> activo, ObjectParameter resultado)
+        public virtual int usp_EditarAlumno(Nullable<int> idAlumno, string codigo, string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, string ciudad, string direccion, Nullable<bool> activo)
         {
             var idAlumnoParameter = idAlumno.HasValue ?
                 new ObjectParameter("IdAlumno", idAlumno) :
@@ -214,7 +214,7 @@ namespace WCF_Colegio
                 new ObjectParameter("Activo", activo) :
                 new ObjectParameter("Activo", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_EditarAlumno", idAlumnoParameter, codigoParameter, nombresParameter, apellidosParameter, documentoIdentidadParameter, fechaNacimientoParameter, sexoParameter, ciudadParameter, direccionParameter, activoParameter, resultado);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_EditarAlumno", idAlumnoParameter, codigoParameter, nombresParameter, apellidosParameter, documentoIdentidadParameter, fechaNacimientoParameter, sexoParameter, ciudadParameter, direccionParameter, activoParameter);
         }
     
         public virtual int usp_EditarCurso(Nullable<int> idCurso, string descripcion, Nullable<bool> activo, ObjectParameter resultado)
@@ -661,7 +661,7 @@ namespace WCF_Colegio
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ObtenerUsuario_Result>("usp_ObtenerUsuario");
         }
     
-        public virtual int usp_RegistrarAlumno(string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, string ciudad, string direccion, ObjectParameter resultado)
+        public virtual int usp_RegistrarAlumno(string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, string ciudad, string direccion)
         {
             var nombresParameter = nombres != null ?
                 new ObjectParameter("Nombres", nombres) :
@@ -691,7 +691,7 @@ namespace WCF_Colegio
                 new ObjectParameter("Direccion", direccion) :
                 new ObjectParameter("Direccion", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_RegistrarAlumno", nombresParameter, apellidosParameter, documentoIdentidadParameter, fechaNacimientoParameter, sexoParameter, ciudadParameter, direccionParameter, resultado);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_RegistrarAlumno", nombresParameter, apellidosParameter, documentoIdentidadParameter, fechaNacimientoParameter, sexoParameter, ciudadParameter, direccionParameter);
         }
     
         public virtual int usp_RegistrarCalificacion(string xml, ObjectParameter resultado)

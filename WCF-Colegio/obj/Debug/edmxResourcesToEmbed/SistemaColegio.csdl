@@ -596,7 +596,6 @@
       <Parameter Name="Ciudad" Mode="In" Type="String" />
       <Parameter Name="Direccion" Mode="In" Type="String" />
       <Parameter Name="Activo" Mode="In" Type="Boolean" />
-      <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="usp_EditarCurso">
       <Parameter Name="IdCurso" Mode="In" Type="Int32" />
@@ -750,7 +749,6 @@
       <Parameter Name="Sexo" Mode="In" Type="String" />
       <Parameter Name="Ciudad" Mode="In" Type="String" />
       <Parameter Name="Direccion" Mode="In" Type="String" />
-      <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="usp_RegistrarCalificacion">
       <Parameter Name="xml" Mode="In" Type="String" />

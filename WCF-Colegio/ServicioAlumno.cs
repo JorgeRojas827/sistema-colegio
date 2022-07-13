@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Data.Entity.Core;
+using System.Data.Entity.Core.Objects;
 
 namespace WCF_Colegio
 {
@@ -75,63 +76,82 @@ namespace WCF_Colegio
             BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
             try
             {
-                ALUMNO objAlumno = new ALUMNO();
-
-                objAlumno.IdAlumno = objAlumnoBE.Mvarid_alumno;
-                objAlumno.ValorCodigo = objAlumnoBE.Mvarvalorcod_al;
-                objAlumno.Codigo = objAlumnoBE.Mvarcod_al;
-                objAlumno.Nombres = objAlumnoBE.Mvarnom_al;
-                objAlumno.Apellidos = objAlumnoBE.Mvarape_al;
-                objAlumno.DocumentoIdentidad= objAlumnoBE.Mvardocide_al;
-                objAlumno.FechaNacimiento= Convert.ToDateTime(objAlumnoBE.Mvarfecnac_al);
-                objAlumno.Sexo= objAlumnoBE.Mvarsex_al;
-                objAlumno.Ciudad = objAlumnoBE.Mvarciu_al;
-                objAlumno.Direccion= objAlumnoBE.Mvardir_al;
-                objAlumno.FechaRegistro= Convert.ToDateTime(objAlumnoBE.Mvarfecres_al);
-                objAlumno.Curso = Convert.ToInt32(objAlumnoBE.Mvaridcurso);
-                objAlumno.Nota = Convert.ToInt32(objAlumnoBE.Mvarnota);
-
-                bdcolegio.ALUMNO.Add(objAlumno);
+                var query = bdcolegio.usp_RegistrarAlumno(objAlumnoBE.Mvarnom_al, objAlumnoBE.Mvarape_al,
+                    objAlumnoBE.Mvardocide_al, objAlumnoBE.Mvarfecnac_al, objAlumnoBE.Mvarsex_al,
+                    objAlumnoBE.Mvarciu_al, objAlumnoBE.Mvardir_al);
 
                 bdcolegio.SaveChanges();
 
-                return true;
+                if (query == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            catch (Exception ex)
+            catch (EntityException ex)
             {
+
                 throw new Exception(ex.Message);
             }
+            //BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
+            //try
+            //{
+            //    ALUMNO objAlumno = new ALUMNO();
+
+            //    objAlumno.IdAlumno = objAlumnoBE.Mvarid_alumno;
+            //    objAlumno.ValorCodigo = objAlumnoBE.Mvarvalorcod_al;
+            //    objAlumno.Codigo = objAlumnoBE.Mvarcod_al;
+            //    objAlumno.Nombres = objAlumnoBE.Mvarnom_al;
+            //    objAlumno.Apellidos = objAlumnoBE.Mvarape_al;
+            //    objAlumno.DocumentoIdentidad= objAlumnoBE.Mvardocide_al;
+            //    objAlumno.FechaNacimiento= Convert.ToDateTime(objAlumnoBE.Mvarfecnac_al);
+            //    objAlumno.Sexo= objAlumnoBE.Mvarsex_al;
+            //    objAlumno.Ciudad = objAlumnoBE.Mvarciu_al;
+            //    objAlumno.Direccion= objAlumnoBE.Mvardir_al;
+            //    objAlumno.FechaRegistro= Convert.ToDateTime(objAlumnoBE.Mvarfecres_al);
+            //    objAlumno.Curso = Convert.ToInt32(objAlumnoBE.Mvaridcurso);
+            //    objAlumno.Nota = Convert.ToInt32(objAlumnoBE.Mvarnota);
+
+            //    bdcolegio.ALUMNO.Add(objAlumno);
+
+            //    bdcolegio.SaveChanges();
+
+            //    return true;
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
         }
 
         public bool UpdateAlumno(AlumnoBE objAlumnoBE)
         {
             BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
+
             try
             {
-                ALUMNO objAlumno= (
-                    from oAlumno in bdcolegio.ALUMNO
-                    where oAlumno.Codigo == objAlumnoBE.Mvarcod_al
-                    select oAlumno).FirstOrDefault();
-
-                objAlumno.ValorCodigo = objAlumnoBE.Mvarvalorcod_al;
-                objAlumno.Codigo = objAlumnoBE.Mvarcod_al;
-                objAlumno.Nombres = objAlumnoBE.Mvarnom_al;
-                objAlumno.Apellidos = objAlumnoBE.Mvarape_al;
-                objAlumno.DocumentoIdentidad = objAlumnoBE.Mvardocide_al;
-                objAlumno.FechaNacimiento = Convert.ToDateTime(objAlumnoBE.Mvarfecnac_al);
-                objAlumno.Sexo = objAlumnoBE.Mvarsex_al;
-                objAlumno.Ciudad = objAlumnoBE.Mvarciu_al;
-                objAlumno.Direccion = objAlumnoBE.Mvardir_al;
-                objAlumno.FechaRegistro = Convert.ToDateTime(objAlumnoBE.Mvarfecres_al);
-                objAlumno.Curso = Convert.ToInt32(objAlumnoBE.Mvaridcurso);
-                objAlumno.Nota = Convert.ToInt32(objAlumnoBE.Mvarnota);
+                var query = bdcolegio.usp_EditarAlumno(objAlumnoBE.Mvarid_alumno, 
+                    objAlumnoBE.Mvarcod_al, objAlumnoBE.Mvarnom_al, objAlumnoBE.Mvarape_al,
+                    objAlumnoBE.Mvardocide_al, objAlumnoBE.Mvarfecnac_al, objAlumnoBE.Mvarsex_al,
+                    objAlumnoBE.Mvarciu_al, objAlumnoBE.Mvardir_al, objAlumnoBE.Mvaract_al);
 
                 bdcolegio.SaveChanges();
 
-                return true;
+                if (query == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            catch (Exception ex)
+            catch (EntityException ex)
             {
+
                 throw new Exception(ex.Message);
             }
         }

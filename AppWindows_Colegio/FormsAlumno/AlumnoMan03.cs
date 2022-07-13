@@ -33,7 +33,7 @@ namespace AppWindows_Colegio
         {
             try
             {
-                //objAlumnoBE = objAlumno.GetAlumno(this, Codigo);
+                objAlumnoBE = objAlumno.GetAlumno(Convert.ToInt16(Codigo));
 
                 lblCodigo.Text = objAlumnoBE.Mvarcod_al;
                 txtNombre.Text = objAlumnoBE.Mvarnom_al;

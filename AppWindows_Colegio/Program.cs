@@ -16,7 +16,7 @@ namespace AppWindows_Colegio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new AlumnoMan01());
         }
     }
 }

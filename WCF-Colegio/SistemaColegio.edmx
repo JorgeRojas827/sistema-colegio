@@ -550,7 +550,6 @@
           <Parameter Name="Ciudad" Type="varchar" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
           <Parameter Name="Activo" Type="bit" Mode="In" />
-          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
         </Function>
         <Function Name="usp_EditarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdCurso" Type="int" Mode="In" />
@@ -700,7 +699,6 @@
           <Parameter Name="Sexo" Type="varchar" Mode="In" />
           <Parameter Name="Ciudad" Type="varchar" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
-          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
         </Function>
         <Function Name="usp_RegistrarCalificacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="xml" Type="xml" Mode="In" />
@@ -1501,7 +1499,6 @@
             <Parameter Name="Ciudad" Mode="In" Type="String" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
             <Parameter Name="Activo" Mode="In" Type="Boolean" />
-            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_EditarCurso">
             <Parameter Name="IdCurso" Mode="In" Type="Int32" />
@@ -1655,7 +1652,6 @@
             <Parameter Name="Sexo" Mode="In" Type="String" />
             <Parameter Name="Ciudad" Mode="In" Type="String" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
-            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_RegistrarCalificacion">
             <Parameter Name="xml" Mode="In" Type="String" />
