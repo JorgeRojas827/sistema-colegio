@@ -47,6 +47,9 @@ namespace AppWindows_Colegio.ProxyDocente {
         private System.DateTime Fecha_regiField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Fecha_ult_modField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Grado_estudioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -66,6 +69,9 @@ namespace AppWindows_Colegio.ProxyDocente {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SexoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Usu_ult_modField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Valor_codigoField;
@@ -185,6 +191,19 @@ namespace AppWindows_Colegio.ProxyDocente {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Fecha_ult_mod {
+            get {
+                return this.Fecha_ult_modField;
+            }
+            set {
+                if ((this.Fecha_ult_modField.Equals(value) != true)) {
+                    this.Fecha_ult_modField = value;
+                    this.RaisePropertyChanged("Fecha_ult_mod");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Grado_estudio {
             get {
                 return this.Grado_estudioField;
@@ -271,6 +290,19 @@ namespace AppWindows_Colegio.ProxyDocente {
                 if ((object.ReferenceEquals(this.SexoField, value) != true)) {
                     this.SexoField = value;
                     this.RaisePropertyChanged("Sexo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Usu_ult_mod {
+            get {
+                return this.Usu_ult_modField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Usu_ult_modField, value) != true)) {
+                    this.Usu_ult_modField = value;
+                    this.RaisePropertyChanged("Usu_ult_mod");
                 }
             }
         }

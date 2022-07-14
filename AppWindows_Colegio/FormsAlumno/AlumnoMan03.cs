@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppWindows_Colegio.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -81,7 +82,7 @@ namespace AppWindows_Colegio
                 objAlumnoBE.Mvarciu_al = txtCiudad.Text.Trim();
                 objAlumnoBE.Mvardir_al = txtDireccion.Text.Trim();
 
-
+                objAlumnoBE.Usu_ult_mod = clsCredenciales.Usuario;
                
 
                 if (objAlumno.UpdateAlumno(objAlumnoBE) == true)

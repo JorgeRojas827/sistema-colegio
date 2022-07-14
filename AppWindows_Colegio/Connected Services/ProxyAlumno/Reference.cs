@@ -23,6 +23,9 @@ namespace AppWindows_Colegio.ProxyAlumno {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Fecha_ult_modField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool Mvaract_alField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -64,6 +67,9 @@ namespace AppWindows_Colegio.ProxyAlumno {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private short Mvarvalorcod_alField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Usu_ult_modField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -71,6 +77,19 @@ namespace AppWindows_Colegio.ProxyAlumno {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Fecha_ult_mod {
+            get {
+                return this.Fecha_ult_modField;
+            }
+            set {
+                if ((this.Fecha_ult_modField.Equals(value) != true)) {
+                    this.Fecha_ult_modField = value;
+                    this.RaisePropertyChanged("Fecha_ult_mod");
+                }
             }
         }
         
@@ -252,6 +271,19 @@ namespace AppWindows_Colegio.ProxyAlumno {
                 if ((this.Mvarvalorcod_alField.Equals(value) != true)) {
                     this.Mvarvalorcod_alField = value;
                     this.RaisePropertyChanged("Mvarvalorcod_al");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Usu_ult_mod {
+            get {
+                return this.Usu_ult_modField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Usu_ult_modField, value) != true)) {
+                    this.Usu_ult_modField = value;
+                    this.RaisePropertyChanged("Usu_ult_mod");
                 }
             }
         }

@@ -47,6 +47,8 @@ namespace WCF_Colegio
         private String email;
         private String Numero_tel;
         private DateTime fecha_regi;
+        private DateTime fecha_ult_mod;
+        private String usu_ult_mod;
         private Int32 Id_Curso;
         private bool mvaract_doc;
 
@@ -76,6 +78,11 @@ namespace WCF_Colegio
         public string Email { get => email; set => email = value; }
         [DataMember]
         public string Numero_tel1 { get => Numero_tel; set => Numero_tel = value; }
+        [DataMember]
+        public string Usu_ult_mod { get => usu_ult_mod; set => usu_ult_mod = value; }
+
+        [DataMember]
+        public DateTime Fecha_ult_mod { get => fecha_ult_mod; set => fecha_ult_mod = value; }
         [DataMember]
         public DateTime Fecha_regi { get => fecha_regi; set => fecha_regi = value; }
         [DataMember]

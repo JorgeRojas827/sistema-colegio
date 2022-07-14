@@ -47,6 +47,8 @@ namespace WCF_Colegio
         private String mvardir_al;
         private bool mvaract_al;
         private DateTime mvarfecres_al;
+        private DateTime fecha_ult_mod;
+        private String usu_ult_mod;
         private Int32 mvaridcurso;
         private Int32 mvarnota;        
 
@@ -70,7 +72,12 @@ namespace WCF_Colegio
         public string Mvarciu_al { get => mvarciu_al; set => mvarciu_al = value; }
         [DataMember] 
         public string Mvardir_al { get => mvardir_al; set => mvardir_al = value; }
-        
+
+        [DataMember]
+        public string Usu_ult_mod { get => usu_ult_mod; set => usu_ult_mod = value; }
+
+        [DataMember]
+        public DateTime Fecha_ult_mod { get => fecha_ult_mod; set => fecha_ult_mod = value; }
         [DataMember] 
         public DateTime Mvarfecres_al { get => mvarfecres_al; set => mvarfecres_al = value; }
 

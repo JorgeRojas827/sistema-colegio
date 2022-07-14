@@ -596,6 +596,7 @@
       <Parameter Name="Ciudad" Mode="In" Type="String" />
       <Parameter Name="Direccion" Mode="In" Type="String" />
       <Parameter Name="Activo" Mode="In" Type="Boolean" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="usp_EditarCurso">
       <Parameter Name="IdCurso" Mode="In" Type="Int32" />
@@ -616,6 +617,7 @@
       <Parameter Name="Email" Mode="In" Type="String" />
       <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
       <Parameter Name="Activo" Mode="In" Type="Boolean" />
+      <Parameter Name="Usuario" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="usp_EditarGradoSeccion">
       <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />

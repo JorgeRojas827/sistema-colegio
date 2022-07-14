@@ -108,7 +108,7 @@ namespace WCF_Colegio
                 var query = bdcolegio.usp_EditarAlumno(objAlumnoBE.Mvarid_alumno, 
                     objAlumnoBE.Mvarcod_al, objAlumnoBE.Mvarnom_al, objAlumnoBE.Mvarape_al,
                     objAlumnoBE.Mvardocide_al, objAlumnoBE.Mvarfecnac_al, objAlumnoBE.Mvarsex_al,
-                    objAlumnoBE.Mvarciu_al, objAlumnoBE.Mvardir_al, objAlumnoBE.Mvaract_al);
+                    objAlumnoBE.Mvarciu_al, objAlumnoBE.Mvardir_al, objAlumnoBE.Mvaract_al, objAlumnoBE.Usu_ult_mod);
 
                 bdcolegio.SaveChanges();
 

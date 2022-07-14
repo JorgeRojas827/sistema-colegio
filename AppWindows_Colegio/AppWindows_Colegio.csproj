@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\clsCredenciales.cs" />
     <Compile Include="Connected Services\ProxyCurso\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

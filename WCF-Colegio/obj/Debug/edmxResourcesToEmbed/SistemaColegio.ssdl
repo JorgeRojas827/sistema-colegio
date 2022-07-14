@@ -551,6 +551,7 @@
     <Parameter Name="Ciudad" Type="varchar" Mode="In" />
     <Parameter Name="Direccion" Type="varchar" Mode="In" />
     <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
   </Function>
   <Function Name="usp_EditarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdCurso" Type="int" Mode="In" />
@@ -571,6 +572,7 @@
     <Parameter Name="Email" Type="varchar" Mode="In" />
     <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
     <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
   </Function>
   <Function Name="usp_EditarGradoSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />

@@ -119,7 +119,7 @@ namespace WCF_Colegio
             {
                 var query = bdcolegio.usp_EditarDocente(objDocenteBE.Id_Docente1,objDocenteBE.Codigo,objDocenteBE.DNI1, objDocenteBE.Nombres, objDocenteBE.Apellidos, objDocenteBE.FechaNac,
                                                         objDocenteBE.Sexo, objDocenteBE.Grado_estudio, objDocenteBE.Ciudad, objDocenteBE.Direccion1,
-                                                        objDocenteBE.Email, objDocenteBE.Numero_tel1, objDocenteBE.Mvaract_doc);
+                                                        objDocenteBE.Email, objDocenteBE.Numero_tel1, objDocenteBE.Mvaract_doc, objDocenteBE.Usu_ult_mod);
 
                 bdcolegio.SaveChanges();
 

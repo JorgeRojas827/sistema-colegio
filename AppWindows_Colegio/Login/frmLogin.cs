@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppWindows_Colegio.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +38,8 @@ namespace AppWindows_Colegio
                 {
                     this.Hide();
                     timer1.Enabled = false;
+                    clsCredenciales.Usuario = txtLogin.Text.Trim();
+                    clsCredenciales.Password = txtPassword.Text.Trim();
                     Inicio inicio = new Inicio();
                     inicio.ShowDialog();
                 }

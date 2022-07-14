@@ -556,6 +556,7 @@
           <Parameter Name="Ciudad" Type="varchar" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
           <Parameter Name="Activo" Type="bit" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_EditarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdCurso" Type="int" Mode="In" />
@@ -576,6 +577,7 @@
           <Parameter Name="Email" Type="varchar" Mode="In" />
           <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
           <Parameter Name="Activo" Type="bit" Mode="In" />
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_EditarGradoSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
@@ -1502,6 +1504,7 @@
             <Parameter Name="Ciudad" Mode="In" Type="String" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
             <Parameter Name="Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_EditarCurso">
             <Parameter Name="IdCurso" Mode="In" Type="Int32" />
@@ -1522,6 +1525,7 @@
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
             <Parameter Name="Activo" Mode="In" Type="Boolean" />
+            <Parameter Name="Usuario" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_EditarGradoSeccion">
             <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
@@ -1824,7 +1828,7 @@
           <Parameter Name="apellidos" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_filtroDocente" ReturnType="Collection(BDCOLEGIOModel.sp_filtroDocente_Result)">
-            <Parameter Name="apellidos" Mode="In" Type="String" />
+          <Parameter Name="apellidos" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_ActualizarPermisos_Result">
