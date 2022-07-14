@@ -40,9 +40,10 @@ namespace AppWindows_Colegio
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
             this.dtgDocente = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblRegistrosDocentes = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.IdDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,6 +104,7 @@ namespace AppWindows_Colegio
             this.btnEliminar.TabIndex = 13;
             this.btnEliminar.Text = "Eliminar docente";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnVolver
             // 
@@ -144,6 +146,7 @@ namespace AppWindows_Colegio
             this.dtgDocente.BackgroundColor = System.Drawing.Color.Silver;
             this.dtgDocente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgDocente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdDocente,
             this.Codigo,
             this.Nombres,
             this.Apellidos,
@@ -162,14 +165,14 @@ namespace AppWindows_Colegio
             this.dtgDocente.Size = new System.Drawing.Size(905, 389);
             this.dtgDocente.TabIndex = 9;
             // 
-            // label3
+            // lblRegistrosDocentes
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(875, 464);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 23);
-            this.label3.TabIndex = 18;
+            this.lblRegistrosDocentes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRegistrosDocentes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRegistrosDocentes.Location = new System.Drawing.Point(875, 464);
+            this.lblRegistrosDocentes.Name = "lblRegistrosDocentes";
+            this.lblRegistrosDocentes.Size = new System.Drawing.Size(54, 23);
+            this.lblRegistrosDocentes.TabIndex = 18;
             // 
             // textBox1
             // 
@@ -187,6 +190,13 @@ namespace AppWindows_Colegio
             this.label4.Size = new System.Drawing.Size(144, 13);
             this.label4.TabIndex = 19;
             this.label4.Text = "Ingrese iniciales de apellidos:";
+            // 
+            // IdDocente
+            // 
+            this.IdDocente.DataPropertyName = "Id_Docente1";
+            this.IdDocente.HeaderText = "ID";
+            this.IdDocente.Name = "IdDocente";
+            this.IdDocente.ReadOnly = true;
             // 
             // Codigo
             // 
@@ -285,7 +295,7 @@ namespace AppWindows_Colegio
             this.ClientSize = new System.Drawing.Size(1105, 495);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblRegistrosDocentes);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblRegistros);
@@ -317,9 +327,10 @@ namespace AppWindows_Colegio
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.DataGridView dtgDocente;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblRegistrosDocentes;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdDocente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombres;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;

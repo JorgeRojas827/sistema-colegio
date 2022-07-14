@@ -70,5 +70,20 @@ namespace AppWindows_Colegio
                 MessageBox.Show("Error : " + ex.Message);
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objCurso.DeleteCurso(Convert.ToInt16(dtgCursos.CurrentRow.Cells[0].Value.ToString()));
+                MessageBox.Show("Curso eliminado");
+                CargarDatos();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error : " + ex.Message);
+            }
+        }
     }
 }

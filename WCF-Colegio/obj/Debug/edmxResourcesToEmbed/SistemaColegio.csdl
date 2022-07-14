@@ -601,10 +601,10 @@
       <Parameter Name="IdCurso" Mode="In" Type="Int32" />
       <Parameter Name="Descripcion" Mode="In" Type="String" />
       <Parameter Name="Activo" Mode="In" Type="Boolean" />
-      <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="usp_EditarDocente">
       <Parameter Name="IdDocente" Mode="In" Type="Int32" />
+      <Parameter Name="Codigo" Mode="In" Type="String" />
       <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
       <Parameter Name="Nombres" Mode="In" Type="String" />
       <Parameter Name="Apellidos" Mode="In" Type="String" />
@@ -616,7 +616,6 @@
       <Parameter Name="Email" Mode="In" Type="String" />
       <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
       <Parameter Name="Activo" Mode="In" Type="Boolean" />
-      <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="usp_EditarGradoSeccion">
       <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
@@ -764,7 +763,6 @@
     </FunctionImport>
     <FunctionImport Name="usp_RegistrarCurso">
       <Parameter Name="Descripcion" Mode="In" Type="String" />
-      <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="usp_RegistrarDocente">
       <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
@@ -777,7 +775,6 @@
       <Parameter Name="Direccion" Mode="In" Type="String" />
       <Parameter Name="Email" Mode="In" Type="String" />
       <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
-      <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="usp_RegistrarDocenteCurso">
       <Parameter Name="IdNivel" Mode="In" Type="Int32" />

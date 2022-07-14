@@ -33,7 +33,7 @@ namespace AppWindows_Colegio
             try
             {
                
-                //objCursoBE = objCurso.GetCurso(this.Codigo);
+                objCursoBE = objCurso.GetCurso(Convert.ToInt16(Codigo));
        
                 txtDescripcion.Text = objCursoBE.Descripcion;
   
@@ -58,7 +58,7 @@ namespace AppWindows_Colegio
 
                 if (objCurso.UpdateCurso(objCursoBE) == true)
                 {
-                    MessageBox.Show("Actualizacion exitosa");
+                    MessageBox.Show("Curso Actualizado");
                     this.Close();
                 }
                 else

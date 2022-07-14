@@ -56,6 +56,9 @@ namespace AppWindows_Colegio.ProxyDocente {
         private int Id_Docente1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool Mvaract_docField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombresField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -216,6 +219,19 @@ namespace AppWindows_Colegio.ProxyDocente {
                 if ((this.Id_Docente1Field.Equals(value) != true)) {
                     this.Id_Docente1Field = value;
                     this.RaisePropertyChanged("Id_Docente1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Mvaract_doc {
+            get {
+                return this.Mvaract_docField;
+            }
+            set {
+                if ((this.Mvaract_docField.Equals(value) != true)) {
+                    this.Mvaract_docField = value;
+                    this.RaisePropertyChanged("Mvaract_doc");
                 }
             }
         }

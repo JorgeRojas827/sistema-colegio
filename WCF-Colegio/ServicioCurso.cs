@@ -15,22 +15,28 @@ namespace WCF_Colegio
         public Boolean InsertCurso(CursoBE objCursoBE)
         {
             BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
+
             try
             {
-                CURSO objCurso = new CURSO();
+                var query = bdcolegio.usp_RegistrarCurso(objCursoBE.Descripcion);
 
-                objCursoBE.IdCurso = Int16.Parse(String.Empty);
-                objCursoBE.Descripcion = objCurso.Descripcion;
-
-                bdcolegio.CURSO.Add(objCurso);
                 bdcolegio.SaveChanges();
 
-                return true;
+                if (query == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (EntityException ex)
             {
+
                 throw new Exception(ex.Message);
             }
+            
         }
 
         public Boolean UpdateCurso(CursoBE objCursoBE)
@@ -38,21 +44,22 @@ namespace WCF_Colegio
             BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
             try
             {
-                CURSO objCurso = (
-                        from oCurso in bdcolegio.CURSO
-                        where oCurso.IdCurso == objCursoBE.IdCurso
-                        select oCurso
-                    ).FirstOrDefault();
-
-                objCurso.IdCurso = objCursoBE.IdCurso;
-                objCurso.Descripcion = objCursoBE.Descripcion;
+                var query = bdcolegio.usp_EditarCurso(objCursoBE.IdCurso, objCursoBE.Descripcion,objCursoBE.Activocur);
 
                 bdcolegio.SaveChanges();
 
-                return true;
+                if (query == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (EntityException ex)
             {
+
                 throw new Exception(ex.Message);
             }
         }

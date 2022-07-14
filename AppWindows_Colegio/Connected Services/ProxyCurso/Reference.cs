@@ -23,6 +23,9 @@ namespace AppWindows_Colegio.ProxyCurso {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ActivocurField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescripcionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -41,6 +44,19 @@ namespace AppWindows_Colegio.ProxyCurso {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Activocur {
+            get {
+                return this.ActivocurField;
+            }
+            set {
+                if ((this.ActivocurField.Equals(value) != true)) {
+                    this.ActivocurField = value;
+                    this.RaisePropertyChanged("Activocur");
+                }
             }
         }
         

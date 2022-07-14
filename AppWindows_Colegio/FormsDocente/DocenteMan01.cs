@@ -21,10 +21,8 @@ namespace AppWindows_Colegio
 
         public void CargarDatos()
         {
-
-
             dtgDocente.DataSource = objDocente.GetAllDocentes();
-            lblRegistros.Text = dtgDocente.Rows.Count.ToString();
+            lblRegistrosDocentes.Text = dtgDocente.Rows.Count.ToString();
         }
 
         private void DocenteMan01_Load(object sender, EventArgs e)
@@ -71,6 +69,21 @@ namespace AppWindows_Colegio
             {
 
                 MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objDocente.DeleteDocente(Convert.ToInt16(dtgDocente.CurrentRow.Cells[0].Value.ToString()));
+                MessageBox.Show("Docente eliminado");
+                CargarDatos();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error : " + ex.Message);
             }
         }
     }

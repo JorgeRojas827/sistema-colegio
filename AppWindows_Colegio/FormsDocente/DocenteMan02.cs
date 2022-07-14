@@ -52,6 +52,7 @@ namespace AppWindows_Colegio
                 objDocenteBE.Direccion1 = txtDireccion.Text.Trim();
                 objDocenteBE.Grado_estudio = txtGrado.Text.Trim();
                 objDocenteBE.Numero_tel1 = txtNroTel.Text.Trim();
+                objDocenteBE.Email = labelEmail.Text.Trim();
 
                 if (objDocente.InsertDocente(objDocenteBE) == true)
                 {

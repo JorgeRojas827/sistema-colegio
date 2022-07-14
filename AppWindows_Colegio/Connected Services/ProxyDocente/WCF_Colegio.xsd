@@ -19,6 +19,7 @@
       <xs:element minOccurs="0" name="Grado_estudio" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id_Curso1" type="xs:int" />
       <xs:element minOccurs="0" name="Id_Docente1" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvaract_doc" type="xs:boolean" />
       <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Numero_tel1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />

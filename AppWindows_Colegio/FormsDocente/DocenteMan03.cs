@@ -32,9 +32,9 @@ namespace AppWindows_Colegio
         {
             try
             {
-                //objDocenteBE = objDocente.GetDocente(this, Codigo);
+                objDocenteBE = objDocente.GetDocente(Convert.ToInt16(Codigo));
 
-                lblCodigo.Text = Convert.ToString(objDocenteBE.Id_Docente1);
+                lblCodigo.Text = objDocenteBE.Codigo;
                 txtNombre.Text = objDocenteBE.Nombres;
                 txtApellido.Text = objDocenteBE.Apellidos;
                 mskDNI.Text = objDocenteBE.DNI1;

@@ -555,10 +555,10 @@
           <Parameter Name="IdCurso" Type="int" Mode="In" />
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
           <Parameter Name="Activo" Type="bit" Mode="In" />
-          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
         </Function>
         <Function Name="usp_EditarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdDocente" Type="int" Mode="In" />
+          <Parameter Name="Codigo" Type="varchar" Mode="In" />
           <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
           <Parameter Name="Nombres" Type="varchar" Mode="In" />
           <Parameter Name="Apellidos" Type="varchar" Mode="In" />
@@ -570,7 +570,6 @@
           <Parameter Name="Email" Type="varchar" Mode="In" />
           <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
           <Parameter Name="Activo" Type="bit" Mode="In" />
-          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
         </Function>
         <Function Name="usp_EditarGradoSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
@@ -714,7 +713,6 @@
         </Function>
         <Function Name="usp_RegistrarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
         </Function>
         <Function Name="usp_RegistrarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
@@ -727,7 +725,6 @@
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
           <Parameter Name="Email" Type="varchar" Mode="In" />
           <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
-          <Parameter Name="Resultado" Type="bit" Mode="InOut" />
         </Function>
         <Function Name="usp_RegistrarDocenteCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdNivel" Type="int" Mode="In" />
@@ -1504,10 +1501,10 @@
             <Parameter Name="IdCurso" Mode="In" Type="Int32" />
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="Activo" Mode="In" Type="Boolean" />
-            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_EditarDocente">
             <Parameter Name="IdDocente" Mode="In" Type="Int32" />
+            <Parameter Name="Codigo" Mode="In" Type="String" />
             <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
             <Parameter Name="Nombres" Mode="In" Type="String" />
             <Parameter Name="Apellidos" Mode="In" Type="String" />
@@ -1519,7 +1516,6 @@
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
             <Parameter Name="Activo" Mode="In" Type="Boolean" />
-            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_EditarGradoSeccion">
             <Parameter Name="IdGradoSeccion" Mode="In" Type="Int32" />
@@ -1666,8 +1662,7 @@
             <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_RegistrarCurso">
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
-            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
+          <Parameter Name="Descripcion" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_RegistrarDocente">
             <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
@@ -1680,7 +1675,6 @@
             <Parameter Name="Direccion" Mode="In" Type="String" />
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
-            <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_RegistrarDocenteCurso">
             <Parameter Name="IdNivel" Mode="In" Type="Int32" />

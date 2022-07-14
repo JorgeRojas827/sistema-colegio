@@ -29,7 +29,7 @@ namespace AppWindows_Colegio
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -50,6 +50,7 @@ namespace AppWindows_Colegio
             this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "Eliminar curso";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnVolver
             // 
@@ -111,8 +112,8 @@ namespace AppWindows_Colegio
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "Descripcion";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle1;
             this.Descripcion.FillWeight = 120.3016F;
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
@@ -152,6 +153,7 @@ namespace AppWindows_Colegio
             this.Controls.Add(this.btnInsertar);
             this.Controls.Add(this.dtgCursos);
             this.Name = "CursoMan01";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Cursos";
             this.Load += new System.EventHandler(this.CursoMan01_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCursos)).EndInit();

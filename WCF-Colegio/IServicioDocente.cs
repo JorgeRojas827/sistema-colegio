@@ -45,6 +45,7 @@ namespace WCF_Colegio
         private String Numero_tel;
         private DateTime fecha_regi;
         private Int32 Id_Curso;
+        private bool mvaract_doc;
 
         [DataMember]
         public Int32 Id_Docente1 { get => Id_Docente; set => Id_Docente = value; }
@@ -76,5 +77,7 @@ namespace WCF_Colegio
         public DateTime Fecha_regi { get => fecha_regi; set => fecha_regi = value; }
         [DataMember]
         public int Id_Curso1 { get => this.Id_Curso; set => this.Id_Curso = value; }
+        [DataMember]
+        public bool Mvaract_doc { get => mvaract_doc; set => mvaract_doc = value; }
     }
 }

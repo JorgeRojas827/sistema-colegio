@@ -33,7 +33,7 @@ namespace WCF_Colegio
     {
         private short mvarid_curso;
         private String mvardescripcion;
-        private Boolean mvaractivo;
+        private Boolean activocur;
         private DateTime mvarfecharegistro;
         private Byte[] mvarimagen;
 
@@ -64,5 +64,8 @@ namespace WCF_Colegio
             get { return mvarimagen; }
             set { mvarimagen = value; }
         }
+
+        [DataMember]
+        public Boolean Activocur { get => activocur; set => activocur = value; }
     }
 }

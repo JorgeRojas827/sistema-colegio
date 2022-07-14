@@ -550,10 +550,10 @@
     <Parameter Name="IdCurso" Type="int" Mode="In" />
     <Parameter Name="Descripcion" Type="varchar" Mode="In" />
     <Parameter Name="Activo" Type="bit" Mode="In" />
-    <Parameter Name="Resultado" Type="bit" Mode="InOut" />
   </Function>
   <Function Name="usp_EditarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdDocente" Type="int" Mode="In" />
+    <Parameter Name="Codigo" Type="varchar" Mode="In" />
     <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
     <Parameter Name="Nombres" Type="varchar" Mode="In" />
     <Parameter Name="Apellidos" Type="varchar" Mode="In" />
@@ -565,7 +565,6 @@
     <Parameter Name="Email" Type="varchar" Mode="In" />
     <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
     <Parameter Name="Activo" Type="bit" Mode="In" />
-    <Parameter Name="Resultado" Type="bit" Mode="InOut" />
   </Function>
   <Function Name="usp_EditarGradoSeccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdGradoSeccion" Type="int" Mode="In" />
@@ -709,7 +708,6 @@
   </Function>
   <Function Name="usp_RegistrarCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Descripcion" Type="varchar" Mode="In" />
-    <Parameter Name="Resultado" Type="bit" Mode="InOut" />
   </Function>
   <Function Name="usp_RegistrarDocente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
@@ -722,7 +720,6 @@
     <Parameter Name="Direccion" Type="varchar" Mode="In" />
     <Parameter Name="Email" Type="varchar" Mode="In" />
     <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
-    <Parameter Name="Resultado" Type="bit" Mode="InOut" />
   </Function>
   <Function Name="usp_RegistrarDocenteCurso" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdNivel" Type="int" Mode="In" />

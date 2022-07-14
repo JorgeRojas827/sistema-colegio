@@ -96,35 +96,7 @@ namespace WCF_Colegio
 
                 throw new Exception(ex.Message);
             }
-            //BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
-            //try
-            //{
-            //    ALUMNO objAlumno = new ALUMNO();
-
-            //    objAlumno.IdAlumno = objAlumnoBE.Mvarid_alumno;
-            //    objAlumno.ValorCodigo = objAlumnoBE.Mvarvalorcod_al;
-            //    objAlumno.Codigo = objAlumnoBE.Mvarcod_al;
-            //    objAlumno.Nombres = objAlumnoBE.Mvarnom_al;
-            //    objAlumno.Apellidos = objAlumnoBE.Mvarape_al;
-            //    objAlumno.DocumentoIdentidad= objAlumnoBE.Mvardocide_al;
-            //    objAlumno.FechaNacimiento= Convert.ToDateTime(objAlumnoBE.Mvarfecnac_al);
-            //    objAlumno.Sexo= objAlumnoBE.Mvarsex_al;
-            //    objAlumno.Ciudad = objAlumnoBE.Mvarciu_al;
-            //    objAlumno.Direccion= objAlumnoBE.Mvardir_al;
-            //    objAlumno.FechaRegistro= Convert.ToDateTime(objAlumnoBE.Mvarfecres_al);
-            //    objAlumno.Curso = Convert.ToInt32(objAlumnoBE.Mvaridcurso);
-            //    objAlumno.Nota = Convert.ToInt32(objAlumnoBE.Mvarnota);
-
-            //    bdcolegio.ALUMNO.Add(objAlumno);
-
-            //    bdcolegio.SaveChanges();
-
-            //    return true;
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new Exception(ex.Message);
-            //}
+          
         }
 
         public bool UpdateAlumno(AlumnoBE objAlumnoBE)

@@ -50,11 +50,15 @@ namespace AppWindows_Colegio
             this.Label2 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.grpDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpDatos
             // 
+            this.grpDatos.Controls.Add(this.txtEmail);
+            this.grpDatos.Controls.Add(this.labelEmail);
             this.grpDatos.Controls.Add(this.txtNroTel);
             this.grpDatos.Controls.Add(this.txtGrado);
             this.grpDatos.Controls.Add(this.txtDireccion);
@@ -77,7 +81,7 @@ namespace AppWindows_Colegio
             this.grpDatos.Controls.Add(this.btnCancelar);
             this.grpDatos.Location = new System.Drawing.Point(12, 12);
             this.grpDatos.Name = "grpDatos";
-            this.grpDatos.Size = new System.Drawing.Size(485, 370);
+            this.grpDatos.Size = new System.Drawing.Size(485, 421);
             this.grpDatos.TabIndex = 2;
             this.grpDatos.TabStop = false;
             this.grpDatos.Text = "Datos";
@@ -130,7 +134,7 @@ namespace AppWindows_Colegio
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(263, 318);
+            this.btnRegistrar.Location = new System.Drawing.Point(266, 370);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(94, 36);
             this.btnRegistrar.TabIndex = 18;
@@ -232,18 +236,34 @@ namespace AppWindows_Colegio
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(363, 318);
+            this.btnCancelar.Location = new System.Drawing.Point(366, 370);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(94, 36);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Location = new System.Drawing.Point(43, 309);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(35, 13);
+            this.labelEmail.TabIndex = 23;
+            this.labelEmail.Text = "Email:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(112, 309);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(274, 20);
+            this.txtEmail.TabIndex = 24;
+            // 
             // DocenteMan02
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 391);
+            this.ClientSize = new System.Drawing.Size(508, 445);
             this.Controls.Add(this.grpDatos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "DocenteMan02";
@@ -278,5 +298,7 @@ namespace AppWindows_Colegio
         private System.Windows.Forms.TextBox txtGrado;
         internal System.Windows.Forms.Label label9;
         internal System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label labelEmail;
     }
 }

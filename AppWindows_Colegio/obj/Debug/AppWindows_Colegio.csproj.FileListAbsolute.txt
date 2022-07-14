@@ -39,3 +39,23 @@ D:\VS 2019 Proyects\sistema-colegio\AppWindows_Colegio\obj\Debug\AppWindows_Cole
 D:\VS 2019 Proyects\sistema-colegio\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.csproj.CoreCompileInputs.cache
 D:\VS 2019 Proyects\sistema-colegio\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.exe
 D:\VS 2019 Proyects\sistema-colegio\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.pdb
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\bin\Debug\AppWindows_Colegio.exe.config
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\bin\Debug\AppWindows_Colegio.exe
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\bin\Debug\AppWindows_Colegio.pdb
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.AlumnoMan01.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.AlumnoMan02.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.AlumnoMan03.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.CursoMan01.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.CursoMan02.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.CursoMan03.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.DocenteMan01.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.DocenteMan02.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.DocenteMan03.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.Inicio.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.frmLogin.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.Properties.Resources.resources
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.exe
+C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.pdb

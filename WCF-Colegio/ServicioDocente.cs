@@ -48,6 +48,7 @@ namespace WCF_Colegio
 
                     DocenteBE objDocenteBE = new DocenteBE();
 
+                    objDocenteBE.Id_Docente1 = objDocente.IdDocente;
                     objDocenteBE.Nombres = objDocente.Nombres;
                     objDocenteBE.Apellidos = objDocente.Apellidos;
                     objDocenteBE.DNI1 = objDocente.DocumentoIdentidad;
@@ -86,32 +87,22 @@ namespace WCF_Colegio
             BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
             try
             {
-                DOCENTE objDocente = new DOCENTE();
+                var query = bdcolegio.usp_RegistrarDocente(objDocenteBE.DNI1, objDocenteBE.Nombres,
+                    objDocenteBE.Apellidos, objDocenteBE.FechaNac, objDocenteBE.Sexo,
+                    objDocenteBE.Grado_estudio, objDocenteBE.Ciudad, objDocenteBE.Direccion1, objDocenteBE.Email, objDocenteBE.Numero_tel1);
 
-                objDocente.Nombres = objDocenteBE.Nombres;
-                objDocente.ValorCodigo = objDocenteBE.Valor_codigo;
-                objDocente.DocumentoIdentidad = objDocenteBE.DNI1;
-                objDocente.Apellidos = objDocenteBE.Apellidos;
-                objDocente.FechaNacimiento = objDocenteBE.FechaNac;
-                objDocente.Sexo = objDocenteBE.Sexo;
-                objDocente.GradoEstudio = objDocenteBE.Grado_estudio;
-                objDocente.Ciudad = objDocenteBE.Ciudad;
-                objDocente.Direccion = objDocenteBE.Direccion1;
-                objDocente.Email = objDocenteBE.Email;
-                objDocente.NumeroTelefono = objDocenteBE.Numero_tel1;
-                objDocente.FechaRegistro = objDocenteBE.Fecha_regi;
-                objDocente.IdCurso = objDocenteBE.Id_Curso1;
-
-
-
-
-                //Agregamos la isntancia de nuevo docente a su clase
-                bdcolegio.DOCENTE.Add(objDocente);
-
-                //Refrescamos la bd
                 bdcolegio.SaveChanges();
-                return true;
 
+                if (query == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+               
             }
             catch (EntityException ex)
             {
@@ -126,41 +117,64 @@ namespace WCF_Colegio
 
             try
             {
-
-                DOCENTE objDocente = (
-
-                    from oDocente in bdcolegio.DOCENTE
-                    where oDocente.IdDocente == objDocenteBE.Id_Docente1
-                    select oDocente).FirstOrDefault();
-
-                objDocente.IdDocente = objDocenteBE.Id_Docente1;
-                objDocente.Codigo = objDocenteBE.Codigo;
-                objDocente.ValorCodigo = objDocenteBE.Valor_codigo;
-                objDocente.Nombres = objDocenteBE.Nombres;
-                objDocente.Apellidos = objDocenteBE.Apellidos;
-                objDocente.Direccion = objDocenteBE.Direccion1;
-                objDocente.Sexo = objDocenteBE.Sexo;
-                objDocente.DocumentoIdentidad = objDocenteBE.DNI1;
-                objDocente.FechaNacimiento = objDocenteBE.FechaNac;
-                objDocente.FechaRegistro = objDocenteBE.Fecha_regi;
-                objDocente.NumeroTelefono = objDocenteBE.Numero_tel1;
-                objDocente.Email = objDocenteBE.Email;
-                objDocente.IdCurso = objDocenteBE.Id_Curso1;
-
+                var query = bdcolegio.usp_EditarDocente(objDocenteBE.Id_Docente1,objDocenteBE.Codigo,objDocenteBE.DNI1, objDocenteBE.Nombres, objDocenteBE.Apellidos, objDocenteBE.FechaNac,
+                                                        objDocenteBE.Sexo, objDocenteBE.Grado_estudio, objDocenteBE.Ciudad, objDocenteBE.Direccion1,
+                                                        objDocenteBE.Email, objDocenteBE.Numero_tel1, objDocenteBE.Mvaract_doc);
 
                 bdcolegio.SaveChanges();
 
-                return true;
-
-
-
-
+                if (query == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (EntityException ex)
             {
 
                 throw new Exception(ex.Message);
             }
+
+            //try
+            //{
+
+            //    DOCENTE objDocente = (
+
+            //        from oDocente in bdcolegio.DOCENTE
+            //        where oDocente.IdDocente == objDocenteBE.Id_Docente1
+            //        select oDocente).FirstOrDefault();
+
+            //    objDocente.IdDocente = objDocenteBE.Id_Docente1;
+            //    objDocente.Codigo = objDocenteBE.Codigo;
+            //    objDocente.ValorCodigo = objDocenteBE.Valor_codigo;
+            //    objDocente.Nombres = objDocenteBE.Nombres;
+            //    objDocente.Apellidos = objDocenteBE.Apellidos;
+            //    objDocente.Direccion = objDocenteBE.Direccion1;
+            //    objDocente.Sexo = objDocenteBE.Sexo;
+            //    objDocente.DocumentoIdentidad = objDocenteBE.DNI1;
+            //    objDocente.FechaNacimiento = objDocenteBE.FechaNac;
+            //    objDocente.FechaRegistro = objDocenteBE.Fecha_regi;
+            //    objDocente.NumeroTelefono = objDocenteBE.Numero_tel1;
+            //    objDocente.Email = objDocenteBE.Email;
+            //    objDocente.IdCurso = objDocenteBE.Id_Curso1;
+
+
+            //    bdcolegio.SaveChanges();
+
+            //    return true;
+
+
+
+
+            //}
+            //catch (EntityException ex)
+            //{
+
+            //    throw new Exception(ex.Message);
+            //}
 
 
         }
