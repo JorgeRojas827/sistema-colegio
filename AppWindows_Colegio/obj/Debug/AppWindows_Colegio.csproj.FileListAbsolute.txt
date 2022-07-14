@@ -79,3 +79,5 @@ C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWind
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.csproj.CoreCompileInputs.cache
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.exe
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.pdb
+D:\VS 2019 Proyects\sistema-colegio\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.FormsAlumno.TopAlumnoForm.resources
+D:\VS 2019 Proyects\sistema-colegio\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.FormsDocente.AsignarCurso.resources

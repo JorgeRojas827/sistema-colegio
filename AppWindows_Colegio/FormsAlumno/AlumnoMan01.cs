@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppWindows_Colegio.FormsAlumno;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace AppWindows_Colegio
     public partial class AlumnoMan01 : Form
     {
         ProxyAlumno.ServicioAlumnoClient objAlumno = new ProxyAlumno.ServicioAlumnoClient();
+        ProxyExtra.IServicioExtraClient objExtra = new ProxyExtra.IServicioExtraClient();
   
 
         public AlumnoMan01()
@@ -108,6 +110,12 @@ namespace AppWindows_Colegio
 
                 MessageBox.Show("Error : " + ex.Message);
             }
+        }
+
+        private void btnTopAlumno_Click(object sender, EventArgs e)
+        {
+            TopAlumnoForm topAlumnoForm = new TopAlumnoForm();
+            topAlumnoForm.ShowDialog();
         }
     }
 }

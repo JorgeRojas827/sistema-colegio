@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppWindows_Colegio.FormsDocente;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -104,6 +105,13 @@ namespace AppWindows_Colegio
         private void txtFiltro2_TextChanged(object sender, EventArgs e)
         {
             CargarDatos(txtFiltro2.Text.Trim());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AsignarCurso objAsignarCurso = new AsignarCurso();
+            objAsignarCurso.Codigo = dtgDocente.CurrentRow.Cells[0].Value.ToString();
+            objAsignarCurso.ShowDialog();
         }
     }
 }

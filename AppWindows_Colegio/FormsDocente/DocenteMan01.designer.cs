@@ -29,8 +29,8 @@ namespace AppWindows_Colegio
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRegistros = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@ namespace AppWindows_Colegio
             this.lblRegistrosDocentes = new System.Windows.Forms.Label();
             this.txtFiltro2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDocente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@ namespace AppWindows_Colegio
             this.label2.Location = new System.Drawing.Point(-124, -26);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 17);
+            this.label2.Size = new System.Drawing.Size(185, 16);
             this.label2.TabIndex = 16;
             this.label2.Text = "Ingrese iniciales de apellidos:";
             // 
@@ -96,13 +97,13 @@ namespace AppWindows_Colegio
             this.label1.Location = new System.Drawing.Point(1087, 571);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 17);
+            this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 14;
             this.label1.Text = "Registros:";
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(1285, 241);
+            this.btnEliminar.Location = new System.Drawing.Point(1285, 328);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(151, 42);
@@ -113,7 +114,7 @@ namespace AppWindows_Colegio
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(1285, 454);
+            this.btnVolver.Location = new System.Drawing.Point(1285, 497);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(151, 42);
@@ -124,7 +125,7 @@ namespace AppWindows_Colegio
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(1285, 192);
+            this.btnActualizar.Location = new System.Drawing.Point(1285, 279);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(151, 42);
@@ -135,7 +136,7 @@ namespace AppWindows_Colegio
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(1285, 143);
+            this.btnInsertar.Location = new System.Drawing.Point(1285, 230);
             this.btnInsertar.Margin = new System.Windows.Forms.Padding(4);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(151, 42);
@@ -187,8 +188,8 @@ namespace AppWindows_Colegio
             // Codigo
             // 
             this.Codigo.DataPropertyName = "Codigo";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.Codigo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Codigo.DefaultCellStyle = dataGridViewCellStyle3;
             this.Codigo.FillWeight = 85.13406F;
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.MinimumWidth = 6;
@@ -225,9 +226,9 @@ namespace AppWindows_Colegio
             // FechaNacimiento
             // 
             this.FechaNacimiento.DataPropertyName = "FechaNac";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "d";
-            this.FechaNacimiento.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "d";
+            this.FechaNacimiento.DefaultCellStyle = dataGridViewCellStyle4;
             this.FechaNacimiento.FillWeight = 113.9786F;
             this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
             this.FechaNacimiento.MinimumWidth = 6;
@@ -311,15 +312,27 @@ namespace AppWindows_Colegio
             this.label4.Location = new System.Drawing.Point(56, 33);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(193, 17);
+            this.label4.Size = new System.Drawing.Size(185, 16);
             this.label4.TabIndex = 19;
             this.label4.Text = "Ingrese iniciales de apellidos:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1285, 116);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(151, 42);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Asignar cursos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // DocenteMan01
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1473, 609);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtFiltro2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblRegistrosDocentes);
@@ -370,5 +383,6 @@ namespace AppWindows_Colegio
         private System.Windows.Forms.DataGridViewTextBoxColumn GradoEstudio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroTelefono;
+        private System.Windows.Forms.Button button1;
     }
 }
