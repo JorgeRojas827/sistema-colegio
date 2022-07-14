@@ -11,7 +11,7 @@ namespace WCF_Colegio
 {
     using System;
     
-    public partial class get_top_alumnos_Result
+    public partial class sp_filtroAlumno_Result
     {
         public int IdAlumno { get; set; }
         public Nullable<int> ValorCodigo { get; set; }

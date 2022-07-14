@@ -166,5 +166,42 @@ namespace WCF_Colegio
                 throw new Exception(ex.Message);
             }
         }
+
+        public List<AlumnoBE> BuscarAlumnos(String ape) 
+        {
+            BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
+            try
+            {
+                List<AlumnoBE> objListaAlumno = new List<AlumnoBE>();
+                var query = bdcolegio.sp_filtroAlumno(ape);
+
+                foreach (var objAlumno in query)
+                {
+                    AlumnoBE objAlumnoBE = new AlumnoBE();
+
+                    objAlumnoBE.Mvarid_alumno = (short)objAlumno.IdAlumno;
+                    objAlumnoBE.Mvarnom_al = objAlumno.Nombres;
+                    objAlumnoBE.Mvarape_al = objAlumno.Apellidos;
+                    objAlumnoBE.Mvarcod_al = objAlumno.Codigo;
+                    objAlumnoBE.Mvardocide_al = objAlumno.DocumentoIdentidad;
+                    objAlumnoBE.Mvarfecnac_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
+                    objAlumnoBE.Mvarsex_al = objAlumno.Sexo;
+                    objAlumnoBE.Mvarciu_al = objAlumno.Ciudad;
+                    objAlumnoBE.Mvardir_al = objAlumno.Direccion;
+                    objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
+                    objAlumnoBE.Mvaridcurso = Convert.ToInt32(objAlumno.Curso);
+                    objAlumnoBE.Mvarnota = Convert.ToInt32(objAlumno.Nota);
+
+                    objListaAlumno.Add(objAlumnoBE);
+                }
+
+                return objListaAlumno;
+            }
+            catch (EntityException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

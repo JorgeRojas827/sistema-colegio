@@ -37,6 +37,12 @@
   <wsdl:message name="IServicioDocente_DeleteDocente_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteDocenteResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioDocente_BuscarDocentes_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDocentes" />
+  </wsdl:message>
+  <wsdl:message name="IServicioDocente_BuscarDocentes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDocentesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioDocente">
     <wsdl:operation name="GetAllDocentes">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioDocente/GetAllDocentes" message="tns:IServicioDocente_GetAllDocentes_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="DeleteDocente">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioDocente/DeleteDocente" message="tns:IServicioDocente_DeleteDocente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioDocente/DeleteDocenteResponse" message="tns:IServicioDocente_DeleteDocente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDocentes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioDocente/BuscarDocentes" message="tns:IServicioDocente_BuscarDocentes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioDocente/BuscarDocentesResponse" message="tns:IServicioDocente_BuscarDocentes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioDocente" type="tns:IServicioDocente">
@@ -99,6 +109,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteDocente">
       <soap:operation soapAction="http://tempuri.org/IServicioDocente/DeleteDocente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDocentes">
+      <soap:operation soapAction="http://tempuri.org/IServicioDocente/BuscarDocentes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

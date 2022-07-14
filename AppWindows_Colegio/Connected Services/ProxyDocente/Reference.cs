@@ -331,6 +331,12 @@ namespace AppWindows_Colegio.ProxyDocente {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioDocente/DeleteDocente", ReplyAction="http://tempuri.org/IServicioDocente/DeleteDocenteResponse")]
         System.Threading.Tasks.Task<bool> DeleteDocenteAsync(int strCod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioDocente/BuscarDocentes", ReplyAction="http://tempuri.org/IServicioDocente/BuscarDocentesResponse")]
+        AppWindows_Colegio.ProxyDocente.DocenteBE[] BuscarDocentes(string ape);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioDocente/BuscarDocentes", ReplyAction="http://tempuri.org/IServicioDocente/BuscarDocentesResponse")]
+        System.Threading.Tasks.Task<AppWindows_Colegio.ProxyDocente.DocenteBE[]> BuscarDocentesAsync(string ape);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -398,6 +404,14 @@ namespace AppWindows_Colegio.ProxyDocente {
         
         public System.Threading.Tasks.Task<bool> DeleteDocenteAsync(int strCod) {
             return base.Channel.DeleteDocenteAsync(strCod);
+        }
+        
+        public AppWindows_Colegio.ProxyDocente.DocenteBE[] BuscarDocentes(string ape) {
+            return base.Channel.BuscarDocentes(ape);
+        }
+        
+        public System.Threading.Tasks.Task<AppWindows_Colegio.ProxyDocente.DocenteBE[]> BuscarDocentesAsync(string ape) {
+            return base.Channel.BuscarDocentesAsync(ape);
         }
     }
 }

@@ -19,11 +19,20 @@ namespace AppWindows_Colegio
             InitializeComponent();
         }
 
-        public void CargarDatos()
+        public void CargarDatos(String strFiltro)
         {
-            dtgDocente.DataSource = objDocente.GetAllDocentes();
+            if (strFiltro.Equals(""))
+            {
+                dtgDocente.DataSource = objDocente.GetAllDocentes();
+            }
+            else
+            {
+                dtgDocente.DataSource = objDocente.BuscarDocentes(strFiltro);
+            }
+            
             lblRegistrosDocentes.Text = dtgDocente.Rows.Count.ToString();
         }
+
 
         private void DocenteMan01_Load(object sender, EventArgs e)
         {
@@ -31,7 +40,7 @@ namespace AppWindows_Colegio
             {
                 dtgDocente.AutoGenerateColumns = false;
 
-                CargarDatos();
+                CargarDatos("");
             }
             catch (Exception ex)
             {
@@ -47,7 +56,7 @@ namespace AppWindows_Colegio
                 DocenteMan02 oDocenteMan02 = new DocenteMan02();
                 oDocenteMan02.ShowDialog();
 
-                CargarDatos();
+                CargarDatos("");
             }
             catch (Exception ex)
             {
@@ -63,7 +72,7 @@ namespace AppWindows_Colegio
                 DocenteMan03 ODocenteMan03 = new DocenteMan03();
                 ODocenteMan03.Codigo = dtgDocente.CurrentRow.Cells[0].Value.ToString();
                 ODocenteMan03.ShowDialog();
-                CargarDatos();
+                CargarDatos("");
             }
             catch (Exception ex)
             {
@@ -78,7 +87,7 @@ namespace AppWindows_Colegio
             {
                 objDocente.DeleteDocente(Convert.ToInt16(dtgDocente.CurrentRow.Cells[0].Value.ToString()));
                 MessageBox.Show("Docente eliminado");
-                CargarDatos();
+                CargarDatos("");
             }
             catch (Exception ex)
             {
@@ -90,6 +99,11 @@ namespace AppWindows_Colegio
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtFiltro2_TextChanged(object sender, EventArgs e)
+        {
+            CargarDatos(txtFiltro2.Text.Trim());
         }
     }
 }

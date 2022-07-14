@@ -20,11 +20,19 @@ namespace AppWindows_Colegio
             InitializeComponent();
         }
 
-        public void CargarDatos()
+        public void CargarDatos(String strFiltro)
         {
-            
+
+            if (strFiltro.Equals(""))
+            {
+                dtgAlumnos.DataSource = objAlumno.GetAllAlumnos();
+            }
+            else 
+            {
+                dtgAlumnos.DataSource = objAlumno.BuscarAlumnos(strFiltro);
+            }
     
-            dtgAlumnos.DataSource = objAlumno.GetAllAlumnos();
+            
             lblRegistros.Text = dtgAlumnos.Rows.Count.ToString();
         }
 
@@ -34,7 +42,7 @@ namespace AppWindows_Colegio
             {
                 dtgAlumnos.AutoGenerateColumns = false;
               
-                CargarDatos();
+                CargarDatos("");
             }
             catch (Exception ex)
             {
@@ -50,7 +58,7 @@ namespace AppWindows_Colegio
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            
+            CargarDatos(txtFiltro.Text.Trim());
         }
 
         private void btnInsertar_Click(object sender, EventArgs e)
@@ -60,7 +68,7 @@ namespace AppWindows_Colegio
                 AlumnoMan02 oAlumnoMan02 = new AlumnoMan02();
                 oAlumnoMan02.ShowDialog();
 
-                CargarDatos();
+                CargarDatos("");
             }
             catch (Exception ex)
             {
@@ -77,7 +85,7 @@ namespace AppWindows_Colegio
                 AlumnoMan03 OAlumnoMan03 = new AlumnoMan03();
                 OAlumnoMan03.Codigo = dtgAlumnos.CurrentRow.Cells[0].Value.ToString();
                 OAlumnoMan03.ShowDialog();
-                CargarDatos();
+                CargarDatos("");
             }
             catch (Exception ex)
             {
@@ -93,7 +101,7 @@ namespace AppWindows_Colegio
             {
                 objAlumno.DeleteAlumno(Convert.ToInt16(dtgAlumnos.CurrentRow.Cells[0].Value.ToString()));
                 MessageBox.Show("Alumno eliminado");
-                CargarDatos();
+                CargarDatos("");
             }
             catch (Exception ex)
             {

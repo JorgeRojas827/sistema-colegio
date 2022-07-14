@@ -23,6 +23,9 @@ namespace AppWindows_Colegio.ProxyAlumno {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool Mvaract_alField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Mvarape_alField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -68,6 +71,19 @@ namespace AppWindows_Colegio.ProxyAlumno {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Mvaract_al {
+            get {
+                return this.Mvaract_alField;
+            }
+            set {
+                if ((this.Mvaract_alField.Equals(value) != true)) {
+                    this.Mvaract_alField = value;
+                    this.RaisePropertyChanged("Mvaract_al");
+                }
             }
         }
         
@@ -283,6 +299,12 @@ namespace AppWindows_Colegio.ProxyAlumno {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAlumno/GetAlumno", ReplyAction="http://tempuri.org/IServicioAlumno/GetAlumnoResponse")]
         System.Threading.Tasks.Task<AppWindows_Colegio.ProxyAlumno.AlumnoBE> GetAlumnoAsync(short strId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAlumno/BuscarAlumnos", ReplyAction="http://tempuri.org/IServicioAlumno/BuscarAlumnosResponse")]
+        AppWindows_Colegio.ProxyAlumno.AlumnoBE[] BuscarAlumnos(string ape);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAlumno/BuscarAlumnos", ReplyAction="http://tempuri.org/IServicioAlumno/BuscarAlumnosResponse")]
+        System.Threading.Tasks.Task<AppWindows_Colegio.ProxyAlumno.AlumnoBE[]> BuscarAlumnosAsync(string ape);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -350,6 +372,14 @@ namespace AppWindows_Colegio.ProxyAlumno {
         
         public System.Threading.Tasks.Task<AppWindows_Colegio.ProxyAlumno.AlumnoBE> GetAlumnoAsync(short strId) {
             return base.Channel.GetAlumnoAsync(strId);
+        }
+        
+        public AppWindows_Colegio.ProxyAlumno.AlumnoBE[] BuscarAlumnos(string ape) {
+            return base.Channel.BuscarAlumnos(ape);
+        }
+        
+        public System.Threading.Tasks.Task<AppWindows_Colegio.ProxyAlumno.AlumnoBE[]> BuscarAlumnosAsync(string ape) {
+            return base.Channel.BuscarAlumnosAsync(ape);
         }
     }
 }

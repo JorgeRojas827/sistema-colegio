@@ -59,3 +59,23 @@ C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Cole
 C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.exe
 C:\Users\admin\Desktop\sistema-colegio-main\sistema-colegio-main\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.pdb
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\bin\Debug\AppWindows_Colegio.exe.config
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\bin\Debug\AppWindows_Colegio.exe
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\bin\Debug\AppWindows_Colegio.pdb
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.csproj.AssemblyReference.cache
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.AlumnoMan01.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.AlumnoMan02.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.AlumnoMan03.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.CursoMan01.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.CursoMan02.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.CursoMan03.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.DocenteMan01.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.DocenteMan02.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.DocenteMan03.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.Inicio.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.frmLogin.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.Properties.Resources.resources
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.csproj.GenerateResource.cache
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.csproj.CoreCompileInputs.cache
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.exe
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\AppWindows_Colegio\obj\Debug\AppWindows_Colegio.pdb

@@ -25,6 +25,9 @@ namespace WCF_Colegio
 
         [OperationContract]
         AlumnoBE GetAlumno(Int16 strId);
+
+        [OperationContract]
+        List<AlumnoBE> BuscarAlumnos(String ape);
     }
 
     [DataContract]

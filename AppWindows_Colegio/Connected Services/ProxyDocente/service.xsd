@@ -69,4 +69,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="BuscarDocentes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ape" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarDocentesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCF_Colegio" minOccurs="0" name="BuscarDocentesResult" nillable="true" type="q5:ArrayOfDocenteBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

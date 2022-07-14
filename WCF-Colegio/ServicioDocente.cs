@@ -219,5 +219,50 @@ namespace WCF_Colegio
                 throw new Exception(ex.Message);
             }
         }
+
+        public List<DocenteBE> BuscarDocentes(String ape)
+        {
+            BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
+            try
+            {
+                List<DocenteBE> objListaDocente = new List<DocenteBE>();
+                var query = bdcolegio.sp_filtroDocente(ape);
+
+                foreach (var objDocente in query)
+                {
+
+                    DocenteBE objDocenteBE = new DocenteBE();
+
+                    objDocenteBE.Id_Docente1 = objDocente.IdDocente;
+                    objDocenteBE.Nombres = objDocente.Nombres;
+                    objDocenteBE.Apellidos = objDocente.Apellidos;
+                    objDocenteBE.DNI1 = objDocente.DocumentoIdentidad;
+                    objDocenteBE.FechaNac = Convert.ToDateTime(objDocente.FechaNacimiento);
+                    objDocenteBE.Fecha_regi = Convert.ToDateTime(objDocente.FechaRegistro);
+                    objDocenteBE.Sexo = objDocente.Sexo;
+                    objDocenteBE.Ciudad = objDocente.Ciudad;
+                    objDocenteBE.Grado_estudio = objDocente.GradoEstudio;
+                    objDocenteBE.Direccion1 = objDocente.Direccion;
+                    objDocenteBE.Email = objDocente.Email;
+                    objDocenteBE.Numero_tel1 = objDocente.NumeroTelefono;
+                    objDocenteBE.Codigo = objDocente.Codigo;
+                    objDocenteBE.Valor_codigo = Convert.ToInt32(objDocente.ValorCodigo);
+                    objDocenteBE.Id_Curso1 = Convert.ToInt32(objDocente.IdCurso);
+
+
+                    objListaDocente.Add(objDocenteBE);
+
+
+
+
+                }
+                return objListaDocente;
+            }
+            catch (EntityException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

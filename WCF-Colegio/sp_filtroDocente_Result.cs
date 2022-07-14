@@ -11,23 +11,25 @@ namespace WCF_Colegio
 {
     using System;
     
-    public partial class get_top_alumnos_Result
+    public partial class sp_filtroDocente_Result
     {
-        public int IdAlumno { get; set; }
+        public int IdDocente { get; set; }
         public Nullable<int> ValorCodigo { get; set; }
         public string Codigo { get; set; }
+        public string DocumentoIdentidad { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
-        public string DocumentoIdentidad { get; set; }
         public Nullable<System.DateTime> FechaNacimiento { get; set; }
         public string Sexo { get; set; }
+        public string GradoEstudio { get; set; }
         public string Ciudad { get; set; }
         public string Direccion { get; set; }
+        public string Email { get; set; }
+        public string NumeroTelefono { get; set; }
         public Nullable<bool> Activo { get; set; }
         public Nullable<System.DateTime> FechaRegistro { get; set; }
         public Nullable<System.DateTime> Fec_Ult_Mod { get; set; }
         public string Usu_Ult_Mod { get; set; }
-        public Nullable<int> Curso { get; set; }
-        public Nullable<int> Nota { get; set; }
+        public Nullable<int> IdCurso { get; set; }
     }
 }

@@ -137,6 +137,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SistemaColegio.edmx</DependentUpon>
     </Compile>
+    <Compile Include="sp_filtroAlumno_Result.cs">
+      <DependentUpon>SistemaColegio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_filtroDocente_Result.cs">
+      <DependentUpon>SistemaColegio.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>

@@ -24,6 +24,9 @@ namespace WCF_Colegio
 
         [OperationContract]
         Boolean DeleteDocente(Int32 strCod);
+
+        [OperationContract]
+        List<DocenteBE> BuscarDocentes(String ape);
     }
 
     [DataContract]
