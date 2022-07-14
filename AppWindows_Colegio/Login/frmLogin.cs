@@ -14,11 +14,8 @@ namespace AppWindows_Colegio
         // Declaramos variableas de intentos y tiempo....
         Int16 intentos = 0;
         Int16 tiempo = 20;
-        // Declaramos instancias para autenficacion de Usuarios....
-        //UsuarioBE objUsuarioBE = new UsuarioBE();
-        //UsuarioBL objUsuarioBL = new UsuarioBL();
 
-        
+        ProxyExtra.IServicioExtraClient objExtra = new ProxyExtra.IServicioExtraClient();
 
         public frmLogin()
         {
@@ -27,53 +24,31 @@ namespace AppWindows_Colegio
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //if(txtLogin .Text.Trim() != "" & txtPassword.Text.Trim() != "")
-            // {
-            //    //Codifique...
-            //    //Obtenemos las credenciales segun el login
-            //    objUsuarioBE = objUsuarioBL.ConsultarUsuario(txtLogin.Text.Trim());
+            if (txtLogin.Text.Trim() != "" & txtPassword.Text.Trim() != "")
+            {
+                bool res = objExtra.LoginUsuario(txtLogin.Text.Trim(), txtPassword.Text.Trim());
+                if (res != true)
+                {
+                    MessageBox.Show("Usuario no existe", "Mensaje",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    intentos += 1;
+                    ValidaAccesos();
+                } else
+                {
+                    this.Hide();
+                    timer1.Enabled = false;
+                    Inicio inicio = new Inicio();
+                    inicio.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario o Password obligatorios",
+                    "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                intentos += 1;
+                ValidaAccesos();
+            }
 
-            //    //Si el usuario no existiera
-            //    if (objUsuarioBE.Login_Usuario == null)
-            //    {
-            //        MessageBox.Show("Usuario no existe", "Mensaje",
-            //            MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        intentos += 1;
-            //        ValidaAccesos();
-            //    }
-
-            //    else 
-            //    {
-            //        if (txtLogin.Text == objUsuarioBE.Login_Usuario & txtPassword.Text == objUsuarioBE.Pass_Usuario)
-            //        {
-            //            //Las credenciales son correctas y se guardan en la clase estatica clsCrendenciales
-            //            this.Hide();
-            //            timer1.Enabled = false;
-            //            clsCredenciales.Usuario = objUsuarioBE.Login_Usuario;
-            //            clsCredenciales.Password = objUsuarioBE.Pass_Usuario;
-            //            clsCredenciales.Nivel = objUsuarioBE.Niv_Usuario;
-
-            //            MDIPrincipal oMDIPrincipal = new MDIPrincipal();
-            //            oMDIPrincipal.ShowDialog();
-            //        }
-
-            //        else
-            //        {
-            //            MessageBox.Show("Password incorrecto", "Mensaje",MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            intentos += 1;
-            //            ValidaAccesos();
-
-            //        }
-            //    }      
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Usuario o Password obligatorios",
-            //        "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //   intentos +=1;
-            //    ValidaAccesos();
-            //}
-           
         }
 
         private void ValidaAccesos()
@@ -114,11 +89,9 @@ namespace AppWindows_Colegio
 
         private void frmLogin_KeyDown(object sender, KeyEventArgs e)
         {
-            // Para al pulsar Enter acceder al MDI...
             if (e.KeyCode == Keys.Enter)
             {
                 btnAceptar.PerformClick();
-            
             }
         }
     }

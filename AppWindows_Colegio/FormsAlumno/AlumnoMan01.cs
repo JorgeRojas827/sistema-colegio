@@ -45,7 +45,7 @@ namespace AppWindows_Colegio
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)

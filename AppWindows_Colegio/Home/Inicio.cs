@@ -36,8 +36,8 @@ namespace AppWindows_Colegio
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AlumnoMan03 oalumnoMan03 = new AlumnoMan03();
-            oalumnoMan03.ShowDialog();
+            DocenteMan01 docenteMan01= new DocenteMan01();
+            docenteMan01.ShowDialog();
         }
     }
 }

@@ -85,5 +85,11 @@ namespace AppWindows_Colegio
                 MessageBox.Show("Error : " + ex.Message);
             }
         }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
     }
 }
