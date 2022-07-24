@@ -138,45 +138,6 @@ namespace WCF_Colegio
                 throw new Exception(ex.Message);
             }
 
-            //try
-            //{
-
-            //    DOCENTE objDocente = (
-
-            //        from oDocente in bdcolegio.DOCENTE
-            //        where oDocente.IdDocente == objDocenteBE.Id_Docente1
-            //        select oDocente).FirstOrDefault();
-
-            //    objDocente.IdDocente = objDocenteBE.Id_Docente1;
-            //    objDocente.Codigo = objDocenteBE.Codigo;
-            //    objDocente.ValorCodigo = objDocenteBE.Valor_codigo;
-            //    objDocente.Nombres = objDocenteBE.Nombres;
-            //    objDocente.Apellidos = objDocenteBE.Apellidos;
-            //    objDocente.Direccion = objDocenteBE.Direccion1;
-            //    objDocente.Sexo = objDocenteBE.Sexo;
-            //    objDocente.DocumentoIdentidad = objDocenteBE.DNI1;
-            //    objDocente.FechaNacimiento = objDocenteBE.FechaNac;
-            //    objDocente.FechaRegistro = objDocenteBE.Fecha_regi;
-            //    objDocente.NumeroTelefono = objDocenteBE.Numero_tel1;
-            //    objDocente.Email = objDocenteBE.Email;
-            //    objDocente.IdCurso = objDocenteBE.Id_Curso1;
-
-
-            //    bdcolegio.SaveChanges();
-
-            //    return true;
-
-
-
-
-            //}
-            //catch (EntityException ex)
-            //{
-
-            //    throw new Exception(ex.Message);
-            //}
-
-
         }
 
         public DocenteBE GetDocente(Int32 strId)

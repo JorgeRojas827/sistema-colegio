@@ -17,12 +17,7 @@ namespace WCF_Colegio
             BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
             try
             {
-                ALUMNO objAlumno= (
-                    from oAlumno in bdcolegio.ALUMNO
-                    where oAlumno.IdAlumno == strId
-                    select oAlumno).FirstOrDefault();
-
-                bdcolegio.ALUMNO.Remove(objAlumno);
+                bdcolegio.usp_EliminarAlumno(strId);
                 bdcolegio.SaveChanges();
 
                 return true;

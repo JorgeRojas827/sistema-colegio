@@ -29,8 +29,8 @@ namespace AppWindows_Colegio
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgAlumnos = new System.Windows.Forms.DataGridView();
             this.IdAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,13 +73,12 @@ namespace AppWindows_Colegio
             this.Sexo,
             this.Ciudad,
             this.Direccion});
-            this.dtgAlumnos.Location = new System.Drawing.Point(35, 78);
-            this.dtgAlumnos.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgAlumnos.Location = new System.Drawing.Point(26, 63);
             this.dtgAlumnos.Name = "dtgAlumnos";
             this.dtgAlumnos.ReadOnly = true;
             this.dtgAlumnos.RowHeadersVisible = false;
             this.dtgAlumnos.RowHeadersWidth = 51;
-            this.dtgAlumnos.Size = new System.Drawing.Size(1163, 519);
+            this.dtgAlumnos.Size = new System.Drawing.Size(872, 422);
             this.dtgAlumnos.TabIndex = 0;
             // 
             // IdAlumno
@@ -94,8 +93,8 @@ namespace AppWindows_Colegio
             // Codigo
             // 
             this.Codigo.DataPropertyName = "Mvarcod_al";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.Codigo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Codigo.DefaultCellStyle = dataGridViewCellStyle1;
             this.Codigo.FillWeight = 85.13406F;
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.MinimumWidth = 6;
@@ -132,9 +131,9 @@ namespace AppWindows_Colegio
             // FechaNacimiento
             // 
             this.FechaNacimiento.DataPropertyName = "Mvarfecnac_al";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "d";
-            this.FechaNacimiento.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "d";
+            this.FechaNacimiento.DefaultCellStyle = dataGridViewCellStyle2;
             this.FechaNacimiento.FillWeight = 113.9786F;
             this.FechaNacimiento.HeaderText = "Fecha Nacimiento";
             this.FechaNacimiento.MinimumWidth = 6;
@@ -170,10 +169,9 @@ namespace AppWindows_Colegio
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(1240, 268);
-            this.btnInsertar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInsertar.Location = new System.Drawing.Point(930, 218);
             this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(151, 42);
+            this.btnInsertar.Size = new System.Drawing.Size(113, 34);
             this.btnInsertar.TabIndex = 1;
             this.btnInsertar.Text = "Registrar alumno";
             this.btnInsertar.UseVisualStyleBackColor = true;
@@ -181,10 +179,9 @@ namespace AppWindows_Colegio
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(1240, 317);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActualizar.Location = new System.Drawing.Point(930, 258);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(151, 42);
+            this.btnActualizar.Size = new System.Drawing.Size(113, 34);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar alumno";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -192,10 +189,9 @@ namespace AppWindows_Colegio
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(1240, 529);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVolver.Location = new System.Drawing.Point(930, 430);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(151, 42);
+            this.btnVolver.Size = new System.Drawing.Size(113, 34);
             this.btnVolver.TabIndex = 3;
             this.btnVolver.Text = "Volver al inicio";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -203,10 +199,9 @@ namespace AppWindows_Colegio
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(1240, 366);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(930, 297);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(151, 42);
+            this.btnEliminar.Size = new System.Drawing.Size(113, 34);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar alumno";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -218,10 +213,9 @@ namespace AppWindows_Colegio
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1045, 614);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(784, 499);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Registros:";
             // 
@@ -229,38 +223,34 @@ namespace AppWindows_Colegio
             // 
             this.lblRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRegistros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRegistros.Location = new System.Drawing.Point(1125, 613);
-            this.lblRegistros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRegistros.Location = new System.Drawing.Point(844, 498);
             this.lblRegistros.Name = "lblRegistros";
-            this.lblRegistros.Size = new System.Drawing.Size(71, 28);
+            this.lblRegistros.Size = new System.Drawing.Size(54, 23);
             this.lblRegistros.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 32);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(41, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 16);
+            this.label2.Size = new System.Drawing.Size(144, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Ingrese iniciales de apellidos:";
             // 
             // txtFiltro
             // 
             this.txtFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFiltro.Location = new System.Drawing.Point(255, 28);
-            this.txtFiltro.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFiltro.Location = new System.Drawing.Point(191, 23);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(493, 22);
+            this.txtFiltro.Size = new System.Drawing.Size(370, 20);
             this.txtFiltro.TabIndex = 8;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnTopAlumno
             // 
-            this.btnTopAlumno.Location = new System.Drawing.Point(1240, 79);
-            this.btnTopAlumno.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTopAlumno.Location = new System.Drawing.Point(930, 64);
             this.btnTopAlumno.Name = "btnTopAlumno";
-            this.btnTopAlumno.Size = new System.Drawing.Size(151, 42);
+            this.btnTopAlumno.Size = new System.Drawing.Size(113, 34);
             this.btnTopAlumno.TabIndex = 9;
             this.btnTopAlumno.Text = "Top de alumnos";
             this.btnTopAlumno.UseVisualStyleBackColor = true;
@@ -268,9 +258,9 @@ namespace AppWindows_Colegio
             // 
             // AlumnoMan01
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1424, 652);
+            this.ClientSize = new System.Drawing.Size(1068, 530);
             this.Controls.Add(this.btnTopAlumno);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label2);
@@ -282,7 +272,8 @@ namespace AppWindows_Colegio
             this.Controls.Add(this.btnInsertar);
             this.Controls.Add(this.dtgAlumnos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AlumnoMan01";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Alumnos";

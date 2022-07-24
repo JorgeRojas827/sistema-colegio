@@ -106,3 +106,15 @@ C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\WCF-Col
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\WCF-Colegio\bin\Debug\EntityFramework.xml
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH4\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\bin\Debug\WCF-Colegio.dll.config
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\bin\Debug\WCF-Colegio.dll
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\bin\Debug\WCF-Colegio.pdb
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\bin\Debug\EntityFramework.dll
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.dll
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\bin\Debug\EntityFramework.xml
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.xml
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.AssemblyReference.cache
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CoreCompileInputs.cache
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\obj\Debug\WCF-Colegio.dll
+D:\descargas\sistema-colegio-main\sistema-colegio-main\WCF-Colegio\obj\Debug\WCF-Colegio.pdb

@@ -247,18 +247,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CALIFICAC__IdAlu__72C60C4A">
-    <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="0..1" />
-    <End Role="CALIFICACION" Type="Self.CALIFICACION" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ALUMNO">
-        <PropertyRef Name="IdAlumno" />
-      </Principal>
-      <Dependent Role="CALIFICACION">
-        <PropertyRef Name="IdAlumno" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__CALIFICAC__IdCur__71D1E811">
     <End Role="CURRICULA" Type="Self.CURRICULA" Multiplicity="0..1" />
     <End Role="CALIFICACION" Type="Self.CALIFICACION" Multiplicity="*" />
@@ -601,7 +589,6 @@
   </Function>
   <Function Name="usp_EliminarAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdAlumno" Type="int" Mode="In" />
-    <Parameter Name="Resultado" Type="bit" Mode="InOut" />
   </Function>
   <Function Name="usp_EliminarCurricula" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdCurricula" Type="int" Mode="In" />
@@ -829,10 +816,6 @@
     <AssociationSet Name="FK__ALUMNO__Curso__607251E5" Association="Self.FK__ALUMNO__Curso__607251E5">
       <End Role="CURSO" EntitySet="CURSO" />
       <End Role="ALUMNO" EntitySet="ALUMNO" />
-    </AssociationSet>
-    <AssociationSet Name="FK__CALIFICAC__IdAlu__72C60C4A" Association="Self.FK__CALIFICAC__IdAlu__72C60C4A">
-      <End Role="ALUMNO" EntitySet="ALUMNO" />
-      <End Role="CALIFICACION" EntitySet="CALIFICACION" />
     </AssociationSet>
     <AssociationSet Name="FK__CALIFICAC__IdCur__71D1E811" Association="Self.FK__CALIFICAC__IdCur__71D1E811">
       <End Role="CURRICULA" EntitySet="CURRICULA" />

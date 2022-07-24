@@ -646,7 +646,6 @@
     </FunctionImport>
     <FunctionImport Name="usp_EliminarAlumno">
       <Parameter Name="IdAlumno" Mode="In" Type="Int32" />
-      <Parameter Name="Resultado" Mode="InOut" Type="Boolean" />
     </FunctionImport>
     <FunctionImport Name="usp_EliminarCurricula">
       <Parameter Name="IdCurricula" Mode="In" Type="Int32" />

@@ -227,6 +227,9 @@ namespace AppWindows_Colegio
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 346);
             this.Controls.Add(this.grpDatos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AlumnoMan03";
             this.Text = "Actualizar Alumno";
             this.Load += new System.EventHandler(this.AlumnoMan03_Load);

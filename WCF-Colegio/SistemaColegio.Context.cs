@@ -499,7 +499,7 @@ public partial class BDCOLEGIOEntities : DbContext
     }
 
 
-    public virtual int usp_EliminarAlumno(Nullable<int> idAlumno, ObjectParameter resultado)
+    public virtual int usp_EliminarAlumno(Nullable<int> idAlumno)
     {
 
         var idAlumnoParameter = idAlumno.HasValue ?
@@ -507,7 +507,7 @@ public partial class BDCOLEGIOEntities : DbContext
             new ObjectParameter("IdAlumno", typeof(int));
 
 
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_EliminarAlumno", idAlumnoParameter, resultado);
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_EliminarAlumno", idAlumnoParameter);
     }
 
 

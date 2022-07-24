@@ -30,6 +30,10 @@ namespace AppWindows_Colegio
         private void InitializeComponent()
         {
             this.grpDatos = new System.Windows.Forms.GroupBox();
+            this.txtNroTel = new System.Windows.Forms.TextBox();
+            this.txtGrado = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -48,10 +52,6 @@ namespace AppWindows_Colegio
             this.Label2 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtNroTel = new System.Windows.Forms.TextBox();
-            this.txtGrado = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.grpDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +85,36 @@ namespace AppWindows_Colegio
             this.grpDatos.TabIndex = 3;
             this.grpDatos.TabStop = false;
             this.grpDatos.Text = "Datos";
+            // 
+            // txtNroTel
+            // 
+            this.txtNroTel.Location = new System.Drawing.Point(111, 301);
+            this.txtNroTel.Name = "txtNroTel";
+            this.txtNroTel.Size = new System.Drawing.Size(274, 20);
+            this.txtNroTel.TabIndex = 27;
+            // 
+            // txtGrado
+            // 
+            this.txtGrado.Location = new System.Drawing.Point(111, 265);
+            this.txtGrado.Name = "txtGrado";
+            this.txtGrado.Size = new System.Drawing.Size(274, 20);
+            this.txtGrado.TabIndex = 28;
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(39, 304);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(95, 16);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Nro. Tel:";
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(39, 268);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 16);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "Grado:";
             // 
             // lblCodigo
             // 
@@ -230,36 +260,6 @@ namespace AppWindows_Colegio
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // txtNroTel
-            // 
-            this.txtNroTel.Location = new System.Drawing.Point(111, 301);
-            this.txtNroTel.Name = "txtNroTel";
-            this.txtNroTel.Size = new System.Drawing.Size(274, 20);
-            this.txtNroTel.TabIndex = 27;
-            // 
-            // txtGrado
-            // 
-            this.txtGrado.Location = new System.Drawing.Point(111, 265);
-            this.txtGrado.Name = "txtGrado";
-            this.txtGrado.Size = new System.Drawing.Size(274, 20);
-            this.txtGrado.TabIndex = 28;
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(39, 304);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 16);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Nro. Tel:";
-            // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(39, 268);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(95, 16);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "Grado:";
-            // 
             // DocenteMan03
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +267,8 @@ namespace AppWindows_Colegio
             this.ClientSize = new System.Drawing.Size(511, 437);
             this.Controls.Add(this.grpDatos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DocenteMan03";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Actualizar Docente";

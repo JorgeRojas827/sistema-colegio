@@ -41,7 +41,7 @@ namespace AppWindows_Colegio.FormsDocente
             try
             {
                 objExtra.AsignarCursoDocente(Convert.ToInt16(cbxCursos.SelectedValue), Convert.ToInt16(Codigo));
-                MessageBox.Show("Curso asignado!!");
+                MessageBox.Show("Curso asignado");
             }
             catch (Exception ex)
             {
