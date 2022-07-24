@@ -42,7 +42,7 @@ namespace WCF_Colegio
         private DateTime fechaNac;
         private String sexo;
         private String grado_estudio;
-        private String ciudad;
+        private String mvarnombre_distrito;
         private String Direccion;
         private String email;
         private String Numero_tel;
@@ -70,8 +70,7 @@ namespace WCF_Colegio
         public string Sexo { get => sexo; set => sexo = value; }
         [DataMember]
         public string Grado_estudio { get => grado_estudio; set => grado_estudio = value; }
-        [DataMember]
-        public string Ciudad { get => ciudad; set => ciudad = value; }
+        
         [DataMember]
         public string Direccion1 { get => Direccion; set => Direccion = value; }
         [DataMember]
@@ -89,5 +88,7 @@ namespace WCF_Colegio
         public int Id_Curso1 { get => this.Id_Curso; set => this.Id_Curso = value; }
         [DataMember]
         public bool Mvaract_doc { get => mvaract_doc; set => mvaract_doc = value; }
+        [DataMember]
+        public string Mvarnombre_distrito { get => mvarnombre_distrito; set => mvarnombre_distrito = value; }
     }
 }

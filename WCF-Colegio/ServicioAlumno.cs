@@ -49,7 +49,7 @@ namespace WCF_Colegio
                     objAlumnoBE.Mvarsex_al= objAlumno.Sexo;
                     objAlumnoBE.Mvarnom_distrito =objAlumno.nombre;
                     objAlumnoBE.Mvardir_al = objAlumno.Direccion;
-                    objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
+                    //objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                     objAlumnoBE.Mvaridcurso = Convert.ToInt32(objAlumno.Curso);
                     objAlumnoBE.Mvarnota = Convert.ToInt32(objAlumno.Nota);
 

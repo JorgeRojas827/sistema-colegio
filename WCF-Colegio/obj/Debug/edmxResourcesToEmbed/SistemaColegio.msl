@@ -344,11 +344,12 @@
           <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
           <ScalarProperty Name="Sexo" ColumnName="Sexo" />
           <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
-          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -626,7 +627,6 @@
       <ResultMapping>
         <ComplexTypeMapping TypeName="BDCOLEGIOModel.sp_filtroDocente_Result">
           <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
-          <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
           <ScalarProperty Name="Nombres" ColumnName="Nombres" />
@@ -634,15 +634,12 @@
           <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
           <ScalarProperty Name="Sexo" ColumnName="Sexo" />
           <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
-          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
-          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
-          <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
-          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
           <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

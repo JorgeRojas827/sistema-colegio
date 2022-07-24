@@ -592,7 +592,7 @@
           <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
           <Parameter Name="Sexo" Type="varchar" Mode="In" />
           <Parameter Name="GradoEstudio" Type="varchar" Mode="In" />
-          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
           <Parameter Name="Email" Type="varchar" Mode="In" />
           <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
@@ -748,7 +748,7 @@
           <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
           <Parameter Name="Sexo" Type="varchar" Mode="In" />
           <Parameter Name="GradoEstudio" Type="varchar" Mode="In" />
-          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
           <Parameter Name="Email" Type="varchar" Mode="In" />
           <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
@@ -1546,7 +1546,7 @@
             <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
             <Parameter Name="Sexo" Mode="In" Type="String" />
             <Parameter Name="GradoEstudio" Mode="In" Type="String" />
-            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
@@ -1706,7 +1706,7 @@
             <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
             <Parameter Name="Sexo" Mode="In" Type="String" />
             <Parameter Name="GradoEstudio" Mode="In" Type="String" />
-            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="NumeroTelefono" Mode="In" Type="String" />
@@ -1912,11 +1912,12 @@
           <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
           <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="GradoEstudio" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="NumeroTelefono" Nullable="true" MaxLength="50" />
           <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdCurso" Nullable="true" />
         </ComplexType>
         <ComplexType Name="usp_ListarDocenteCurso_Result">
           <Property Type="Int32" Name="IdDocenteCurso" Nullable="false" />
@@ -2122,7 +2123,6 @@
         </ComplexType>
         <ComplexType Name="sp_filtroDocente_Result">
           <Property Type="Int32" Name="IdDocente" Nullable="false" />
-          <Property Type="Int32" Name="ValorCodigo" Nullable="true" />
           <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
@@ -2130,15 +2130,12 @@
           <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
           <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="GradoEstudio" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="NumeroTelefono" Nullable="true" MaxLength="50" />
           <Property Type="Boolean" Name="Activo" Nullable="true" />
-          <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="Fec_Ult_Mod" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
           <Property Type="Int32" Name="IdCurso" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
         </ComplexType>
         <EntityType Name="Distrito">
           <Key>
@@ -2523,11 +2520,12 @@
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
                 <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2805,7 +2803,6 @@
             <ResultMapping>
               <ComplexTypeMapping TypeName="BDCOLEGIOModel.sp_filtroDocente_Result">
                 <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
-                <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
                 <ScalarProperty Name="Nombres" ColumnName="Nombres" />
@@ -2813,15 +2810,12 @@
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
                 <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
-                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
-                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
                 <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -587,7 +587,7 @@
     <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
     <Parameter Name="Sexo" Type="varchar" Mode="In" />
     <Parameter Name="GradoEstudio" Type="varchar" Mode="In" />
-    <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+    <Parameter Name="Ciudad" Type="int" Mode="In" />
     <Parameter Name="Direccion" Type="varchar" Mode="In" />
     <Parameter Name="Email" Type="varchar" Mode="In" />
     <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
@@ -743,7 +743,7 @@
     <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
     <Parameter Name="Sexo" Type="varchar" Mode="In" />
     <Parameter Name="GradoEstudio" Type="varchar" Mode="In" />
-    <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+    <Parameter Name="Ciudad" Type="int" Mode="In" />
     <Parameter Name="Direccion" Type="varchar" Mode="In" />
     <Parameter Name="Email" Type="varchar" Mode="In" />
     <Parameter Name="NumeroTelefono" Type="varchar" Mode="In" />
