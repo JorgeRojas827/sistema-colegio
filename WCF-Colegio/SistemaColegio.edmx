@@ -17,7 +17,6 @@
           <Property Name="DocumentoIdentidad" Type="varchar" MaxLength="100" />
           <Property Name="FechaNacimiento" Type="date" />
           <Property Name="Sexo" Type="varchar" MaxLength="50" />
-          <Property Name="Ciudad" Type="varchar" MaxLength="100" />
           <Property Name="Direccion" Type="varchar" MaxLength="100" />
           <Property Name="Activo" Type="bit" />
           <Property Name="FechaRegistro" Type="datetime" />
@@ -25,6 +24,7 @@
           <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
           <Property Name="Curso" Type="int" />
           <Property Name="Nota" Type="int" />
+          <Property Name="idDistrito" Type="int" />
         </EntityType>
         <EntityType Name="APODERADO">
           <Key>
@@ -78,6 +78,14 @@
           <Property Name="FechaRegistro" Type="datetime" />
           <Property Name="Imagen" Type="image" />
         </EntityType>
+        <EntityType Name="Distrito">
+          <Key>
+            <PropertyRef Name="idDistrito" />
+          </Key>
+          <Property Name="idDistrito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="DOCENTE">
           <Key>
             <PropertyRef Name="IdDocente" />
@@ -91,7 +99,6 @@
           <Property Name="FechaNacimiento" Type="date" />
           <Property Name="Sexo" Type="varchar" MaxLength="50" />
           <Property Name="GradoEstudio" Type="varchar" MaxLength="100" />
-          <Property Name="Ciudad" Type="varchar" MaxLength="100" />
           <Property Name="Direccion" Type="varchar" MaxLength="100" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="NumeroTelefono" Type="varchar" MaxLength="50" />
@@ -100,6 +107,7 @@
           <Property Name="Fec_Ult_Mod" Type="datetime" />
           <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
           <Property Name="IdCurso" Type="int" />
+          <Property Name="idDistrito" Type="int" />
         </EntityType>
         <EntityType Name="DOCENTE_NIVELDETALLE_CURSO">
           <Key>
@@ -444,6 +452,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_distrito">
+          <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+          <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="idDistrito" />
+            </Principal>
+            <Dependent Role="ALUMNO">
+              <PropertyRef Name="idDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_distritoDoce">
+          <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+          <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="idDistrito" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="idDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="get_top_alumnos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="maximo" Type="int" Mode="In" />
@@ -467,7 +499,7 @@
           <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
           <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
           <Parameter Name="Sexo" Type="varchar" Mode="In" />
-          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -512,7 +544,7 @@
           <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
           <Parameter Name="Sexo" Type="varchar" Mode="In" />
           <Parameter Name="gradoEstudio" Type="varchar" Mode="In" />
-          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
           <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="telefono" Type="varchar" Mode="In" />
@@ -541,7 +573,7 @@
           <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
           <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
           <Parameter Name="Sexo" Type="varchar" Mode="In" />
-          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
           <Parameter Name="Activo" Type="bit" Mode="In" />
           <Parameter Name="Usuario" Type="varchar" Mode="In" />
@@ -691,7 +723,7 @@
           <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
           <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
           <Parameter Name="Sexo" Type="varchar" Mode="In" />
-          <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="Ciudad" Type="int" Mode="In" />
           <Parameter Name="Direccion" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_RegistrarCalificacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -805,6 +837,7 @@
           <EntitySet Name="CALIFICACION" EntityType="Self.CALIFICACION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CURRICULA" EntityType="Self.CURRICULA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CURSO" EntityType="Self.CURSO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distrito" EntityType="Self.Distrito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DOCENTE" EntityType="Self.DOCENTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DOCENTE_NIVELDETALLE_CURSO" EntityType="Self.DOCENTE_NIVELDETALLE_CURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GRADO_SECCION" EntityType="Self.GRADO_SECCION" Schema="dbo" store:Type="Tables" />
@@ -886,6 +919,14 @@
             <End Role="ROL" EntitySet="ROL" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
+          <AssociationSet Name="fk_distrito" Association="Self.fk_distrito">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_distritoDoce" Association="Self.fk_distritoDoce">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -903,7 +944,6 @@
           <Property Name="DocumentoIdentidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
           <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Activo" Type="Boolean" />
           <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
@@ -914,6 +954,8 @@
           <Property Name="Curso" Type="Int32" />
           <Property Name="Nota" Type="Int32" />
           <NavigationProperty Name="CURSO1" Relationship="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5" FromRole="ALUMNO" ToRole="CURSO" />
+          <Property Name="idDistrito" Type="Int32" />
+          <NavigationProperty Name="Distrito" Relationship="BDCOLEGIOModel.fk_distrito" FromRole="ALUMNO" ToRole="Distrito" />
         </EntityType>
         <EntityType Name="APODERADO">
           <Key>
@@ -988,7 +1030,6 @@
           <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
           <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="GradoEstudio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NumeroTelefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -999,6 +1040,8 @@
           <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IdCurso" Type="Int32" />
           <NavigationProperty Name="CURSO" Relationship="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E" FromRole="DOCENTE" ToRole="CURSO" />
+          <Property Name="idDistrito" Type="Int32" />
+          <NavigationProperty Name="Distrito" Relationship="BDCOLEGIOModel.fk_distritoDoce" FromRole="DOCENTE" ToRole="Distrito" />
         </EntityType>
         <EntityType Name="DOCENTE_NIVELDETALLE_CURSO">
           <Key>
@@ -1484,7 +1527,7 @@
             <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
             <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
             <Parameter Name="Sexo" Mode="In" Type="String" />
-            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
             <Parameter Name="Activo" Mode="In" Type="Boolean" />
             <Parameter Name="Usuario" Mode="In" Type="String" />
@@ -1638,7 +1681,7 @@
             <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
             <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
             <Parameter Name="Sexo" Mode="In" Type="String" />
-            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_RegistrarCalificacion">
@@ -1753,7 +1796,7 @@
             <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
             <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
             <Parameter Name="Sexo" Mode="In" Type="String" />
-            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_EliminarDocente">
@@ -1777,7 +1820,7 @@
             <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
             <Parameter Name="Sexo" Mode="In" Type="String" />
             <Parameter Name="gradoEstudio" Mode="In" Type="String" />
-            <Parameter Name="Ciudad" Mode="In" Type="String" />
+            <Parameter Name="Ciudad" Mode="In" Type="Int32" />
             <Parameter Name="Direccion" Mode="In" Type="String" />
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="telefono" Mode="In" Type="String" />
@@ -1812,6 +1855,15 @@
           <FunctionImport Name="sp_filtroDocente" ReturnType="Collection(BDCOLEGIOModel.sp_filtroDocente_Result)">
           <Parameter Name="apellidos" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Distrito" EntityType="BDCOLEGIOModel.Distrito" />
+          <AssociationSet Name="fk_distrito" Association="BDCOLEGIOModel.fk_distrito">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="ALUMNO" EntitySet="ALUMNO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_distritoDoce" Association="BDCOLEGIOModel.fk_distritoDoce">
+            <End Role="Distrito" EntitySet="Distrito" />
+            <End Role="DOCENTE" EntitySet="DOCENTE" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="usp_ActualizarPermisos_Result">
           <Property Type="Int32" Name="idpermisos" Nullable="true" />
@@ -1825,9 +1877,11 @@
           <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
           <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
           <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
           <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Curso" Nullable="true" />
+          <Property Type="Int32" Name="Nota" Nullable="true" />
         </ComplexType>
         <ComplexType Name="usp_ListarCurso_Result">
           <Property Type="Int32" Name="IdCurso" Nullable="false" />
@@ -2054,21 +2108,17 @@
         </ComplexType>
         <ComplexType Name="sp_filtroAlumno_Result">
           <Property Type="Int32" Name="IdAlumno" Nullable="false" />
-          <Property Type="Int32" Name="ValorCodigo" Nullable="true" />
           <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
           <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
           <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
           <Property Type="Boolean" Name="Activo" Nullable="true" />
-          <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="Fec_Ult_Mod" Nullable="true" Precision="23" />
-          <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
           <Property Type="Int32" Name="Curso" Nullable="true" />
           <Property Type="Int32" Name="Nota" Nullable="true" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="sp_filtroDocente_Result">
           <Property Type="Int32" Name="IdDocente" Nullable="false" />
@@ -2090,6 +2140,40 @@
           <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
           <Property Type="Int32" Name="IdCurso" Nullable="true" />
         </ComplexType>
+        <EntityType Name="Distrito">
+          <Key>
+            <PropertyRef Name="idDistrito" />
+          </Key>
+          <Property Name="idDistrito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ALUMNO" Relationship="BDCOLEGIOModel.fk_distrito" FromRole="Distrito" ToRole="ALUMNO" />
+          <NavigationProperty Name="DOCENTE" Relationship="BDCOLEGIOModel.fk_distritoDoce" FromRole="Distrito" ToRole="DOCENTE" />
+        </EntityType>
+        <Association Name="fk_distrito">
+          <End Type="BDCOLEGIOModel.Distrito" Role="Distrito" Multiplicity="0..1" />
+          <End Type="BDCOLEGIOModel.ALUMNO" Role="ALUMNO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="idDistrito" />
+            </Principal>
+            <Dependent Role="ALUMNO">
+              <PropertyRef Name="idDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_distritoDoce">
+          <End Type="BDCOLEGIOModel.Distrito" Role="Distrito" Multiplicity="0..1" />
+          <End Type="BDCOLEGIOModel.DOCENTE" Role="DOCENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distrito">
+              <PropertyRef Name="idDistrito" />
+            </Principal>
+            <Dependent Role="DOCENTE">
+              <PropertyRef Name="idDistrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2099,6 +2183,7 @@
           <EntitySetMapping Name="ALUMNO">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.ALUMNO">
               <MappingFragment StoreEntitySet="ALUMNO">
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
                 <ScalarProperty Name="Nota" ColumnName="Nota" />
                 <ScalarProperty Name="Curso" ColumnName="Curso" />
                 <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
@@ -2111,7 +2196,6 @@
                 <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
@@ -2177,6 +2261,7 @@
           <EntitySetMapping Name="DOCENTE">
             <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE">
               <MappingFragment StoreEntitySet="DOCENTE">
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
                 <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
                 <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
                 <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
@@ -2189,45 +2274,12 @@
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
                 <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
               </MappingFragment>
-            </EntityTypeMapping>
-            <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE">
-              <ModificationFunctionMapping>
-                <UpdateFunction FunctionName="BDCOLEGIOModel.Store.SP_ActulizarDocente">
-                  <ScalarProperty Name="Apellidos" ParameterName="apellido" Version="Current" />
-                  <ScalarProperty Name="Nombres" ParameterName="nombre" Version="Current" />
-                  <ScalarProperty Name="IdDocente" ParameterName="id_docente" Version="Current" />
-                  <ScalarProperty Name="Direccion" ParameterName="Direccion" Version="Current" />
-                  <ScalarProperty Name="Ciudad" ParameterName="Ciudad" Version="Current" />
-                  <ScalarProperty Name="Sexo" ParameterName="Sexo" Version="Current" />
-                  <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" Version="Current" />
-                  <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" Version="Current" />
-                </UpdateFunction>
-                <DeleteFunction FunctionName="BDCOLEGIOModel.Store.SP_EliminarDocente" >
-                  <ScalarProperty Name="IdDocente" ParameterName="codigo" />
-                </DeleteFunction>
-                <InsertFunction FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente">
-                  <ScalarProperty Name="Codigo" ParameterName="codigo" />
-                  <ScalarProperty Name="ValorCodigo" ParameterName="valorCodigo" />
-                  <ScalarProperty Name="FechaRegistro" ParameterName="fechaRegistro" />
-                  <ScalarProperty Name="NumeroTelefono" ParameterName="telefono" />
-                  <ScalarProperty Name="Email" ParameterName="email" />
-                  <ScalarProperty Name="GradoEstudio" ParameterName="gradoEstudio" />
-                  <ScalarProperty Name="Direccion" ParameterName="Direccion" />
-                  <ScalarProperty Name="Ciudad" ParameterName="Ciudad" />
-                  <ScalarProperty Name="Sexo" ParameterName="Sexo" />
-                  <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" />
-                  <ScalarProperty Name="Apellidos" ParameterName="Apellidos" />
-                  <ScalarProperty Name="Nombres" ParameterName="Nombres" />
-                  <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" />
-                </InsertFunction>
-              </ModificationFunctionMapping>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DOCENTE_NIVELDETALLE_CURSO">
@@ -2424,9 +2476,11 @@
                 <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2733,21 +2787,17 @@
             <ResultMapping>
               <ComplexTypeMapping TypeName="BDCOLEGIOModel.sp_filtroAlumno_Result">
                 <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
-                <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Nombres" ColumnName="Nombres" />
                 <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
                 <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
                 <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
-                <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
-                <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
                 <ScalarProperty Name="Curso" ColumnName="Curso" />
                 <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2775,6 +2825,15 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Distrito">
+            <EntityTypeMapping TypeName="BDCOLEGIOModel.Distrito">
+              <MappingFragment StoreEntitySet="Distrito">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

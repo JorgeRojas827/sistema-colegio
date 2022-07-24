@@ -220,6 +220,7 @@ namespace AppWindows_Colegio
             this.btnCancelar.Size = new System.Drawing.Size(94, 36);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // AlumnoMan03
             // 

@@ -31,11 +31,15 @@ public partial class usp_ListarAlumno_Result
 
     public string Sexo { get; set; }
 
-    public string Ciudad { get; set; }
-
     public string Direccion { get; set; }
 
     public Nullable<bool> Activo { get; set; }
+
+    public string nombre { get; set; }
+
+    public Nullable<int> Curso { get; set; }
+
+    public Nullable<int> Nota { get; set; }
 
 }
 

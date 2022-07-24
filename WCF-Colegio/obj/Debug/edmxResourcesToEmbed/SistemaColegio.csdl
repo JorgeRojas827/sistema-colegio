@@ -12,7 +12,6 @@
     <Property Name="DocumentoIdentidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
     <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Activo" Type="Boolean" />
     <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
@@ -23,6 +22,8 @@
     <Property Name="Curso" Type="Int32" />
     <Property Name="Nota" Type="Int32" />
     <NavigationProperty Name="CURSO1" Relationship="BDCOLEGIOModel.FK__ALUMNO__Curso__607251E5" FromRole="ALUMNO" ToRole="CURSO" />
+    <Property Name="idDistrito" Type="Int32" />
+    <NavigationProperty Name="Distrito" Relationship="BDCOLEGIOModel.fk_distrito" FromRole="ALUMNO" ToRole="Distrito" />
   </EntityType>
   <EntityType Name="APODERADO">
     <Key>
@@ -97,7 +98,6 @@
     <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
     <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="GradoEstudio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NumeroTelefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -108,6 +108,8 @@
     <Property Name="Usu_Ult_Mod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="IdCurso" Type="Int32" />
     <NavigationProperty Name="CURSO" Relationship="BDCOLEGIOModel.FK__DOCENTE__IdCurso__6166761E" FromRole="DOCENTE" ToRole="CURSO" />
+    <Property Name="idDistrito" Type="Int32" />
+    <NavigationProperty Name="Distrito" Relationship="BDCOLEGIOModel.fk_distritoDoce" FromRole="DOCENTE" ToRole="Distrito" />
   </EntityType>
   <EntityType Name="DOCENTE_NIVELDETALLE_CURSO">
     <Key>
@@ -593,7 +595,7 @@
       <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
       <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
       <Parameter Name="Sexo" Mode="In" Type="String" />
-      <Parameter Name="Ciudad" Mode="In" Type="String" />
+      <Parameter Name="Ciudad" Mode="In" Type="Int32" />
       <Parameter Name="Direccion" Mode="In" Type="String" />
       <Parameter Name="Activo" Mode="In" Type="Boolean" />
       <Parameter Name="Usuario" Mode="In" Type="String" />
@@ -747,7 +749,7 @@
       <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
       <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
       <Parameter Name="Sexo" Mode="In" Type="String" />
-      <Parameter Name="Ciudad" Mode="In" Type="String" />
+      <Parameter Name="Ciudad" Mode="In" Type="Int32" />
       <Parameter Name="Direccion" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="usp_RegistrarCalificacion">
@@ -862,7 +864,7 @@
       <Parameter Name="DocumentoIdentidad" Mode="In" Type="String" />
       <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
       <Parameter Name="Sexo" Mode="In" Type="String" />
-      <Parameter Name="Ciudad" Mode="In" Type="String" />
+      <Parameter Name="Ciudad" Mode="In" Type="Int32" />
       <Parameter Name="Direccion" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="SP_EliminarDocente">
@@ -886,7 +888,7 @@
       <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
       <Parameter Name="Sexo" Mode="In" Type="String" />
       <Parameter Name="gradoEstudio" Mode="In" Type="String" />
-      <Parameter Name="Ciudad" Mode="In" Type="String" />
+      <Parameter Name="Ciudad" Mode="In" Type="Int32" />
       <Parameter Name="Direccion" Mode="In" Type="String" />
       <Parameter Name="email" Mode="In" Type="String" />
       <Parameter Name="telefono" Mode="In" Type="String" />
@@ -921,6 +923,15 @@
     <FunctionImport Name="sp_filtroDocente" ReturnType="Collection(BDCOLEGIOModel.sp_filtroDocente_Result)">
       <Parameter Name="apellidos" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="Distrito" EntityType="BDCOLEGIOModel.Distrito" />
+    <AssociationSet Name="fk_distrito" Association="BDCOLEGIOModel.fk_distrito">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="ALUMNO" EntitySet="ALUMNO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_distritoDoce" Association="BDCOLEGIOModel.fk_distritoDoce">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="DOCENTE" EntitySet="DOCENTE" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="usp_ActualizarPermisos_Result">
     <Property Type="Int32" Name="idpermisos" Nullable="true" />
@@ -934,9 +945,11 @@
     <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
     <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
     <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
     <Property Type="Boolean" Name="Activo" Nullable="true" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Curso" Nullable="true" />
+    <Property Type="Int32" Name="Nota" Nullable="true" />
   </ComplexType>
   <ComplexType Name="usp_ListarCurso_Result">
     <Property Type="Int32" Name="IdCurso" Nullable="false" />
@@ -1163,21 +1176,17 @@
   </ComplexType>
   <ComplexType Name="sp_filtroAlumno_Result">
     <Property Type="Int32" Name="IdAlumno" Nullable="false" />
-    <Property Type="Int32" Name="ValorCodigo" Nullable="true" />
     <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
     <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
     <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
     <Property Type="Boolean" Name="Activo" Nullable="true" />
-    <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
-    <Property Type="DateTime" Name="Fec_Ult_Mod" Nullable="true" Precision="23" />
-    <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
     <Property Type="Int32" Name="Curso" Nullable="true" />
     <Property Type="Int32" Name="Nota" Nullable="true" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="sp_filtroDocente_Result">
     <Property Type="Int32" Name="IdDocente" Nullable="false" />
@@ -1199,4 +1208,38 @@
     <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
     <Property Type="Int32" Name="IdCurso" Nullable="true" />
   </ComplexType>
+  <EntityType Name="Distrito">
+    <Key>
+      <PropertyRef Name="idDistrito" />
+    </Key>
+    <Property Name="idDistrito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ALUMNO" Relationship="BDCOLEGIOModel.fk_distrito" FromRole="Distrito" ToRole="ALUMNO" />
+    <NavigationProperty Name="DOCENTE" Relationship="BDCOLEGIOModel.fk_distritoDoce" FromRole="Distrito" ToRole="DOCENTE" />
+  </EntityType>
+  <Association Name="fk_distrito">
+    <End Type="BDCOLEGIOModel.Distrito" Role="Distrito" Multiplicity="0..1" />
+    <End Type="BDCOLEGIOModel.ALUMNO" Role="ALUMNO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="idDistrito" />
+      </Principal>
+      <Dependent Role="ALUMNO">
+        <PropertyRef Name="idDistrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_distritoDoce">
+    <End Type="BDCOLEGIOModel.Distrito" Role="Distrito" Multiplicity="0..1" />
+    <End Type="BDCOLEGIOModel.DOCENTE" Role="DOCENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="idDistrito" />
+      </Principal>
+      <Dependent Role="DOCENTE">
+        <PropertyRef Name="idDistrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

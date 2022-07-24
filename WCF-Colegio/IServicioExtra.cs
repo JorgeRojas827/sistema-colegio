@@ -78,7 +78,7 @@ namespace WCF_Colegio
                     objAlumnoBE.Mvardocide_al = objAlumno.DocumentoIdentidad;
                     objAlumnoBE.Mvarfecnac_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                     objAlumnoBE.Mvarsex_al = objAlumno.Sexo;
-                    objAlumnoBE.Mvarciu_al = objAlumno.Ciudad;
+                    objAlumnoBE.Mvarnom_distrito = objAlumno.idDistrito.ToString();
                     objAlumnoBE.Mvardir_al = objAlumno.Direccion;
                     objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                     objAlumnoBE.Mvaridcurso = Convert.ToInt32(objAlumno.Curso);
@@ -114,7 +114,7 @@ namespace WCF_Colegio
                     objAlumnoBE.Mvardocide_al = objAlumno.DocumentoIdentidad;
                     objAlumnoBE.Mvarfecnac_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                     objAlumnoBE.Mvarsex_al = objAlumno.Sexo;
-                    objAlumnoBE.Mvarciu_al = objAlumno.Ciudad;
+                    //objAlumnoBE.Mvarid_distrito = objAlumno.i;
                     objAlumnoBE.Mvardir_al = objAlumno.Direccion;
                     objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                     objAlumnoBE.Mvaridcurso = Convert.ToInt32(objAlumno.Curso);

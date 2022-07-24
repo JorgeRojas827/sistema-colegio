@@ -8,9 +8,9 @@
   <xs:element name="ArrayOfAlumnoBE" nillable="true" type="tns:ArrayOfAlumnoBE" />
   <xs:complexType name="AlumnoBE">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Fecha_ult_mod" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Mvaract_al" type="xs:boolean" />
       <xs:element minOccurs="0" name="Mvarape_al" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Mvarciu_al" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Mvarcod_al" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Mvardir_al" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Mvardocide_al" nillable="true" type="xs:string" />
@@ -19,9 +19,11 @@
       <xs:element minOccurs="0" name="Mvarid_alumno" type="xs:short" />
       <xs:element minOccurs="0" name="Mvaridcurso" type="xs:int" />
       <xs:element minOccurs="0" name="Mvarnom_al" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mvarnom_distrito" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Mvarnota" type="xs:int" />
       <xs:element minOccurs="0" name="Mvarsex_al" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Mvarvalorcod_al" type="xs:short" />
+      <xs:element minOccurs="0" name="Usu_ult_mod" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AlumnoBE" nillable="true" type="tns:AlumnoBE" />

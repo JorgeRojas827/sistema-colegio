@@ -45,8 +45,6 @@ public partial class DOCENTE
 
     public string GradoEstudio { get; set; }
 
-    public string Ciudad { get; set; }
-
     public string Direccion { get; set; }
 
     public string Email { get; set; }
@@ -63,6 +61,8 @@ public partial class DOCENTE
 
     public Nullable<int> IdCurso { get; set; }
 
+    public Nullable<int> idDistrito { get; set; }
+
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -70,6 +70,8 @@ public partial class DOCENTE
     public virtual ICollection<DOCENTE_NIVELDETALLE_CURSO> DOCENTE_NIVELDETALLE_CURSO { get; set; }
 
     public virtual CURSO CURSO { get; set; }
+
+    public virtual Distrito Distrito { get; set; }
 
 }
 

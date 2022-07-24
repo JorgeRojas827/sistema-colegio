@@ -19,8 +19,6 @@ public partial class sp_filtroAlumno_Result
 
     public int IdAlumno { get; set; }
 
-    public Nullable<int> ValorCodigo { get; set; }
-
     public string Codigo { get; set; }
 
     public string Nombres { get; set; }
@@ -33,21 +31,15 @@ public partial class sp_filtroAlumno_Result
 
     public string Sexo { get; set; }
 
-    public string Ciudad { get; set; }
-
     public string Direccion { get; set; }
 
     public Nullable<bool> Activo { get; set; }
 
-    public Nullable<System.DateTime> FechaRegistro { get; set; }
-
-    public Nullable<System.DateTime> Fec_Ult_Mod { get; set; }
-
-    public string Usu_Ult_Mod { get; set; }
-
     public Nullable<int> Curso { get; set; }
 
     public Nullable<int> Nota { get; set; }
+
+    public string nombre { get; set; }
 
 }
 

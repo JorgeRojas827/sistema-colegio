@@ -68,6 +68,9 @@
     <Compile Include="CURSO.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
+    <Compile Include="Distrito.cs">
+      <DependentUpon>SistemaColegio.tt</DependentUpon>
+    </Compile>
     <Compile Include="DOCENTE.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>

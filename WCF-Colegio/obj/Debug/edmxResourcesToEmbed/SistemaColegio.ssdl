@@ -12,7 +12,6 @@
     <Property Name="DocumentoIdentidad" Type="varchar" MaxLength="100" />
     <Property Name="FechaNacimiento" Type="date" />
     <Property Name="Sexo" Type="varchar" MaxLength="50" />
-    <Property Name="Ciudad" Type="varchar" MaxLength="100" />
     <Property Name="Direccion" Type="varchar" MaxLength="100" />
     <Property Name="Activo" Type="bit" />
     <Property Name="FechaRegistro" Type="datetime" />
@@ -20,6 +19,7 @@
     <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
     <Property Name="Curso" Type="int" />
     <Property Name="Nota" Type="int" />
+    <Property Name="idDistrito" Type="int" />
   </EntityType>
   <EntityType Name="APODERADO">
     <Key>
@@ -73,6 +73,14 @@
     <Property Name="FechaRegistro" Type="datetime" />
     <Property Name="Imagen" Type="image" />
   </EntityType>
+  <EntityType Name="Distrito">
+    <Key>
+      <PropertyRef Name="idDistrito" />
+    </Key>
+    <Property Name="idDistrito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="DOCENTE">
     <Key>
       <PropertyRef Name="IdDocente" />
@@ -86,7 +94,6 @@
     <Property Name="FechaNacimiento" Type="date" />
     <Property Name="Sexo" Type="varchar" MaxLength="50" />
     <Property Name="GradoEstudio" Type="varchar" MaxLength="100" />
-    <Property Name="Ciudad" Type="varchar" MaxLength="100" />
     <Property Name="Direccion" Type="varchar" MaxLength="100" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
     <Property Name="NumeroTelefono" Type="varchar" MaxLength="50" />
@@ -95,6 +102,7 @@
     <Property Name="Fec_Ult_Mod" Type="datetime" />
     <Property Name="Usu_Ult_Mod" Type="varchar" MaxLength="20" />
     <Property Name="IdCurso" Type="int" />
+    <Property Name="idDistrito" Type="int" />
   </EntityType>
   <EntityType Name="DOCENTE_NIVELDETALLE_CURSO">
     <Key>
@@ -439,6 +447,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_distrito">
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+    <End Role="ALUMNO" Type="Self.ALUMNO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="idDistrito" />
+      </Principal>
+      <Dependent Role="ALUMNO">
+        <PropertyRef Name="idDistrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_distritoDoce">
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="0..1" />
+    <End Role="DOCENTE" Type="Self.DOCENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="idDistrito" />
+      </Principal>
+      <Dependent Role="DOCENTE">
+        <PropertyRef Name="idDistrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="get_top_alumnos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="maximo" Type="int" Mode="In" />
@@ -462,7 +494,7 @@
     <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
     <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
     <Parameter Name="Sexo" Type="varchar" Mode="In" />
-    <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+    <Parameter Name="Ciudad" Type="int" Mode="In" />
     <Parameter Name="Direccion" Type="varchar" Mode="In" />
   </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -507,7 +539,7 @@
     <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
     <Parameter Name="Sexo" Type="varchar" Mode="In" />
     <Parameter Name="gradoEstudio" Type="varchar" Mode="In" />
-    <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+    <Parameter Name="Ciudad" Type="int" Mode="In" />
     <Parameter Name="Direccion" Type="varchar" Mode="In" />
     <Parameter Name="email" Type="varchar" Mode="In" />
     <Parameter Name="telefono" Type="varchar" Mode="In" />
@@ -536,7 +568,7 @@
     <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
     <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
     <Parameter Name="Sexo" Type="varchar" Mode="In" />
-    <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+    <Parameter Name="Ciudad" Type="int" Mode="In" />
     <Parameter Name="Direccion" Type="varchar" Mode="In" />
     <Parameter Name="Activo" Type="bit" Mode="In" />
     <Parameter Name="Usuario" Type="varchar" Mode="In" />
@@ -686,7 +718,7 @@
     <Parameter Name="DocumentoIdentidad" Type="varchar" Mode="In" />
     <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
     <Parameter Name="Sexo" Type="varchar" Mode="In" />
-    <Parameter Name="Ciudad" Type="varchar" Mode="In" />
+    <Parameter Name="Ciudad" Type="int" Mode="In" />
     <Parameter Name="Direccion" Type="varchar" Mode="In" />
   </Function>
   <Function Name="usp_RegistrarCalificacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -800,6 +832,7 @@
     <EntitySet Name="CALIFICACION" EntityType="Self.CALIFICACION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CURRICULA" EntityType="Self.CURRICULA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CURSO" EntityType="Self.CURSO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Distrito" EntityType="Self.Distrito" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DOCENTE" EntityType="Self.DOCENTE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DOCENTE_NIVELDETALLE_CURSO" EntityType="Self.DOCENTE_NIVELDETALLE_CURSO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GRADO_SECCION" EntityType="Self.GRADO_SECCION" Schema="dbo" store:Type="Tables" />
@@ -880,6 +913,14 @@
     <AssociationSet Name="FK__USUARIO__IdRol__36B12243" Association="Self.FK__USUARIO__IdRol__36B12243">
       <End Role="ROL" EntitySet="ROL" />
       <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_distrito" Association="Self.fk_distrito">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="ALUMNO" EntitySet="ALUMNO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_distritoDoce" Association="Self.fk_distritoDoce">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="DOCENTE" EntitySet="DOCENTE" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

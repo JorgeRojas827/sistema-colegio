@@ -4,6 +4,7 @@
     <EntitySetMapping Name="ALUMNO">
       <EntityTypeMapping TypeName="BDCOLEGIOModel.ALUMNO">
         <MappingFragment StoreEntitySet="ALUMNO">
+          <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
           <ScalarProperty Name="Nota" ColumnName="Nota" />
           <ScalarProperty Name="Curso" ColumnName="Curso" />
           <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
@@ -16,7 +17,6 @@
           <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
           <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
           <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
@@ -82,6 +82,7 @@
     <EntitySetMapping Name="DOCENTE">
       <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE">
         <MappingFragment StoreEntitySet="DOCENTE">
+          <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
           <ScalarProperty Name="IdCurso" ColumnName="IdCurso" />
           <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
           <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
@@ -94,45 +95,12 @@
           <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
           <ScalarProperty Name="Sexo" ColumnName="Sexo" />
           <ScalarProperty Name="GradoEstudio" ColumnName="GradoEstudio" />
-          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="NumeroTelefono" ColumnName="NumeroTelefono" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
           <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
         </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="BDCOLEGIOModel.DOCENTE">
-        <ModificationFunctionMapping>
-          <UpdateFunction FunctionName="BDCOLEGIOModel.Store.SP_ActulizarDocente">
-            <ScalarProperty Name="Apellidos" ParameterName="apellido" Version="Current" />
-            <ScalarProperty Name="Nombres" ParameterName="nombre" Version="Current" />
-            <ScalarProperty Name="IdDocente" ParameterName="id_docente" Version="Current" />
-            <ScalarProperty Name="Direccion" ParameterName="Direccion" Version="Current" />
-            <ScalarProperty Name="Ciudad" ParameterName="Ciudad" Version="Current" />
-            <ScalarProperty Name="Sexo" ParameterName="Sexo" Version="Current" />
-            <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" Version="Current" />
-            <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" Version="Current" />
-          </UpdateFunction>
-          <DeleteFunction FunctionName="BDCOLEGIOModel.Store.SP_EliminarDocente">
-            <ScalarProperty Name="IdDocente" ParameterName="codigo" />
-          </DeleteFunction>
-          <InsertFunction FunctionName="BDCOLEGIOModel.Store.SP_InsertarDocente">
-            <ScalarProperty Name="Codigo" ParameterName="codigo" />
-            <ScalarProperty Name="ValorCodigo" ParameterName="valorCodigo" />
-            <ScalarProperty Name="FechaRegistro" ParameterName="fechaRegistro" />
-            <ScalarProperty Name="NumeroTelefono" ParameterName="telefono" />
-            <ScalarProperty Name="Email" ParameterName="email" />
-            <ScalarProperty Name="GradoEstudio" ParameterName="gradoEstudio" />
-            <ScalarProperty Name="Direccion" ParameterName="Direccion" />
-            <ScalarProperty Name="Ciudad" ParameterName="Ciudad" />
-            <ScalarProperty Name="Sexo" ParameterName="Sexo" />
-            <ScalarProperty Name="FechaNacimiento" ParameterName="FechaNacimiento" />
-            <ScalarProperty Name="Apellidos" ParameterName="Apellidos" />
-            <ScalarProperty Name="Nombres" ParameterName="Nombres" />
-            <ScalarProperty Name="DocumentoIdentidad" ParameterName="DocumentoIdentidad" />
-          </InsertFunction>
-        </ModificationFunctionMapping>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DOCENTE_NIVELDETALLE_CURSO">
@@ -329,9 +297,11 @@
           <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
           <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
           <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="Curso" ColumnName="Curso" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -638,21 +608,17 @@
       <ResultMapping>
         <ComplexTypeMapping TypeName="BDCOLEGIOModel.sp_filtroAlumno_Result">
           <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
-          <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="Nombres" ColumnName="Nombres" />
           <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
           <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
           <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
           <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
-          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
-          <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
-          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
           <ScalarProperty Name="Curso" ColumnName="Curso" />
           <ScalarProperty Name="Nota" ColumnName="Nota" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -680,5 +646,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="Distrito">
+      <EntityTypeMapping TypeName="BDCOLEGIOModel.Distrito">
+        <MappingFragment StoreEntitySet="Distrito">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

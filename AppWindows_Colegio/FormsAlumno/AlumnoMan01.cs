@@ -117,5 +117,10 @@ namespace AppWindows_Colegio
             TopAlumnoForm topAlumnoForm = new TopAlumnoForm();
             topAlumnoForm.ShowDialog();
         }
+
+        private void dtgAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

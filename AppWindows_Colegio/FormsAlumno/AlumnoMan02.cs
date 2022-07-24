@@ -49,7 +49,7 @@ namespace AppWindows_Colegio
                 objAlumnoBE.Mvardocide_al = mskDNI.Text;
                 objAlumnoBE.Mvarfecnac_al = dtpFecNac.Value.Date;
                 objAlumnoBE.Mvarsex_al = txtSexo.Text.Trim();
-                objAlumnoBE.Mvarciu_al = txtCiudad.Text.Trim();
+                objAlumnoBE.Mvarnom_distrito =txtCiudad.Text.Trim();
                 objAlumnoBE.Mvardir_al = txtDireccion.Text.Trim();
 
                 if (objAlumno.InsertAlumno(objAlumnoBE) == true)

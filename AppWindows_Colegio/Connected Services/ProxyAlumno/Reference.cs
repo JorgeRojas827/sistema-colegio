@@ -32,9 +32,6 @@ namespace AppWindows_Colegio.ProxyAlumno {
         private string Mvarape_alField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Mvarciu_alField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Mvarcod_alField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -57,6 +54,9 @@ namespace AppWindows_Colegio.ProxyAlumno {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Mvarnom_alField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Mvarnom_distritoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MvarnotaField;
@@ -115,19 +115,6 @@ namespace AppWindows_Colegio.ProxyAlumno {
                 if ((object.ReferenceEquals(this.Mvarape_alField, value) != true)) {
                     this.Mvarape_alField = value;
                     this.RaisePropertyChanged("Mvarape_al");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Mvarciu_al {
-            get {
-                return this.Mvarciu_alField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Mvarciu_alField, value) != true)) {
-                    this.Mvarciu_alField = value;
-                    this.RaisePropertyChanged("Mvarciu_al");
                 }
             }
         }
@@ -232,6 +219,19 @@ namespace AppWindows_Colegio.ProxyAlumno {
                 if ((object.ReferenceEquals(this.Mvarnom_alField, value) != true)) {
                     this.Mvarnom_alField = value;
                     this.RaisePropertyChanged("Mvarnom_al");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mvarnom_distrito {
+            get {
+                return this.Mvarnom_distritoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Mvarnom_distritoField, value) != true)) {
+                    this.Mvarnom_distritoField = value;
+                    this.RaisePropertyChanged("Mvarnom_distrito");
                 }
             }
         }

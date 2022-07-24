@@ -45,8 +45,6 @@ public partial class ALUMNO
 
     public string Sexo { get; set; }
 
-    public string Ciudad { get; set; }
-
     public string Direccion { get; set; }
 
     public Nullable<bool> Activo { get; set; }
@@ -61,6 +59,8 @@ public partial class ALUMNO
 
     public Nullable<int> Nota { get; set; }
 
+    public Nullable<int> idDistrito { get; set; }
+
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -72,6 +72,8 @@ public partial class ALUMNO
     public virtual ICollection<MATRICULA> MATRICULA { get; set; }
 
     public virtual CURSO CURSO1 { get; set; }
+
+    public virtual Distrito Distrito { get; set; }
 
 }
 

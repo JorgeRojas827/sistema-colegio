@@ -42,7 +42,7 @@ namespace AppWindows_Colegio
                 mskDNI.Text = objAlumnoBE.Mvardocide_al;
                 dtpFecNac.Value = Convert.ToDateTime(objAlumnoBE.Mvarfecnac_al);
                 txtSexo.Text = objAlumnoBE.Mvarsex_al;
-                txtCiudad.Text = objAlumnoBE.Mvarciu_al;
+                txtCiudad.Text = Convert.ToString(objAlumnoBE.Mvarnom_distrito);
                 txtDireccion.Text = objAlumnoBE.Mvardir_al;
             }
             catch (Exception ex)
@@ -79,7 +79,7 @@ namespace AppWindows_Colegio
                 objAlumnoBE.Mvardocide_al = mskDNI.Text;
                 objAlumnoBE.Mvarfecnac_al = dtpFecNac.Value.Date;
                 objAlumnoBE.Mvarsex_al = txtSexo.Text.Trim();
-                objAlumnoBE.Mvarciu_al = txtCiudad.Text.Trim();
+                objAlumnoBE.Mvarnom_distrito = txtCiudad.Text.Trim();
                 objAlumnoBE.Mvardir_al = txtDireccion.Text.Trim();
 
                 objAlumnoBE.Usu_ult_mod = clsCredenciales.Usuario;
@@ -102,6 +102,11 @@ namespace AppWindows_Colegio
                 MessageBox.Show("Error : " + ex.Message);
             }
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -55,7 +55,7 @@ namespace WCF_Colegio
                     objDocenteBE.FechaNac = Convert.ToDateTime(objDocente.FechaNacimiento);
                     objDocenteBE.Fecha_regi = Convert.ToDateTime(objDocente.FechaRegistro);
                     objDocenteBE.Sexo = objDocente.Sexo;
-                    objDocenteBE.Ciudad = objDocente.Ciudad;
+                   // objDocenteBE.Ciudad = objDocente.idDistrito;
                     objDocenteBE.Grado_estudio = objDocente.GradoEstudio;
                     objDocenteBE.Direccion1 = objDocente.Direccion;
                     objDocenteBE.Email = objDocente.Email;
@@ -163,7 +163,7 @@ namespace WCF_Colegio
                 objDocenteBE.FechaNac = Convert.ToDateTime(objDocente.FechaNacimiento);
                 objDocenteBE.Sexo = objDocente.Sexo;
                 objDocenteBE.Grado_estudio = objDocente.GradoEstudio;
-                objDocenteBE.Ciudad = objDocente.Ciudad;
+              //  objDocenteBE.Ciudad = objDocente.Ciudad;
                 objDocenteBE.Direccion1 = objDocente.Direccion;
                 objDocenteBE.Email = objDocente.Email;
                 objDocenteBE.Numero_tel1 = objDocente.NumeroTelefono;

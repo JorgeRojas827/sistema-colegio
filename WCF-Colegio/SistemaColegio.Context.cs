@@ -71,6 +71,8 @@ public partial class BDCOLEGIOEntities : DbContext
 
     public virtual DbSet<USUARIO> USUARIO { get; set; }
 
+    public virtual DbSet<Distrito> Distrito { get; set; }
+
 
     public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
     {
@@ -237,7 +239,7 @@ public partial class BDCOLEGIOEntities : DbContext
     }
 
 
-    public virtual int usp_EditarAlumno(Nullable<int> idAlumno, string codigo, string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, string ciudad, string direccion, Nullable<bool> activo, string usuario)
+    public virtual int usp_EditarAlumno(Nullable<int> idAlumno, string codigo, string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, Nullable<int> ciudad, string direccion, Nullable<bool> activo, string usuario)
     {
 
         var idAlumnoParameter = idAlumno.HasValue ?
@@ -275,9 +277,9 @@ public partial class BDCOLEGIOEntities : DbContext
             new ObjectParameter("Sexo", typeof(string));
 
 
-        var ciudadParameter = ciudad != null ?
+        var ciudadParameter = ciudad.HasValue ?
             new ObjectParameter("Ciudad", ciudad) :
-            new ObjectParameter("Ciudad", typeof(string));
+            new ObjectParameter("Ciudad", typeof(int));
 
 
         var direccionParameter = direccion != null ?
@@ -891,7 +893,7 @@ public partial class BDCOLEGIOEntities : DbContext
     }
 
 
-    public virtual int usp_RegistrarAlumno(string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, string ciudad, string direccion)
+    public virtual int usp_RegistrarAlumno(string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, Nullable<int> ciudad, string direccion)
     {
 
         var nombresParameter = nombres != null ?
@@ -919,9 +921,9 @@ public partial class BDCOLEGIOEntities : DbContext
             new ObjectParameter("Sexo", typeof(string));
 
 
-        var ciudadParameter = ciudad != null ?
+        var ciudadParameter = ciudad.HasValue ?
             new ObjectParameter("Ciudad", ciudad) :
-            new ObjectParameter("Ciudad", typeof(string));
+            new ObjectParameter("Ciudad", typeof(int));
 
 
         var direccionParameter = direccion != null ?
@@ -1350,7 +1352,7 @@ public partial class BDCOLEGIOEntities : DbContext
     }
 
 
-    public virtual int SP_ActulizarDocente(Nullable<int> id_docente, string nombre, string apellido, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, string ciudad, string direccion)
+    public virtual int SP_ActulizarDocente(Nullable<int> id_docente, string nombre, string apellido, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, Nullable<int> ciudad, string direccion)
     {
 
         var id_docenteParameter = id_docente.HasValue ?
@@ -1383,9 +1385,9 @@ public partial class BDCOLEGIOEntities : DbContext
             new ObjectParameter("Sexo", typeof(string));
 
 
-        var ciudadParameter = ciudad != null ?
+        var ciudadParameter = ciudad.HasValue ?
             new ObjectParameter("Ciudad", ciudad) :
-            new ObjectParameter("Ciudad", typeof(string));
+            new ObjectParameter("Ciudad", typeof(int));
 
 
         var direccionParameter = direccion != null ?
@@ -1451,7 +1453,7 @@ public partial class BDCOLEGIOEntities : DbContext
     }
 
 
-    public virtual int SP_InsertarDocente(Nullable<int> valorCodigo, string codigo, string documentoIdentidad, string nombres, string apellidos, Nullable<System.DateTime> fechaNacimiento, string sexo, string gradoEstudio, string ciudad, string direccion, string email, string telefono, Nullable<System.DateTime> fechaRegistro)
+    public virtual int SP_InsertarDocente(Nullable<int> valorCodigo, string codigo, string documentoIdentidad, string nombres, string apellidos, Nullable<System.DateTime> fechaNacimiento, string sexo, string gradoEstudio, Nullable<int> ciudad, string direccion, string email, string telefono, Nullable<System.DateTime> fechaRegistro)
     {
 
         var valorCodigoParameter = valorCodigo.HasValue ?
@@ -1494,9 +1496,9 @@ public partial class BDCOLEGIOEntities : DbContext
             new ObjectParameter("gradoEstudio", typeof(string));
 
 
-        var ciudadParameter = ciudad != null ?
+        var ciudadParameter = ciudad.HasValue ?
             new ObjectParameter("Ciudad", ciudad) :
-            new ObjectParameter("Ciudad", typeof(string));
+            new ObjectParameter("Ciudad", typeof(int));
 
 
         var direccionParameter = direccion != null ?
