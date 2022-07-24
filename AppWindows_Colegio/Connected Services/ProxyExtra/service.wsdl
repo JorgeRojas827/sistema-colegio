@@ -37,6 +37,12 @@
   <wsdl:message name="IIServicioExtra_LoginUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IIServicioExtra_ListarDistritos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDistritos" />
+  </wsdl:message>
+  <wsdl:message name="IIServicioExtra_ListarDistritos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDistritosResponse" />
+  </wsdl:message>
   <wsdl:portType name="IIServicioExtra">
     <wsdl:operation name="AsignarCursoDocente">
       <wsdl:input wsaw:Action="http://tempuri.org/IIServicioExtra/AsignarCursoDocente" message="tns:IIServicioExtra_AsignarCursoDocente_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="LoginUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IIServicioExtra/LoginUsuario" message="tns:IIServicioExtra_LoginUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IIServicioExtra/LoginUsuarioResponse" message="tns:IIServicioExtra_LoginUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDistritos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIServicioExtra/ListarDistritos" message="tns:IIServicioExtra_ListarDistritos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIServicioExtra/ListarDistritosResponse" message="tns:IIServicioExtra_ListarDistritos_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IIServicioExtra" type="tns:IIServicioExtra">
@@ -99,6 +109,15 @@
     </wsdl:operation>
     <wsdl:operation name="LoginUsuario">
       <soap:operation soapAction="http://tempuri.org/IIServicioExtra/LoginUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDistritos">
+      <soap:operation soapAction="http://tempuri.org/IIServicioExtra/ListarDistritos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

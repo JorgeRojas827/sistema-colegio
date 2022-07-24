@@ -81,7 +81,7 @@ namespace WCF_Colegio
             {
                 var query = bdcolegio.usp_RegistrarDocente(objDocenteBE.DNI1, objDocenteBE.Nombres,
                     objDocenteBE.Apellidos, objDocenteBE.FechaNac, objDocenteBE.Sexo,
-                    objDocenteBE.Grado_estudio, 2, objDocenteBE.Direccion1, objDocenteBE.Email, objDocenteBE.Numero_tel1);
+                    objDocenteBE.Grado_estudio, objDocenteBE.Mvarid_distritro, objDocenteBE.Direccion1, objDocenteBE.Email, objDocenteBE.Numero_tel1);
 
                 bdcolegio.SaveChanges();
 
@@ -110,7 +110,7 @@ namespace WCF_Colegio
             try
             {
                 var query = bdcolegio.usp_EditarDocente(objDocenteBE.Id_Docente1,objDocenteBE.Codigo,objDocenteBE.DNI1, objDocenteBE.Nombres, objDocenteBE.Apellidos, objDocenteBE.FechaNac,
-                                                        objDocenteBE.Sexo, objDocenteBE.Grado_estudio, 2, objDocenteBE.Direccion1,
+                                                        objDocenteBE.Sexo, objDocenteBE.Grado_estudio, objDocenteBE.Mvarid_distritro, objDocenteBE.Direccion1,
                                                         objDocenteBE.Email, objDocenteBE.Numero_tel1, objDocenteBE.Mvaract_doc, objDocenteBE.Usu_ult_mod);
 
                 bdcolegio.SaveChanges();

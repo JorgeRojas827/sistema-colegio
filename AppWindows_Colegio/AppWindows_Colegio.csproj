@@ -252,6 +252,9 @@
     <None Include="Connected Services\ProxyExtra\AppWindows_Colegio.ProxyExtra.AlumnoBE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ProxyExtra\AppWindows_Colegio.ProxyExtra.DistritoBE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ProxyExtra\service.wsdl" />
     <None Include="Connected Services\ProxyExtra\service.xsd">
       <SubType>Designer</SubType>

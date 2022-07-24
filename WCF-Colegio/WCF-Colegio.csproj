@@ -146,6 +146,9 @@
     <Compile Include="sp_filtroDocente_Result.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_ListarDistritos_Result.cs">
+      <DependentUpon>SistemaColegio.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>SistemaColegio.tt</DependentUpon>
     </Compile>

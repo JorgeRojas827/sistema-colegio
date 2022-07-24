@@ -27,4 +27,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="AlumnoBE" nillable="true" type="tns:AlumnoBE" />
+  <xs:complexType name="ArrayOfDistritoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DistritoBE" nillable="true" type="tns:DistritoBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDistritoBE" nillable="true" type="tns:ArrayOfDistritoBE" />
+  <xs:complexType name="DistritoBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MvarDes_distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MvarId_distrito" type="xs:int" />
+      <xs:element minOccurs="0" name="MvarNombre_distritro" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DistritoBE" nillable="true" type="tns:DistritoBE" />
 </xs:schema>

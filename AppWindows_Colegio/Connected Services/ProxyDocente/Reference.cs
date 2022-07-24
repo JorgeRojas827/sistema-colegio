@@ -26,9 +26,6 @@ namespace AppWindows_Colegio.ProxyDocente {
         private string ApellidosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CiudadField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CodigoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -60,6 +57,12 @@ namespace AppWindows_Colegio.ProxyDocente {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool Mvaract_docField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Mvarid_distritroField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Mvarnombre_distritoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombresField;
@@ -95,19 +98,6 @@ namespace AppWindows_Colegio.ProxyDocente {
                 if ((object.ReferenceEquals(this.ApellidosField, value) != true)) {
                     this.ApellidosField = value;
                     this.RaisePropertyChanged("Apellidos");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ciudad {
-            get {
-                return this.CiudadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CiudadField, value) != true)) {
-                    this.CiudadField = value;
-                    this.RaisePropertyChanged("Ciudad");
                 }
             }
         }
@@ -251,6 +241,32 @@ namespace AppWindows_Colegio.ProxyDocente {
                 if ((this.Mvaract_docField.Equals(value) != true)) {
                     this.Mvaract_docField = value;
                     this.RaisePropertyChanged("Mvaract_doc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Mvarid_distritro {
+            get {
+                return this.Mvarid_distritroField;
+            }
+            set {
+                if ((this.Mvarid_distritroField.Equals(value) != true)) {
+                    this.Mvarid_distritroField = value;
+                    this.RaisePropertyChanged("Mvarid_distritro");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Mvarnombre_distrito {
+            get {
+                return this.Mvarnombre_distritoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Mvarnombre_distritoField, value) != true)) {
+                    this.Mvarnombre_distritoField = value;
+                    this.RaisePropertyChanged("Mvarnombre_distrito");
                 }
             }
         }

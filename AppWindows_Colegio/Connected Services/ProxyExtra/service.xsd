@@ -72,4 +72,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ListarDistritos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarDistritosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCF_Colegio" minOccurs="0" name="ListarDistritosResult" nillable="true" type="q3:ArrayOfDistritoBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

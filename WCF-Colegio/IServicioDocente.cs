@@ -42,6 +42,7 @@ namespace WCF_Colegio
         private DateTime fechaNac;
         private String sexo;
         private String grado_estudio;
+        private Int32 mvarid_distritro;
         private String mvarnombre_distrito;
         private String Direccion;
         private String email;
@@ -90,5 +91,7 @@ namespace WCF_Colegio
         public bool Mvaract_doc { get => mvaract_doc; set => mvaract_doc = value; }
         [DataMember]
         public string Mvarnombre_distrito { get => mvarnombre_distrito; set => mvarnombre_distrito = value; }
+        [DataMember]
+        public int Mvarid_distritro { get => this.mvarid_distritro; set => this.mvarid_distritro = value; }
     }
 }

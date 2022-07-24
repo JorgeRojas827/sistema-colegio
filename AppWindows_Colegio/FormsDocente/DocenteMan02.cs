@@ -14,6 +14,8 @@ namespace AppWindows_Colegio
     {
         ProxyDocente.ServicioDocenteClient objDocente = new ProxyDocente.ServicioDocenteClient();
         ProxyDocente.DocenteBE objDocenteBE = new ProxyDocente.DocenteBE();
+        ProxyExtra.IServicioExtraClient objExtra = new ProxyExtra.IServicioExtraClient();
+
         public DocenteMan02()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace AppWindows_Colegio
                 }
 
                 if (txtGrado.Text.Length == 0)
-                { 
+                {
                     throw new Exception("El grado de estudio no puede estar vacio");
                 }
 
@@ -48,10 +50,10 @@ namespace AppWindows_Colegio
                 objDocenteBE.DNI1 = mskDNI.Text;
                 objDocenteBE.FechaNac = dtpFecNac.Value.Date;
                 objDocenteBE.Sexo = txtSexo.Text.Trim();
-                objDocenteBE.Ciudad = txtCiudad.Text.Trim();
+                objDocenteBE.Mvarid_distritro = Convert.ToInt32(cboDistrito.SelectedValue);
                 objDocenteBE.Direccion1 = txtDireccion.Text.Trim();
                 objDocenteBE.Grado_estudio = txtGrado.Text.Trim();
-                objDocenteBE.Numero_tel1 = txtNroTel.Text.Trim();
+                objDocenteBE.Numero_tel1 = mskTelefono.Text;
                 objDocenteBE.Email = labelEmail.Text.Trim();
 
                 if (objDocente.InsertDocente(objDocenteBE) == true)
@@ -76,5 +78,27 @@ namespace AppWindows_Colegio
         {
             this.Close();
         }
+
+        private void DocenteMan02_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                CargarDistrito(1);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+
+            }
+        }
+        private void CargarDistrito(Int32 IdDist)
+        {
+            cboDistrito.DataSource = objExtra.ListarDistritos();
+            cboDistrito.ValueMember = "MvarId_distrito";
+            cboDistrito.DisplayMember = "MvarNombre_distritro";
+            cboDistrito.SelectedValue = IdDist;
+        }
+
     }
 }

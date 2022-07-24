@@ -1232,5 +1232,10 @@ namespace WCF_Colegio
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroDocente_Result>("sp_filtroDocente", apellidosParameter);
         }
+    
+        public virtual ObjectResult<sp_ListarDistritos_Result> sp_ListarDistritos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ListarDistritos_Result>("sp_ListarDistritos");
+        }
     }
 }

@@ -20,11 +20,6 @@ namespace AppWindows_Colegio
             InitializeComponent();
         }
 
-        private void AlumnoMan02_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             try

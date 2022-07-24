@@ -154,3 +154,15 @@ C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH5\WCF-Col
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH5\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH5\WCF-Colegio\obj\Debug\WCF-Colegio.dll
 C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH5\WCF-Colegio\obj\Debug\WCF-Colegio.pdb
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\bin\Debug\WCF-Colegio.dll.config
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\bin\Debug\WCF-Colegio.dll
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\bin\Debug\WCF-Colegio.pdb
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\bin\Debug\EntityFramework.dll
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\bin\Debug\EntityFramework.xml
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.AssemblyReference.cache
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CoreCompileInputs.cache
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\obj\Debug\WCF-Colegio.csproj.CopyComplete
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\obj\Debug\WCF-Colegio.dll
+C:\Users\Carlos\Desktop\DESARROLLO DE APLICACIONES II\PROYECTO\ColegioH6_2022\WCF-Colegio\obj\Debug\WCF-Colegio.pdb

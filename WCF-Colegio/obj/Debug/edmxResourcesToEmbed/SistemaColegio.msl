@@ -652,5 +652,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_ListarDistritos" FunctionName="BDCOLEGIOModel.Store.sp_ListarDistritos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDCOLEGIOModel.sp_ListarDistritos_Result">
+          <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -9,7 +9,6 @@
   <xs:complexType name="DocenteBE">
     <xs:sequence>
       <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DNI1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Direccion1" nillable="true" type="xs:string" />
@@ -21,6 +20,8 @@
       <xs:element minOccurs="0" name="Id_Curso1" type="xs:int" />
       <xs:element minOccurs="0" name="Id_Docente1" type="xs:int" />
       <xs:element minOccurs="0" name="Mvaract_doc" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Mvarid_distritro" type="xs:int" />
+      <xs:element minOccurs="0" name="Mvarnombre_distrito" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Numero_tel1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />

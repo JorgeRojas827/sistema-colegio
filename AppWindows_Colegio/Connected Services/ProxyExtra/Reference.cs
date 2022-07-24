@@ -298,6 +298,83 @@ namespace AppWindows_Colegio.ProxyExtra {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DistritoBE", Namespace="http://schemas.datacontract.org/2004/07/WCF_Colegio")]
+    [System.SerializableAttribute()]
+    public partial class DistritoBE : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MvarDes_distritoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MvarId_distritoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MvarNombre_distritroField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MvarDes_distrito {
+            get {
+                return this.MvarDes_distritoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MvarDes_distritoField, value) != true)) {
+                    this.MvarDes_distritoField = value;
+                    this.RaisePropertyChanged("MvarDes_distrito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MvarId_distrito {
+            get {
+                return this.MvarId_distritoField;
+            }
+            set {
+                if ((this.MvarId_distritoField.Equals(value) != true)) {
+                    this.MvarId_distritoField = value;
+                    this.RaisePropertyChanged("MvarId_distrito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MvarNombre_distritro {
+            get {
+                return this.MvarNombre_distritroField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MvarNombre_distritroField, value) != true)) {
+                    this.MvarNombre_distritroField = value;
+                    this.RaisePropertyChanged("MvarNombre_distritro");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyExtra.IIServicioExtra")]
     public interface IIServicioExtra {
@@ -331,6 +408,12 @@ namespace AppWindows_Colegio.ProxyExtra {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIServicioExtra/LoginUsuario", ReplyAction="http://tempuri.org/IIServicioExtra/LoginUsuarioResponse")]
         System.Threading.Tasks.Task<bool> LoginUsuarioAsync(string usuario, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIServicioExtra/ListarDistritos", ReplyAction="http://tempuri.org/IIServicioExtra/ListarDistritosResponse")]
+        AppWindows_Colegio.ProxyExtra.DistritoBE[] ListarDistritos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIServicioExtra/ListarDistritos", ReplyAction="http://tempuri.org/IIServicioExtra/ListarDistritosResponse")]
+        System.Threading.Tasks.Task<AppWindows_Colegio.ProxyExtra.DistritoBE[]> ListarDistritosAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -398,6 +481,14 @@ namespace AppWindows_Colegio.ProxyExtra {
         
         public System.Threading.Tasks.Task<bool> LoginUsuarioAsync(string usuario, string clave) {
             return base.Channel.LoginUsuarioAsync(usuario, clave);
+        }
+        
+        public AppWindows_Colegio.ProxyExtra.DistritoBE[] ListarDistritos() {
+            return base.Channel.ListarDistritos();
+        }
+        
+        public System.Threading.Tasks.Task<AppWindows_Colegio.ProxyExtra.DistritoBE[]> ListarDistritosAsync() {
+            return base.Channel.ListarDistritosAsync();
         }
     }
 }

@@ -153,5 +153,38 @@ namespace WCF_Colegio
                 throw new Exception(ex.Message);
             }
         }
+
+        public List<DistritoBE> ListarDistritos() {
+            BDCOLEGIOEntities bdcolegio = new BDCOLEGIOEntities();
+
+            try
+            {
+                List<DistritoBE> objListaDistrito = new List<DistritoBE>();
+                var query = bdcolegio.sp_ListarDistritos();
+
+                foreach (var objDistrito in query)
+                {
+
+                    DistritoBE objDistritoBE = new DistritoBE();
+
+                    objDistritoBE.MvarId_distrito = objDistrito.idDistrito;
+                    objDistritoBE.MvarNombre_distritro = objDistrito.nombre;
+                    objDistritoBE.MvarDes_distrito = objDistrito.Descripcion;
+
+
+                    objListaDistrito.Add(objDistritoBE);
+
+
+
+
+                }
+                return objListaDistrito;
+            }
+            catch (EntityException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

@@ -550,6 +550,7 @@
           <Parameter Name="telefono" Type="varchar" Mode="In" />
           <Parameter Name="fechaRegistro" Type="date" Mode="In" />
         </Function>
+        <Function Name="sp_ListarDistritos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -1864,6 +1865,7 @@
             <End Role="Distrito" EntitySet="Distrito" />
             <End Role="DOCENTE" EntitySet="DOCENTE" />
           </AssociationSet>
+          <FunctionImport Name="sp_ListarDistritos" ReturnType="Collection(BDCOLEGIOModel.sp_ListarDistritos_Result)" />
         </EntityContainer>
         <ComplexType Name="usp_ActualizarPermisos_Result">
           <Property Type="Int32" Name="idpermisos" Nullable="true" />
@@ -2171,6 +2173,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="sp_ListarDistritos_Result">
+          <Property Type="Int32" Name="idDistrito" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2828,6 +2835,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ListarDistritos" FunctionName="BDCOLEGIOModel.Store.sp_ListarDistritos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDCOLEGIOModel.sp_ListarDistritos_Result">
+                <ScalarProperty Name="idDistrito" ColumnName="idDistrito" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

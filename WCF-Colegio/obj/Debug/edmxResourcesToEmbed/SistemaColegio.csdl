@@ -932,6 +932,7 @@
       <End Role="Distrito" EntitySet="Distrito" />
       <End Role="DOCENTE" EntitySet="DOCENTE" />
     </AssociationSet>
+    <FunctionImport Name="sp_ListarDistritos" ReturnType="Collection(BDCOLEGIOModel.sp_ListarDistritos_Result)" />
   </EntityContainer>
   <ComplexType Name="usp_ActualizarPermisos_Result">
     <Property Type="Int32" Name="idpermisos" Nullable="true" />
@@ -1239,4 +1240,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="sp_ListarDistritos_Result">
+    <Property Type="Int32" Name="idDistrito" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+  </ComplexType>
 </Schema>

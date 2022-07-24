@@ -15,6 +15,8 @@ namespace AppWindows_Colegio
     {
         ProxyDocente.ServicioDocenteClient objDocente = new ProxyDocente.ServicioDocenteClient();
         ProxyDocente.DocenteBE objDocenteBE = new ProxyDocente.DocenteBE();
+        ProxyExtra.IServicioExtraClient objExtra = new ProxyExtra.IServicioExtraClient();
+
         public DocenteMan03()
         {
             InitializeComponent();
@@ -41,16 +43,24 @@ namespace AppWindows_Colegio
                 mskDNI.Text = objDocenteBE.DNI1;
                 dtpFecNac.Value = Convert.ToDateTime(objDocenteBE.FechaNac);
                 txtSexo.Text = objDocenteBE.Sexo;
-                txtCiudad.Text = objDocenteBE.Ciudad;
                 txtDireccion.Text = objDocenteBE.Direccion1;
                 txtGrado.Text = objDocenteBE.Grado_estudio;
                 txtNroTel.Text = objDocenteBE.Numero_tel1;
+
+                CargarDistrito(1);
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+        private void CargarDistrito(Int32 IdDist)
+        {
+            cboDistrito.DataSource = objExtra.ListarDistritos();
+            cboDistrito.ValueMember = "MvarId_distrito";
+            cboDistrito.DisplayMember = "MvarNombre_distritro";
+            cboDistrito.SelectedValue = IdDist;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -80,11 +90,11 @@ namespace AppWindows_Colegio
                 objDocenteBE.DNI1 = mskDNI.Text;
                 objDocenteBE.FechaNac = dtpFecNac.Value.Date;
                 objDocenteBE.Sexo = txtSexo.Text.Trim();
-                objDocenteBE.Ciudad = txtCiudad.Text.Trim();
                 objDocenteBE.Direccion1 = txtDireccion.Text.Trim();
                 objDocenteBE.Grado_estudio = txtGrado.Text.Trim();
                 objDocenteBE.Numero_tel1 = txtNroTel.Text.Trim();
                 objDocenteBE.Usu_ult_mod = clsCredenciales.Usuario;
+                objDocenteBE.Mvarid_distritro = Convert.ToInt32(cboDistrito.SelectedValue);
 
 
 

@@ -545,6 +545,7 @@
     <Parameter Name="telefono" Type="varchar" Mode="In" />
     <Parameter Name="fechaRegistro" Type="date" Mode="In" />
   </Function>
+  <Function Name="sp_ListarDistritos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
