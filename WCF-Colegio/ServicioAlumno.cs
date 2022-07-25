@@ -49,6 +49,7 @@ namespace WCF_Colegio
                     objAlumnoBE.Mvarsex_al= objAlumno.Sexo;
                     objAlumnoBE.Mvarnom_distrito =objAlumno.nombre;
                     objAlumnoBE.Mvardir_al = objAlumno.Direccion;
+                    objAlumnoBE.Mvaract_al = objAlumno.Activo.Value;
                     //objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                     objAlumnoBE.Mvaridcurso = Convert.ToInt32(objAlumno.Curso);
                     objAlumnoBE.Mvarnota = Convert.ToInt32(objAlumno.Nota);
@@ -72,7 +73,7 @@ namespace WCF_Colegio
             {
                 var query = bdcolegio.usp_RegistrarAlumno(objAlumnoBE.Mvarnom_al, objAlumnoBE.Mvarape_al,
                     objAlumnoBE.Mvardocide_al, objAlumnoBE.Mvarfecnac_al, objAlumnoBE.Mvarsex_al,
-                    2, objAlumnoBE.Mvardir_al);
+                    objAlumnoBE.Mvarid_distrito, objAlumnoBE.Mvardir_al);
 
                 bdcolegio.SaveChanges();
 
@@ -102,7 +103,7 @@ namespace WCF_Colegio
                 var query = bdcolegio.usp_EditarAlumno(objAlumnoBE.Mvarid_alumno, 
                     objAlumnoBE.Mvarcod_al, objAlumnoBE.Mvarnom_al, objAlumnoBE.Mvarape_al,
                     objAlumnoBE.Mvardocide_al, objAlumnoBE.Mvarfecnac_al, objAlumnoBE.Mvarsex_al,
-                    2, objAlumnoBE.Mvardir_al, objAlumnoBE.Mvaract_al, objAlumnoBE.Usu_ult_mod);
+                    objAlumnoBE.Mvarid_distrito, objAlumnoBE.Mvardir_al, objAlumnoBE.Mvaract_al, objAlumnoBE.Usu_ult_mod);
 
                 bdcolegio.SaveChanges();
 
@@ -145,6 +146,7 @@ namespace WCF_Colegio
                 objAlumnoBE.Mvarfecnac_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                 objAlumnoBE.Mvarsex_al = objAlumno.Sexo;
                 objAlumnoBE.Mvarnom_distrito = objAlumno.idDistrito.ToString();
+                    objAlumnoBE.Mvaract_al = objAlumno.Activo.Value;
                 objAlumnoBE.Mvardir_al = objAlumno.Direccion;
                 objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaRegistro);
                 objAlumnoBE.Mvaridcurso = Convert.ToInt32(objAlumno.Curso);

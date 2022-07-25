@@ -50,6 +50,9 @@ namespace AppWindows_Colegio.ProxyAlumno {
         private short Mvarid_alumnoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short Mvarid_distritoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int MvaridcursoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -193,6 +196,19 @@ namespace AppWindows_Colegio.ProxyAlumno {
                 if ((this.Mvarid_alumnoField.Equals(value) != true)) {
                     this.Mvarid_alumnoField = value;
                     this.RaisePropertyChanged("Mvarid_alumno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short Mvarid_distrito {
+            get {
+                return this.Mvarid_distritoField;
+            }
+            set {
+                if ((this.Mvarid_distritoField.Equals(value) != true)) {
+                    this.Mvarid_distritoField = value;
+                    this.RaisePropertyChanged("Mvarid_distrito");
                 }
             }
         }

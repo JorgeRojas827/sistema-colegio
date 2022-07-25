@@ -24,7 +24,17 @@ namespace AppWindows_Colegio
         {
             if (strFiltro.Equals(""))
             {
-                dtgDocente.DataSource = objDocente.GetAllDocentes();
+                ProxyDocente.DocenteBE[] docenteBEs = objDocente.GetAllDocentes();
+                dtgDocente.DataSource = docenteBEs;
+
+
+                for (int i = 0; i < docenteBEs.Length; i++)
+                {
+                    if (docenteBEs[i].Mvaract_doc == false)
+                    {
+                        dtgDocente.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
+                    }
+                }
             }
             else
             {

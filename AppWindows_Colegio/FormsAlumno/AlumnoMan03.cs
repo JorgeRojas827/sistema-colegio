@@ -15,6 +15,7 @@ namespace AppWindows_Colegio
     {
         ProxyAlumno.ServicioAlumnoClient objAlumno = new ProxyAlumno.ServicioAlumnoClient();
         ProxyAlumno.AlumnoBE objAlumnoBE = new ProxyAlumno.AlumnoBE();
+        ProxyExtra.IServicioExtraClient objExtra = new ProxyExtra.IServicioExtraClient();
 
         public AlumnoMan03()
         {
@@ -42,8 +43,10 @@ namespace AppWindows_Colegio
                 mskDNI.Text = objAlumnoBE.Mvardocide_al;
                 dtpFecNac.Value = Convert.ToDateTime(objAlumnoBE.Mvarfecnac_al);
                 cbxSexo.SelectedItem = objAlumnoBE.Mvarsex_al;
-                txtCiudad.Text = Convert.ToString(objAlumnoBE.Mvarnom_distrito);
+                cboDistrito.SelectedValue = Convert.ToString(objAlumnoBE.Mvarid_distrito);
                 txtDireccion.Text = objAlumnoBE.Mvardir_al;
+
+                CargarDistrito();
             }
             catch (Exception ex)
             {
@@ -90,9 +93,9 @@ namespace AppWindows_Colegio
                 {
                     objAlumnoBE.Mvarsex_al = "Masculino";
                 }
-                objAlumnoBE.Mvarnom_distrito = txtCiudad.Text.Trim();
+                objAlumnoBE.Mvarid_distrito = Convert.ToInt16(cboDistrito.SelectedValue);
                 objAlumnoBE.Mvardir_al = txtDireccion.Text.Trim();
-
+                objAlumnoBE.Mvaract_al = true;
                 objAlumnoBE.Usu_ult_mod = clsCredenciales.Usuario;
                
 
@@ -113,6 +116,13 @@ namespace AppWindows_Colegio
                 MessageBox.Show("Error : " + ex.Message);
             }
 
+        }
+
+        private void CargarDistrito()
+        {
+            cboDistrito.DataSource = objExtra.ListarDistritos();
+            cboDistrito.ValueMember = "MvarId_distrito";
+            cboDistrito.DisplayMember = "MvarNombre_distritro";
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

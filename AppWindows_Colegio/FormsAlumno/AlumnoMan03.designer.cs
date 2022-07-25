@@ -30,6 +30,7 @@ namespace AppWindows_Colegio
         private void InitializeComponent()
         {
             this.grpDatos = new System.Windows.Forms.GroupBox();
+            this.cbxSexo = new System.Windows.Forms.ComboBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -39,7 +40,6 @@ namespace AppWindows_Colegio
             this.Label1 = new System.Windows.Forms.Label();
             this.dtpFecNac = new System.Windows.Forms.DateTimePicker();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtCiudad = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -47,12 +47,13 @@ namespace AppWindows_Colegio
             this.Label2 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.cbxSexo = new System.Windows.Forms.ComboBox();
+            this.cboDistrito = new System.Windows.Forms.ComboBox();
             this.grpDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpDatos
             // 
+            this.grpDatos.Controls.Add(this.cboDistrito);
             this.grpDatos.Controls.Add(this.cbxSexo);
             this.grpDatos.Controls.Add(this.lblCodigo);
             this.grpDatos.Controls.Add(this.label6);
@@ -63,7 +64,6 @@ namespace AppWindows_Colegio
             this.grpDatos.Controls.Add(this.Label1);
             this.grpDatos.Controls.Add(this.dtpFecNac);
             this.grpDatos.Controls.Add(this.txtNombre);
-            this.grpDatos.Controls.Add(this.txtCiudad);
             this.grpDatos.Controls.Add(this.txtApellido);
             this.grpDatos.Controls.Add(this.label8);
             this.grpDatos.Controls.Add(this.label5);
@@ -72,13 +72,24 @@ namespace AppWindows_Colegio
             this.grpDatos.Controls.Add(this.Label4);
             this.grpDatos.Controls.Add(this.btnCancelar);
             this.grpDatos.Location = new System.Drawing.Point(16, 15);
-            this.grpDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpDatos.Margin = new System.Windows.Forms.Padding(4);
             this.grpDatos.Name = "grpDatos";
-            this.grpDatos.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpDatos.Padding = new System.Windows.Forms.Padding(4);
             this.grpDatos.Size = new System.Drawing.Size(651, 401);
             this.grpDatos.TabIndex = 2;
             this.grpDatos.TabStop = false;
             this.grpDatos.Text = "Datos";
+            // 
+            // cbxSexo
+            // 
+            this.cbxSexo.FormattingEnabled = true;
+            this.cbxSexo.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.cbxSexo.Location = new System.Drawing.Point(148, 194);
+            this.cbxSexo.Name = "cbxSexo";
+            this.cbxSexo.Size = new System.Drawing.Size(121, 24);
+            this.cbxSexo.TabIndex = 26;
             // 
             // lblCodigo
             // 
@@ -102,7 +113,7 @@ namespace AppWindows_Colegio
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(148, 281);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(364, 22);
             this.txtDireccion.TabIndex = 22;
@@ -120,7 +131,7 @@ namespace AppWindows_Colegio
             // mskDNI
             // 
             this.mskDNI.Location = new System.Drawing.Point(148, 160);
-            this.mskDNI.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mskDNI.Margin = new System.Windows.Forms.Padding(4);
             this.mskDNI.Mask = "99999999";
             this.mskDNI.Name = "mskDNI";
             this.mskDNI.Size = new System.Drawing.Size(96, 22);
@@ -130,7 +141,7 @@ namespace AppWindows_Colegio
             // btnRegistrar
             // 
             this.btnRegistrar.Location = new System.Drawing.Point(341, 326);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(125, 44);
             this.btnRegistrar.TabIndex = 18;
@@ -150,7 +161,7 @@ namespace AppWindows_Colegio
             // 
             this.dtpFecNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecNac.Location = new System.Drawing.Point(392, 160);
-            this.dtpFecNac.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFecNac.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFecNac.Name = "dtpFecNac";
             this.dtpFecNac.Size = new System.Drawing.Size(159, 22);
             this.dtpFecNac.TabIndex = 9;
@@ -158,23 +169,15 @@ namespace AppWindows_Colegio
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(148, 81);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(403, 22);
             this.txtNombre.TabIndex = 1;
             // 
-            // txtCiudad
-            // 
-            this.txtCiudad.Location = new System.Drawing.Point(148, 239);
-            this.txtCiudad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtCiudad.Name = "txtCiudad";
-            this.txtCiudad.Size = new System.Drawing.Size(255, 22);
-            this.txtCiudad.TabIndex = 14;
-            // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(148, 121);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(403, 22);
             this.txtApellido.TabIndex = 3;
@@ -227,23 +230,20 @@ namespace AppWindows_Colegio
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(475, 326);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(125, 44);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // cbxSexo
+            // cboDistrito
             // 
-            this.cbxSexo.FormattingEnabled = true;
-            this.cbxSexo.Items.AddRange(new object[] {
-            "Masculino",
-            "Femenino"});
-            this.cbxSexo.Location = new System.Drawing.Point(148, 194);
-            this.cbxSexo.Name = "cbxSexo";
-            this.cbxSexo.Size = new System.Drawing.Size(121, 24);
-            this.cbxSexo.TabIndex = 26;
+            this.cboDistrito.FormattingEnabled = true;
+            this.cboDistrito.Location = new System.Drawing.Point(148, 238);
+            this.cboDistrito.Name = "cboDistrito";
+            this.cboDistrito.Size = new System.Drawing.Size(170, 24);
+            this.cboDistrito.TabIndex = 30;
             // 
             // AlumnoMan03
             // 
@@ -252,7 +252,7 @@ namespace AppWindows_Colegio
             this.ClientSize = new System.Drawing.Size(685, 426);
             this.Controls.Add(this.grpDatos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AlumnoMan03";
@@ -274,7 +274,6 @@ namespace AppWindows_Colegio
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.DateTimePicker dtpFecNac;
         internal System.Windows.Forms.TextBox txtNombre;
-        internal System.Windows.Forms.TextBox txtCiudad;
         internal System.Windows.Forms.TextBox txtApellido;
         internal System.Windows.Forms.Label label8;
         internal System.Windows.Forms.Label label5;
@@ -285,5 +284,6 @@ namespace AppWindows_Colegio
         internal System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbxSexo;
+        private System.Windows.Forms.ComboBox cboDistrito;
     }
 }

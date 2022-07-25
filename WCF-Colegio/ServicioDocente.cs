@@ -52,6 +52,7 @@ namespace WCF_Colegio
                     objDocenteBE.Grado_estudio = objDocente.GradoEstudio;
                     objDocenteBE.Direccion1 = objDocente.Direccion;
                     objDocenteBE.Email = objDocente.Email;
+                    objDocenteBE.Mvaract_doc = objDocente.Activo.Value;
                     objDocenteBE.Numero_tel1 = objDocente.NumeroTelefono;
                     objDocenteBE.Codigo = objDocente.Codigo;
                     objDocenteBE.Id_Curso1 = Convert.ToInt32(objDocente.IdCurso);

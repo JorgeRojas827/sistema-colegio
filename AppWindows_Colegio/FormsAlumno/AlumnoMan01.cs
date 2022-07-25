@@ -27,7 +27,16 @@ namespace AppWindows_Colegio
 
             if (strFiltro.Equals(""))
             {
-                dtgAlumnos.DataSource = objAlumno.GetAllAlumnos();
+                ProxyAlumno.AlumnoBE[] alumnoBEs = objAlumno.GetAllAlumnos();
+                dtgAlumnos.DataSource = alumnoBEs;
+
+                for (int i = 0; i < alumnoBEs.Length; i++)
+                {
+                    if (alumnoBEs[i].Mvaract_al == false)
+                    {
+                         dtgAlumnos.Rows[i].DefaultCellStyle.BackColor = Color.LightGray;
+                    }
+                }
             }
             else 
             {
@@ -101,8 +110,18 @@ namespace AppWindows_Colegio
         {
             try
             {
-                objAlumno.DeleteAlumno(Convert.ToInt16(dtgAlumnos.CurrentRow.Cells[0].Value.ToString()));
-                MessageBox.Show("Alumno inhabilitado");
+                Int16 idAlumno = Convert.ToInt16(dtgAlumnos.CurrentRow.Cells[0].Value.ToString());
+                ProxyAlumno.AlumnoBE alumnoBE = objAlumno.GetAlumno(idAlumno);
+
+                objAlumno.DeleteAlumno(Convert.ToInt16(idAlumno));
+                if (alumnoBE.Mvaract_al == true)
+                {
+                    MessageBox.Show("Alumno inhabilitado");
+                }
+                else
+                {
+                    MessageBox.Show("Alumno habilitado");
+                }
                 CargarDatos("");
             }
             catch (Exception ex)
@@ -118,9 +137,5 @@ namespace AppWindows_Colegio
             topAlumnoForm.ShowDialog();
         }
 
-        private void dtgAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

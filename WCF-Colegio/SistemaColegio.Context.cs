@@ -239,7 +239,7 @@ public partial class BDCOLEGIOEntities : DbContext
     }
 
 
-    public virtual int usp_EditarAlumno(Nullable<int> idAlumno, string codigo, string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, Nullable<int> ciudad, string direccion, Nullable<bool> activo, string usuario)
+    public virtual int usp_EditarAlumno(Nullable<int> idAlumno, string codigo, string nombres, string apellidos, string documentoIdentidad, Nullable<System.DateTime> fechaNacimiento, string sexo, Nullable<int> idDistrito, string direccion, Nullable<bool> activo, string usuario)
     {
 
         var idAlumnoParameter = idAlumno.HasValue ?
@@ -277,8 +277,8 @@ public partial class BDCOLEGIOEntities : DbContext
             new ObjectParameter("Sexo", typeof(string));
 
 
-        var ciudadParameter = ciudad.HasValue ?
-            new ObjectParameter("Ciudad", ciudad) :
+        var ciudadParameter = idDistrito.HasValue ?
+            new ObjectParameter("Ciudad", idDistrito) :
             new ObjectParameter("Ciudad", typeof(int));
 
 

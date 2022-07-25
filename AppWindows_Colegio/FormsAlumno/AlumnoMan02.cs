@@ -14,6 +14,7 @@ namespace AppWindows_Colegio
     {
         ProxyAlumno.ServicioAlumnoClient objAlumno = new ProxyAlumno.ServicioAlumnoClient();
         ProxyAlumno.AlumnoBE objAlumnoBE = new ProxyAlumno.AlumnoBE();
+        ProxyExtra.IServicioExtraClient objExtra = new ProxyExtra.IServicioExtraClient();
 
         public AlumnoMan02()
         {
@@ -55,7 +56,7 @@ namespace AppWindows_Colegio
                     objAlumnoBE.Mvarsex_al = "Masculino";
                 }
                 objAlumnoBE.Mvarfecnac_al = dtpFecNac.Value.Date;
-                objAlumnoBE.Mvarnom_distrito =txtCiudad.Text.Trim();
+                objAlumnoBE.Mvarid_distrito =Convert.ToInt16(cboDistrito.SelectedValue);
                 objAlumnoBE.Mvardir_al = txtDireccion.Text.Trim();
 
                 if (objAlumno.InsertAlumno(objAlumnoBE) == true)
@@ -81,6 +82,28 @@ namespace AppWindows_Colegio
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CargarDistrito(Int32 IdDist)
+        {
+            cboDistrito.DataSource = objExtra.ListarDistritos();
+            cboDistrito.ValueMember = "MvarId_distrito";
+            cboDistrito.DisplayMember = "MvarNombre_distritro";
+            cboDistrito.SelectedValue = IdDist;
+        }
+
+        private void AlumnoMan02_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                CargarDistrito(1);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error : " + ex.Message);
+
+            }
         }
     }
 }

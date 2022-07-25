@@ -44,6 +44,7 @@ namespace WCF_Colegio
         private DateTime mvarfecnac_al;
         private String mvarsex_al;
         private String mvarnom_distrito;
+        private Int16 mvarid_distrito;
         private String mvardir_al;
         private bool mvaract_al;
         private DateTime mvarfecres_al;
@@ -88,5 +89,7 @@ namespace WCF_Colegio
         public bool Mvaract_al { get => mvaract_al; set => mvaract_al = value; }
         [DataMember]
         public String Mvarnom_distrito { get => mvarnom_distrito; set => mvarnom_distrito = value; }
+        [DataMember]
+        public Int16 Mvarid_distrito { get => mvarid_distrito; set => mvarid_distrito = value; }
     }
 }

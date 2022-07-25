@@ -81,7 +81,6 @@ namespace AppWindows_Colegio
             this.dtgAlumnos.RowHeadersWidth = 51;
             this.dtgAlumnos.Size = new System.Drawing.Size(1163, 519);
             this.dtgAlumnos.TabIndex = 0;
-            this.dtgAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgAlumnos_CellContentClick);
             // 
             // IdAlumno
             // 
@@ -209,7 +208,7 @@ namespace AppWindows_Colegio
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(151, 42);
             this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.Text = "Inhabilitar Alumno";
+            this.btnEliminar.Text = "Cambiar Estado";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
