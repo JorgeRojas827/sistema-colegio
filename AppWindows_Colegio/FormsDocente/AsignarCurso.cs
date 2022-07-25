@@ -13,6 +13,7 @@ namespace AppWindows_Colegio.FormsDocente
     public partial class AsignarCurso : Form
     {
         ProxyCurso.ServicioCursoClient objCurso = new ProxyCurso.ServicioCursoClient();
+        ProxyDocente.ServicioDocenteClient objDocente = new ProxyDocente.ServicioDocenteClient();
         ProxyExtra.IServicioExtraClient objExtra= new ProxyExtra.IServicioExtraClient();
 
         private String _Codigo;
@@ -40,8 +41,15 @@ namespace AppWindows_Colegio.FormsDocente
         {
             try
             {
-                objExtra.AsignarCursoDocente(Convert.ToInt16(cbxCursos.SelectedValue), Convert.ToInt16(Codigo));
-                MessageBox.Show("Curso asignado");
+                ProxyDocente.DocenteBE docenteBE = objDocente.GetDocente(Convert.ToInt16(Codigo));
+                if (docenteBE.Id_Curso1 == 0)
+                {
+                    objExtra.AsignarCursoDocente(Convert.ToInt16(cbxCursos.SelectedValue), Convert.ToInt16(Codigo));
+                    MessageBox.Show("Curso asignado");
+                } else
+                {
+                    MessageBox.Show("El docente ya está asignado a un curso.");
+                }
             }
             catch (Exception ex)
             {

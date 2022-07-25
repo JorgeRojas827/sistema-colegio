@@ -87,7 +87,7 @@ namespace AppWindows_Colegio
             try
             {
                 objDocente.DeleteDocente(Convert.ToInt16(dtgDocente.CurrentRow.Cells[0].Value.ToString()));
-                MessageBox.Show("Docente eliminado");
+                MessageBox.Show("Docente inhabilitado");
                 CargarDatos("");
             }
             catch (Exception ex)

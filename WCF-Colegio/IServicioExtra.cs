@@ -114,7 +114,7 @@ namespace WCF_Colegio
                     objAlumnoBE.Mvardocide_al = objAlumno.DocumentoIdentidad;
                     objAlumnoBE.Mvarfecnac_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                     objAlumnoBE.Mvarsex_al = objAlumno.Sexo;
-                    //objAlumnoBE.Mvarid_distrito = objAlumno.i;
+                    objAlumnoBE.Mvarnom_distrito = objAlumno.nombre;
                     objAlumnoBE.Mvardir_al = objAlumno.Direccion;
                     objAlumnoBE.Mvarfecres_al = Convert.ToDateTime(objAlumno.FechaNacimiento);
                     objAlumnoBE.Mvaridcurso = Convert.ToInt32(objAlumno.Curso);

@@ -41,7 +41,7 @@ namespace AppWindows_Colegio
                 txtApellido.Text = objAlumnoBE.Mvarape_al;
                 mskDNI.Text = objAlumnoBE.Mvardocide_al;
                 dtpFecNac.Value = Convert.ToDateTime(objAlumnoBE.Mvarfecnac_al);
-                txtSexo.Text = objAlumnoBE.Mvarsex_al;
+                cbxSexo.SelectedItem = objAlumnoBE.Mvarsex_al;
                 txtCiudad.Text = Convert.ToString(objAlumnoBE.Mvarnom_distrito);
                 txtDireccion.Text = objAlumnoBE.Mvardir_al;
             }
@@ -72,13 +72,24 @@ namespace AppWindows_Colegio
                     throw new Exception("El DNI debe tener 8 caracteres.");
 
                 }
+                if (cbxSexo.SelectedItem == null)
+                {
+                    throw new Exception("El sexo debe ser obligatorio");
+                }
 
 
                 objAlumnoBE.Mvarnom_al = txtNombre.Text.Trim();
                 objAlumnoBE.Mvarape_al = txtApellido.Text.Trim();
                 objAlumnoBE.Mvardocide_al = mskDNI.Text;
                 objAlumnoBE.Mvarfecnac_al = dtpFecNac.Value.Date;
-                objAlumnoBE.Mvarsex_al = txtSexo.Text.Trim();
+                if (cbxSexo.SelectedItem.ToString() == "Femenino")
+                {
+                    objAlumnoBE.Mvarsex_al = "Femenino";
+                }
+                else
+                {
+                    objAlumnoBE.Mvarsex_al = "Masculino";
+                }
                 objAlumnoBE.Mvarnom_distrito = txtCiudad.Text.Trim();
                 objAlumnoBE.Mvardir_al = txtDireccion.Text.Trim();
 

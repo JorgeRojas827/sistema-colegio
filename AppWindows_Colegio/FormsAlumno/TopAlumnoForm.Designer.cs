@@ -36,6 +36,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dtgAlumnos = new System.Windows.Forms.DataGridView();
+            this.txtMaximo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.IdAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,8 +48,6 @@
             this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMaximo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAlumnos)).BeginInit();
             this.SuspendLayout();
@@ -61,20 +61,21 @@
             this.groupBox1.Controls.Add(this.dtgAlumnos);
             this.groupBox1.Controls.Add(this.txtMaximo);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(9, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(643, 364);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(857, 448);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Top de Alumnos";
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(524, 318);
+            this.btnVolver.Location = new System.Drawing.Point(699, 391);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(94, 26);
+            this.btnVolver.Size = new System.Drawing.Size(125, 32);
             this.btnVolver.TabIndex = 15;
             this.btnVolver.Text = "Cancelar";
             this.btnVolver.UseVisualStyleBackColor = true;
@@ -84,9 +85,10 @@
             // 
             this.lblRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRegistros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRegistros.Location = new System.Drawing.Point(72, 325);
+            this.lblRegistros.Location = new System.Drawing.Point(96, 400);
+            this.lblRegistros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRegistros.Name = "lblRegistros";
-            this.lblRegistros.Size = new System.Drawing.Size(54, 23);
+            this.lblRegistros.Size = new System.Drawing.Size(71, 28);
             this.lblRegistros.TabIndex = 14;
             // 
             // label1
@@ -95,17 +97,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 325);
+            this.label1.Location = new System.Drawing.Point(20, 400);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 13;
             this.label1.Text = "Registros:";
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(376, 28);
+            this.btnAceptar.Location = new System.Drawing.Point(501, 34);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(78, 29);
+            this.btnAceptar.Size = new System.Drawing.Size(104, 36);
             this.btnAceptar.TabIndex = 12;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -132,13 +136,33 @@
             this.Ciudad,
             this.Direccion,
             this.Nota});
-            this.dtgAlumnos.Location = new System.Drawing.Point(17, 73);
+            this.dtgAlumnos.Location = new System.Drawing.Point(23, 90);
+            this.dtgAlumnos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtgAlumnos.Name = "dtgAlumnos";
             this.dtgAlumnos.ReadOnly = true;
             this.dtgAlumnos.RowHeadersVisible = false;
             this.dtgAlumnos.RowHeadersWidth = 51;
-            this.dtgAlumnos.Size = new System.Drawing.Size(613, 239);
+            this.dtgAlumnos.Size = new System.Drawing.Size(817, 294);
             this.dtgAlumnos.TabIndex = 11;
+            // 
+            // txtMaximo
+            // 
+            this.txtMaximo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMaximo.Location = new System.Drawing.Point(240, 42);
+            this.txtMaximo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaximo.Name = "txtMaximo";
+            this.txtMaximo.Size = new System.Drawing.Size(243, 22);
+            this.txtMaximo.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 44);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(192, 16);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Ingrese el máximo de alumnos:";
             // 
             // IdAlumno
             // 
@@ -210,7 +234,7 @@
             // 
             // Ciudad
             // 
-            this.Ciudad.DataPropertyName = "Mvarciu_al";
+            this.Ciudad.DataPropertyName = "Mvarnom_distrito";
             this.Ciudad.FillWeight = 113.9786F;
             this.Ciudad.HeaderText = "Ciudad";
             this.Ciudad.MinimumWidth = 6;
@@ -234,31 +258,14 @@
             this.Nota.Name = "Nota";
             this.Nota.ReadOnly = true;
             // 
-            // txtMaximo
-            // 
-            this.txtMaximo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaximo.Location = new System.Drawing.Point(180, 34);
-            this.txtMaximo.Name = "txtMaximo";
-            this.txtMaximo.Size = new System.Drawing.Size(183, 20);
-            this.txtMaximo.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Ingrese el máximo de alumnos:";
-            // 
             // TopAlumnoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 382);
+            this.ClientSize = new System.Drawing.Size(881, 470);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TopAlumnoForm";

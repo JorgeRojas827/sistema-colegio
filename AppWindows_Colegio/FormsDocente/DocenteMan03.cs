@@ -42,10 +42,11 @@ namespace AppWindows_Colegio
                 txtApellido.Text = objDocenteBE.Apellidos;
                 mskDNI.Text = objDocenteBE.DNI1;
                 dtpFecNac.Value = Convert.ToDateTime(objDocenteBE.FechaNac);
-                txtSexo.Text = objDocenteBE.Sexo;
+                cbxSexo.SelectedItem = objDocenteBE.Sexo;
                 txtDireccion.Text = objDocenteBE.Direccion1;
                 txtGrado.Text = objDocenteBE.Grado_estudio;
                 txtNroTel.Text = objDocenteBE.Numero_tel1;
+                txtEmail.Text = objDocenteBE.Email;
 
                 CargarDistrito(1);
             }
@@ -84,18 +85,30 @@ namespace AppWindows_Colegio
 
                 }
 
+                if (cbxSexo.SelectedItem == null)
+                {
+                    throw new Exception("El sexo debe ser obligatorio");
+                }
+
 
                 objDocenteBE.Nombres = txtNombre.Text.Trim();
                 objDocenteBE.Apellidos = txtApellido.Text.Trim();
                 objDocenteBE.DNI1 = mskDNI.Text;
                 objDocenteBE.FechaNac = dtpFecNac.Value.Date;
-                objDocenteBE.Sexo = txtSexo.Text.Trim();
+                if (cbxSexo.SelectedItem.ToString() == "Femenino")
+                {
+                    objDocenteBE.Sexo = "Femenino";
+                }
+                else
+                {
+                    objDocenteBE.Sexo = "Masculino";
+                }
                 objDocenteBE.Direccion1 = txtDireccion.Text.Trim();
                 objDocenteBE.Grado_estudio = txtGrado.Text.Trim();
                 objDocenteBE.Numero_tel1 = txtNroTel.Text.Trim();
                 objDocenteBE.Usu_ult_mod = clsCredenciales.Usuario;
                 objDocenteBE.Mvarid_distritro = Convert.ToInt32(cboDistrito.SelectedValue);
-
+                objDocenteBE.Email = txtEmail.Text.Trim();
 
 
 

@@ -569,21 +569,17 @@
       <ResultMapping>
         <ComplexTypeMapping TypeName="BDCOLEGIOModel.get_top_alumnos_Result">
           <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
-          <ScalarProperty Name="ValorCodigo" ColumnName="ValorCodigo" />
           <ScalarProperty Name="Codigo" ColumnName="Codigo" />
           <ScalarProperty Name="Nombres" ColumnName="Nombres" />
           <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
           <ScalarProperty Name="DocumentoIdentidad" ColumnName="DocumentoIdentidad" />
           <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
           <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="Activo" ColumnName="Activo" />
-          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
-          <ScalarProperty Name="Fec_Ult_Mod" ColumnName="Fec_Ult_Mod" />
-          <ScalarProperty Name="Usu_Ult_Mod" ColumnName="Usu_Ult_Mod" />
           <ScalarProperty Name="Curso" ColumnName="Curso" />
           <ScalarProperty Name="Nota" ColumnName="Nota" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

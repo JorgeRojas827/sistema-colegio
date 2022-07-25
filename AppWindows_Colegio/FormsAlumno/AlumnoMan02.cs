@@ -39,11 +39,22 @@ namespace AppWindows_Colegio
                     throw new Exception("El DNI debe tener 8 caracteres");
                 }
 
+                if (cbxSexo.SelectedItem == null)
+                {
+                    throw new Exception("El sexo debe ser obligatorio");
+                }
+
                 objAlumnoBE.Mvarnom_al = txtNombre.Text.Trim();
                 objAlumnoBE.Mvarape_al = txtApellido.Text.Trim();
                 objAlumnoBE.Mvardocide_al = mskDNI.Text;
+                if (cbxSexo.SelectedItem.ToString() == "Femenino")
+                {
+                    objAlumnoBE.Mvarsex_al = "Femenino";
+                } else
+                {
+                    objAlumnoBE.Mvarsex_al = "Masculino";
+                }
                 objAlumnoBE.Mvarfecnac_al = dtpFecNac.Value.Date;
-                objAlumnoBE.Mvarsex_al = txtSexo.Text.Trim();
                 objAlumnoBE.Mvarnom_distrito =txtCiudad.Text.Trim();
                 objAlumnoBE.Mvardir_al = txtDireccion.Text.Trim();
 

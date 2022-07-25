@@ -102,7 +102,7 @@ namespace AppWindows_Colegio
             try
             {
                 objAlumno.DeleteAlumno(Convert.ToInt16(dtgAlumnos.CurrentRow.Cells[0].Value.ToString()));
-                MessageBox.Show("Alumno eliminado");
+                MessageBox.Show("Alumno inhabilitado");
                 CargarDatos("");
             }
             catch (Exception ex)

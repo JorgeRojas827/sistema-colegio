@@ -1148,21 +1148,17 @@
   </Association>
   <ComplexType Name="get_top_alumnos_Result">
     <Property Type="Int32" Name="IdAlumno" Nullable="false" />
-    <Property Type="Int32" Name="ValorCodigo" Nullable="true" />
     <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Nombres" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="DocumentoIdentidad" Nullable="true" MaxLength="100" />
     <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
     <Property Type="String" Name="Sexo" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
     <Property Type="String" Name="Direccion" Nullable="true" MaxLength="100" />
     <Property Type="Boolean" Name="Activo" Nullable="true" />
-    <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
-    <Property Type="DateTime" Name="Fec_Ult_Mod" Nullable="true" Precision="23" />
-    <Property Type="String" Name="Usu_Ult_Mod" Nullable="true" MaxLength="20" />
     <Property Type="Int32" Name="Curso" Nullable="true" />
     <Property Type="Int32" Name="Nota" Nullable="true" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
   </ComplexType>
   <ComplexType Name="login_usuario_Result">
     <Property Type="Int32" Name="IdUsuario" Nullable="false" />
